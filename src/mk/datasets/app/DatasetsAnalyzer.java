@@ -40,9 +40,16 @@ public class DatasetsAnalyzer {
         datasetBitcoin.printAttributes();
 //        datasetBitcoin.printRecords();
 
-
-        String inputCondition = "1.USD<1.1343";
+        String inputCondition = "P1:5.atrybut==550";
         Condition condition = Condition.convertStringToCondition(inputCondition);
+        condition.toString();
 
+        String inputEvent = "E1:(P1 || P2) && P3";
+        Event event = Event.convertStringToEvent(inputEvent);
+        event.toString();
+
+//        System.out.println(Event.getExpressionBetweenBrackets("P5 && ((P1 || !P2) && P3) && P4", 0));
+        //TODO zły output (P1 || !P2
+        System.out.println(Event.getExpressionBetweenBrackets("(P1 || !P2) && P3", 0));
     }
 }

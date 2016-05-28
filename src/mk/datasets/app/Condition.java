@@ -6,9 +6,10 @@ package mk.datasets.app;
 public class Condition {
 
 	private int id;
-	private int databaseId;
+	private String name;
+	private int datasetId;
 	private String attribute;
-	private Mark type;
+	private Mark mark;
 	private Double value;
 
 	enum Mark {
@@ -23,17 +24,59 @@ public class Condition {
 
 	public Condition() {
 		this.id = 0;
-		this.databaseId = 0;
+		this.name = null;
+		this.datasetId = 0;
 		this.attribute = null;
-		this.type = null;
+		this.mark = null;
 		this.value = null;
 	}
 
-	public Condition(int id, int databaseId, String attribute, Mark type, Double value) {
+	public Condition(int id, String name, int databaseId, String attribute, Mark mark, Double value) {
 		this.id = id;
-		this.databaseId = databaseId;
+		this.name = name;
+		this.datasetId = databaseId;
 		this.attribute = attribute;
-		this.type = type;
+		this.mark = mark;
+		this.value = value;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public int getDatasetId() {
+		return datasetId;
+	}
+
+	public void setDatasetId(int datasetId) {
+		this.datasetId = datasetId;
+	}
+
+	public String getAttribute() {
+		return attribute;
+	}
+
+	public void setAttribute(String attribute) {
+		this.attribute = attribute;
+	}
+
+	public Mark getMark() {
+		return mark;
+	}
+
+	public void setMark(Mark mark) {
+		this.mark = mark;
+	}
+
+	public Double getValue() {
+		return value;
+	}
+
+	public void setValue(Double value) {
 		this.value = value;
 	}
 
@@ -42,16 +85,22 @@ public class Condition {
 		//Delete all spaces
 		inputCondition = inputCondition.replace(" ","");
 
-		//"1.USD<1.1343"
 		int datasetId;
+		String name = "";
 		String attribute;
-		Condition.Mark mark = Mark.NONE;
+		Mark mark = Mark.NONE;
 		Double value;
+
+		//Get name
+		int colonIndex = inputCondition.indexOf(":");
+		for (int i = 0; i<colonIndex; i++) {
+			name = name + inputCondition.charAt(i);
+		}
 
 		//Get datasetId
 		String datasetIdText = "";
 		int dotIndex = inputCondition.indexOf(".");
-		for (int i = 0; i<dotIndex; i++) {
+		for (int i = colonIndex+1; i<dotIndex; i++) {
 			datasetIdText = datasetIdText + String.valueOf(inputCondition.charAt(i));
 		}
 		datasetId = Integer.valueOf(datasetIdText);
@@ -108,48 +157,15 @@ public class Condition {
 			value = Double.valueOf(inputCondition.substring(secondMarkIndex+1).replace(",","."));
 		}
 
-		return new Condition(1, datasetId, attribute, mark, value);
+		return new Condition(1, name, datasetId, attribute, mark, value);
 	}
 
-	public int getId() {
-		return id;
+	public String toString() {
+		return "ID: " + this.id +
+				"\nName: " + this.name +
+				"\nDatasetID: " + this.datasetId +
+				"\nAttribute: " + this.attribute +
+				"\n Mark: " + this.mark.name() +
+				"\n Value: " + this.value;
 	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public int getDatabaseId() {
-		return databaseId;
-	}
-
-	public void setDatabaseId(int databaseId) {
-		this.databaseId = databaseId;
-	}
-
-	public String getAttribute() {
-		return attribute;
-	}
-
-	public void setAttribute(String attribute) {
-		this.attribute = attribute;
-	}
-
-	public Mark getMark() {
-		return type;
-	}
-
-	public void setMark(Mark type) {
-		this.type = type;
-	}
-
-	public Double getValue() {
-		return value;
-	}
-
-	public void setValue(Double value) {
-		this.value = value;
-	}
-
-
 }
