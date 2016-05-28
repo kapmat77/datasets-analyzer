@@ -35,9 +35,14 @@ public class DatasetsAnalyzer {
         Dataset datasetBitcoin = new Dataset(2, "Bitcoin", path2);
 
         datasetEuro.printAttributes();
-        datasetEuro.printRecords();
+//        datasetEuro.printRecords();
 
         datasetBitcoin.printAttributes();
-        datasetBitcoin.printRecords();
+//        datasetBitcoin.printRecords();
+
+
+        String inputCondition = "1.USD<1.1343";
+        Condition condition = Condition.convertStringToCondition(inputCondition);
+
     }
 }
