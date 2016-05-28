@@ -2,6 +2,7 @@ package mk.datasets.app;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Kapmat on 2016-05-28.
@@ -9,8 +10,20 @@ import java.util.List;
 public class Dataset {
 
 	private int id;
+	private String name;
 	private List<String> attributes = new ArrayList<>();
 	private List<Record> records = new ArrayList<>();
+
+	public Dataset() {
+		this.id = 0;
+	}
+
+	public Dataset(int id, String name, String path) {
+		this.id = id;
+		this.name = name;
+		readData(path);
+	}
+
 
 	public int getId() {
 		return id;
@@ -18,6 +31,14 @@ public class Dataset {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public List<String> getAttributes() {
@@ -42,5 +63,24 @@ public class Dataset {
 
 	public void addRecord(Record record) {
 		this.records.add(record);
+	}
+
+	private void readData(String path) {
+		FileOperator fileOperator = new FileOperator();
+		fileOperator.readDataFromFile(path, this);
+	}
+
+	public void printAttributes() {
+		System.out.println("\n\"" + this.name + "\" attributes:");
+		this.getAttributes().forEach(System.out::println);
+	}
+
+	public void printRecords() {
+		System.out.println("\n\"" + this.name + "\" records:");
+		for (Record record: this.getRecords()) {
+			for (Map.Entry<String, String> entry: record.getParameters().entrySet()) {
+				System.out.println(entry.getKey() + " - " + entry.getValue());
+			}
+		}
 	}
 }
