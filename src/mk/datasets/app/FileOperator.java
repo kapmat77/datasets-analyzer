@@ -22,7 +22,6 @@ public class FileOperator {
 		dataset = newDataset;
 		Path path = Paths.get(file);
 		try {
-			System.out.println(System.getProperty("user.dir"));
 			Scanner in = new Scanner(path);
 			if (file.endsWith(".csv")) {
 				readFromCsv(in);
