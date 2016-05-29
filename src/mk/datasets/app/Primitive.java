@@ -1,5 +1,6 @@
 package mk.datasets.app;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,6 +47,16 @@ public class Primitive {
 		this.value = value;
 	}
 
+	public Primitive(String name, int databaseId, String attribute, Mark mark, Double value, List<Record> records) {
+		this.id = counter++;
+		this.name = name;
+		this.datasetId = databaseId;
+		this.attribute = attribute;
+		this.mark = mark;
+		this.value = value;
+		this.records = records;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -88,6 +99,14 @@ public class Primitive {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public List<Record> getRecords() {
+		return records;
+	}
+
+	public void setRecords(List<Record> records) {
+		this.records = records;
 	}
 
 	public static Primitive convertStringToPrimitive(String inputPrimitive) {
@@ -231,6 +250,24 @@ public class Primitive {
 		}
 		return false;
 	}
+
+	public static Primitive createNegation(Primitive primitive) {
+		Primitive notPrimitive = null;
+		Dataset primDataset = DatasetAnalyzer.getDatasetById(primitive.getDatasetId());
+		List<Record> notPrimRecords = new ArrayList<>();
+		if (primDataset!=null) {
+			for (Record record: primDataset.getRecords()) {
+				if (!primitive.getRecords().contains(record)) {
+					notPrimRecords.add(record);
+				}
+			}
+			notPrimitive = new Primitive("!"+primitive.getName(), primitive.getDatasetId(), primitive.getAttribute(),
+					primitive.getMark(), primitive.getValue(),notPrimRecords);
+		}
+		return notPrimitive;
+	}
+
+
 
 	public String toString() {
 		return "ID: " + this.id +

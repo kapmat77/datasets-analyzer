@@ -12,6 +12,7 @@ public class Event {
 	private final int id;
 	private String name;
 	private String expression;
+	private List<Record> records = new ArrayList<>();
 
 	enum Mark {
 		NOT,
@@ -150,6 +151,32 @@ public class Event {
 			}
 		}
 		return false;
+	}
+
+	public void findRecords(List<Dataset> datasets, List<Primitive> primitives) {
+
+		//TODO sprawdzić czy to faktycznie działa !!!
+		String nakedExpressionWithNegation = expression.replace("&"," ").replace("|", " ").
+				replace("   ","  ").replace("  "," ").replace("(","").replace(")","");
+		String[] primitiveNames = nakedExpressionWithNegation.split(" ");
+
+		List<Primitive> activePrimitives = new ArrayList<>();
+		for (Primitive primitive: primitives) {
+			for (int i = 0; i<primitiveNames.length; i++) {
+				if (primitiveNames[i].contains(primitive.getName()) && primitiveNames[i].contains("!")) {
+					Primitive notPrimitive = Primitive.createNegation(primitive);
+					activePrimitives.add(notPrimitive);
+					break;
+				} else if (primitiveNames[i].contains(primitive.getName()) && !primitiveNames[i].contains("!")) {
+					activePrimitives.add(primitive);
+					break;
+				}
+			}
+		}
+
+//		String nakedExpressionWithNegation = expression.replace("&"," ").replace("|", " ").
+//				replace("   ","  ").replace("  "," ").replace("(","").replace(")","");
+
 	}
 
 	public String toString() {

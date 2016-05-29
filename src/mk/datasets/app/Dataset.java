@@ -105,5 +105,11 @@ public class Dataset {
 		}
 	}
 
-
+	public String toString() {
+		return "\nDATASET" +
+				"\nId: " + this.id +
+				"\nName: " + this.name +
+				"\nAttributes: " + this.attributes.size() +
+				"\nRecords: " +this.records.size();
+	}
 }

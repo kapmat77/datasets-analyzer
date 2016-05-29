@@ -1,5 +1,6 @@
 package mk.datasets.app;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -10,6 +11,8 @@ import java.util.List;
 public class DatasetAnalyzer {
 
 	private static List<Dataset> datasets = new ArrayList<>();
+	private static List<Primitive> primitives = new ArrayList<>();
+	private static List<Event> events = new ArrayList<>();
 
 	public DatasetAnalyzer() {}
 
@@ -17,6 +20,15 @@ public class DatasetAnalyzer {
 		testAddDatasets();
 		testAddPrimitives();
 		testAddEvents();
+
+		List<LocalDate> datesAnd = Finder.getRecordsDates(primitives.get(0), Event.Mark.AND, primitives.get(1));
+		List<LocalDate> datesOr = Finder.getRecordsDates(primitives.get(0), Event.Mark.OR, primitives.get(1));
+
+		List<LocalDate> datesSecondAnd = Finder.getRecordsDates(datesAnd, Event.Mark.AND, datesOr);
+		List<LocalDate> datesSecondOr = Finder.getRecordsDates(datesAnd, Event.Mark.OR, datesOr);
+
+		List<LocalDate> datesThirdAnd = Finder.getRecordsDates(datesAnd, Event.Mark.AND, primitives.get(1));
+		List<LocalDate> datesThirdOr = Finder.getRecordsDates(datesAnd, Event.Mark.OR, primitives.get(1));
 	}
 
 	private void testAddDatasets() {
@@ -55,27 +67,33 @@ public class DatasetAnalyzer {
 		if (Primitive.duplicatesExist(primitiveList)) {
 			System.out.println("ERROR - duplicates detected");
 		}
+
+		primitives.addAll(primitiveList);
 	}
 
 	private void testAddEvents() {
 		//Add events
 		List<String> inputStringEventList = new ArrayList<>();
-		inputStringEventList.add("E1:P1 && P3");
+		inputStringEventList.add("E1:!P1 && !P3");
 		inputStringEventList.add("E2:P1 || P2");
-		inputStringEventList.add("E3:(P1 || P2) && P3");
+		inputStringEventList.add("E3:P1 || !P2");
+		inputStringEventList.add("E4:(P1 || !P2) && P3");
 
 		//Covnert events
 		List<Event> eventList = new ArrayList<>();
 		for (int i = 0; i < inputStringEventList.size(); i++) {
 			Event event = Event.convertStringToEvent(inputStringEventList.get(i));
+			event.findRecords(datasets, primitives);
+
 //            event.findRecords();
-			System.out.println(event.toString());
 			eventList.add(event);
 		}
 		//Find duplicates
 		if (Event.duplicatesExist(eventList)) {
 			System.out.println("ERROR - duplicates detected");
 		}
+
+		events.addAll(eventList);
 
 //        System.out.println(Event.getOpearionList("P5 && (P1 || (!P2 && P3) && (P7 || P10)) && P4 || (P11 && P12)"));
 //        System.out.println(Event.getOperionList("(P1 || !P2) && P3"));
@@ -84,26 +102,25 @@ public class DatasetAnalyzer {
 	private void assignTimeIdToRecords(int daysDisplacement) {
 		//TODO poprawić na coś szybszego :v
 		int timeId = 0;
-//		for (Dataset firstDataset: datasets) {
+		//TODO zmienić daty występowania w przypadku przesunięcia !!!!!
 		Dataset firstDataset = datasets.get(0);
-			for (Dataset secondDataset: datasets) {
-				if (!firstDataset.equals(secondDataset)) {
-					for (Record firstRecord: firstDataset.getRecords()) {
-						for (Record secondRecord: secondDataset.getRecords()) {
-							if (firstRecord.getLocalDate().equals(secondRecord.getLocalDate()) &&
-									firstRecord.getTimeId()==0 && secondRecord.getTimeId()==0) {
-								timeId++;
-								firstRecord.setTimeId(timeId);
-								secondRecord.setTimeId(timeId);
-							}
+		for (Dataset secondDataset: datasets) {
+			if (!firstDataset.equals(secondDataset)) {
+				for (Record firstRecord: firstDataset.getRecords()) {
+					for (Record secondRecord: secondDataset.getRecords()) {
+						if (firstRecord.getLocalDate().equals(secondRecord.getLocalDate()) &&
+								firstRecord.getTimeId()==0 && secondRecord.getTimeId()==0) {
+							timeId++;
+							firstRecord.setTimeId(timeId);
+							secondRecord.setTimeId(timeId);
 						}
 					}
 				}
 			}
-//		}
+		}
 	}
 
-	private Dataset getDatasetById(int id) {
+	public static Dataset getDatasetById(int id) {
 		for (Dataset dataset : datasets) {
 			if (dataset.getId() == id) {
 				return dataset;
