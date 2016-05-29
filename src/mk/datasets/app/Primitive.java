@@ -8,7 +8,9 @@ import java.util.List;
  */
 public class Primitive {
 
-	private int id;
+	private static int counter = 0;
+
+	private final int id;
 	private String name;
 	private int datasetId;
 	private String attribute;
@@ -27,7 +29,7 @@ public class Primitive {
 	}
 
 	public Primitive() {
-		this.id = 0;
+		this.id = counter++;
 		this.name = null;
 		this.datasetId = 0;
 		this.attribute = null;
@@ -35,8 +37,8 @@ public class Primitive {
 		this.value = null;
 	}
 
-	public Primitive(int id, String name, int databaseId, String attribute, Mark mark, Double value) {
-		this.id = id;
+	public Primitive(String name, int databaseId, String attribute, Mark mark, Double value) {
+		this.id = counter++;
 		this.name = name;
 		this.datasetId = databaseId;
 		this.attribute = attribute;
@@ -46,10 +48,6 @@ public class Primitive {
 
 	public int getId() {
 		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 
 	public int getDatasetId() {
@@ -169,7 +167,7 @@ public class Primitive {
 			value = Double.valueOf(inputPrimitive.substring(secondMarkIndex+1).replace(",","."));
 		}
 
-		return new Primitive(1, name, datasetId, attribute, mark, value);
+		return new Primitive(name, datasetId, attribute, mark, value);
 	}
 
 	public void findRecords(Dataset dataset) {

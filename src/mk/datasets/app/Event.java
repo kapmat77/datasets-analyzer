@@ -7,7 +7,9 @@ import java.util.*;
  */
 public class Event {
 
-	private int id;
+	private static int counter = 0;
+
+	private final int id;
 	private String name;
 	private String expression;
 //	private static List<String> operations = new ArrayList<>();
@@ -21,30 +23,25 @@ public class Event {
 	}
 
 	public Event() {
-		this.id = 0;
+		this.id = counter++;
 		this.name = "null";
 		this.expression = "null";
 	}
 
-	public Event(int id, String name) {
-		this.id = id;
+	public Event(String name) {
+		this.id = counter++;
 		this.name = name;
 		this.expression = "null";
 	}
 
-	public Event(int id, String name, String expression, List<String> operations) {
-		this.id = id;
+	public Event(String name, String expression) {
+		this.id = counter++;
 		this.name = name;
 		this.expression = expression;
-//		this.operations = operations;
 	}
 
 	public int getId() {
 		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 
 	public String getExpression() {
@@ -68,20 +65,19 @@ public class Event {
 		inputEvent = inputEvent.replace(" ","");
 
 		String name = "";
-		List<String> operations = new ArrayList<>();
-
+//		List<String> operations = new ArrayList<>();
+//
 		//Get name
 		int colonIndex = inputEvent.indexOf(":");
 		for (int i = 0; i<colonIndex; i++) {
 			name = name + inputEvent.charAt(i);
 		}
 
-		//Get operations in appropriate order
-		for (int i = colonIndex+1; i<inputEvent.length(); i++) {
+		//Get expression
+		String expression;
+		expression = inputEvent.substring(colonIndex+1);
 
-		}
-
-		return new Event(1, name, inputEvent, operations);
+		return new Event(name, expression);
 	}
 
 	public static List<String> getOperionList(String exp){
@@ -147,8 +143,23 @@ public class Event {
 		return order;
 	}
 
+	public static boolean duplicatesExist(List<Event> events) {
+		for (Event event : events) {
+			for (Event secondEvent : events) {
+				if (!event.equals(secondEvent)) {
+					if (event.getName().equals(secondEvent.getName())) {
+						return true;
+					} else if (event.getExpression().equals(secondEvent.getExpression())) {
+						return true;
+					}
+				}
+			}
+		}
+		return false;
+	}
+
 	public String toString() {
-		return "ID: " + this.id +
+		return "\nID: " + this.id +
 				"\nName: " + this.name +
 				"\nExpression: " + this.expression;
 	}
