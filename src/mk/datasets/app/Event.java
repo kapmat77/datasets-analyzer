@@ -1,5 +1,6 @@
 package mk.datasets.app;
 
+import java.time.LocalDate;
 import java.util.*;
 
 /**
@@ -12,7 +13,7 @@ public class Event {
 	private final int id;
 	private String name;
 	private String expression;
-	private List<Record> records = new ArrayList<>();
+	private List<LocalDate> dates = new ArrayList<>();
 
 	enum Mark {
 		NOT,
@@ -56,6 +57,14 @@ public class Event {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public List<LocalDate> getDates() {
+		return dates;
+	}
+
+	public void setDates(List<LocalDate> dates) {
+		this.dates = dates;
 	}
 
 	public static Event convertStringToEvent(String inputEvent) {
@@ -153,7 +162,8 @@ public class Event {
 		return false;
 	}
 
-	public void findRecords(List<Dataset> datasets, List<Primitive> primitives) {
+	public void findDates(List<Dataset> datasets, List<Primitive> primitives) {
+//		List<LocalDate> dates = new ArrayList<>();
 
 		//TODO sprawdzić czy to faktycznie działa !!!
 		String nakedExpressionWithNegation = expression.replace("&"," ").replace("|", " ").
@@ -174,9 +184,19 @@ public class Event {
 			}
 		}
 
-//		String nakedExpressionWithNegation = expression.replace("&"," ").replace("|", " ").
-//				replace("   ","  ").replace("  "," ").replace("(","").replace(")","");
+	//TODO Dokończyć metodę !!!
+		//TODO TYMCZASOWO
+		int firstIndex = expression.indexOf(activePrimitives.get(0).getName());
+		int secondIndex = expression.indexOf(activePrimitives.get(1).getName());
 
+		switch (expression.substring(secondIndex-2, secondIndex)) {
+			case "||":
+				this.dates = Finder.getRecordsDates(activePrimitives.get(0), Event.Mark.OR, activePrimitives.get(1));
+				break;
+			case "&&":
+				this.dates = Finder.getRecordsDates(activePrimitives.get(0), Event.Mark.AND, activePrimitives.get(1));
+				break;
+		}
 	}
 
 	public String toString() {

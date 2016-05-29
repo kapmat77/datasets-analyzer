@@ -21,14 +21,31 @@ public class DatasetAnalyzer {
 		testAddPrimitives();
 		testAddEvents();
 
-		List<LocalDate> datesAnd = Finder.getRecordsDates(primitives.get(0), Event.Mark.AND, primitives.get(1));
-		List<LocalDate> datesOr = Finder.getRecordsDates(primitives.get(0), Event.Mark.OR, primitives.get(1));
+		testPattern();
 
-		List<LocalDate> datesSecondAnd = Finder.getRecordsDates(datesAnd, Event.Mark.AND, datesOr);
-		List<LocalDate> datesSecondOr = Finder.getRecordsDates(datesAnd, Event.Mark.OR, datesOr);
+	}
 
-		List<LocalDate> datesThirdAnd = Finder.getRecordsDates(datesAnd, Event.Mark.AND, primitives.get(1));
-		List<LocalDate> datesThirdOr = Finder.getRecordsDates(datesAnd, Event.Mark.OR, primitives.get(1));
+	private void testPattern() {
+		Event event = events.get(0);
+		Event secondEvent = events.get(1);
+		Pattern.Name patternName = Pattern.Name.ABSENCE;
+		Pattern pattern = new Pattern();
+		pattern.setStartDate(LocalDate.of(1970,1,1));
+		pattern.setEndDate(LocalDate.of(2016,12,31));
+		switch (patternName) {
+			case ABSENCE:
+				pattern.absence(event);
+				break;
+			case INVARIANCE:
+				pattern.invariance(event);
+				break;
+			case EXISTANCE:
+				pattern.existance(event);
+				break;
+			case RESPONSE:
+				pattern.response(event, event);
+				break;
+		}
 	}
 
 	private void testAddDatasets() {
@@ -74,18 +91,16 @@ public class DatasetAnalyzer {
 	private void testAddEvents() {
 		//Add events
 		List<String> inputStringEventList = new ArrayList<>();
-		inputStringEventList.add("E1:!P1 && !P3");
+		inputStringEventList.add("E1:P1 && P2");
 		inputStringEventList.add("E2:P1 || P2");
-		inputStringEventList.add("E3:P1 || !P2");
-		inputStringEventList.add("E4:(P1 || !P2) && P3");
+//		inputStringEventList.add("E3:P1 || !P2");
+//		inputStringEventList.add("E4:(P1 || !P2) && P3");
 
 		//Covnert events
 		List<Event> eventList = new ArrayList<>();
 		for (int i = 0; i < inputStringEventList.size(); i++) {
 			Event event = Event.convertStringToEvent(inputStringEventList.get(i));
-			event.findRecords(datasets, primitives);
-
-//            event.findRecords();
+			event.findDates(datasets, primitives);
 			eventList.add(event);
 		}
 		//Find duplicates
@@ -100,7 +115,6 @@ public class DatasetAnalyzer {
 	}
 
 	private void assignTimeIdToRecords(int daysDisplacement) {
-		//TODO poprawić na coś szybszego :v
 		int timeId = 0;
 		//TODO zmienić daty występowania w przypadku przesunięcia !!!!!
 		Dataset firstDataset = datasets.get(0);
