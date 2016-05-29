@@ -14,7 +14,11 @@ public class Pattern {
 		ABSENCE,
 		INVARIANCE,
 		EXISTANCE,
-		RESPONSE
+		RESPONSE,
+		OBLIGATION,
+		RESPONSIVELY,
+		PERSISTENCE,
+		REACTIVITY
 	}
 
 	public LocalDate getStartDate() {
@@ -81,18 +85,34 @@ public class Pattern {
 	}
 
 	public void response(Event firstEvent, Event secondEvent) {
-		boolean patternDetected = false;
-		LocalDate firstDate = firstEvent.getDates().get(0);
-		for (LocalDate secondDate: secondEvent.getDates()) {
-			if (secondDate.isAfter(firstDate)) {
-				patternDetected = true;
-				break;
-			}
-		}
-		if (patternDetected) {
-			System.out.println("Wzorzec " + Name.ABSENCE.name() + " jest spełniony w okresie: " + startDate.toString() + " - " + endDate.toString());
-		} else {
-			System.out.println("Wzorzec " + Name.ABSENCE.name() + " nie jest spełniony w okresie: " + startDate.toString() + " - " + endDate.toString());
-		}
+//		boolean patternDetected = false;
+//		LocalDate firstDate = firstEvent.getDates().get(0);
+//		for (LocalDate secondDate: secondEvent.getDates()) {
+//			if (secondDate.isAfter(firstDate)) {
+//				patternDetected = true;
+//				break;
+//			}
+//		}
+//		if (patternDetected) {
+//			System.out.println("Wzorzec " + Name.ABSENCE.name() + " jest spełniony w okresie: " + startDate.toString() + " - " + endDate.toString());
+//		} else {
+//			System.out.println("Wzorzec " + Name.ABSENCE.name() + " nie jest spełniony w okresie: " + startDate.toString() + " - " + endDate.toString());
+//		}
+	}
+
+	public void obligation(Event firstEvent, Event secondEvent) {
+
+	}
+
+	public void responsively(Event event) {
+
+	}
+
+	public void persistence(Event event) {
+
+	}
+
+	public void reactivity(Event firstEvent, Event secondEvent) {
+
 	}
 }

@@ -43,8 +43,19 @@ public class DatasetAnalyzer {
 				pattern.existance(event);
 				break;
 			case RESPONSE:
-				pattern.response(event, event);
+				pattern.response(event, secondEvent);
 				break;
+			case OBLIGATION:
+				pattern.obligation(event, secondEvent);
+				break;
+			case RESPONSIVELY:
+				pattern.responsively(event);
+				break;
+			case PERSISTENCE:
+				pattern.responsively(event);
+				break;
+			case REACTIVITY:
+				pattern.reactivity(event, secondEvent);
 		}
 	}
 
