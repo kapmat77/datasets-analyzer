@@ -7,14 +7,11 @@ import java.util.*;
  */
 public class Event {
 
-	private static int counter = 0;
+	private static int counter = 1;
 
 	private final int id;
 	private String name;
 	private String expression;
-//	private static List<String> operations = new ArrayList<>();
-//	private static List<Integer> startIndexes = new ArrayList<>();
-//	private static List<Integer> endIndexes = new ArrayList<>();
 
 	enum Mark {
 		NOT,
@@ -61,12 +58,9 @@ public class Event {
 	}
 
 	public static Event convertStringToEvent(String inputEvent) {
-//		"E1:(P1 || !P2) && P3";
 		inputEvent = inputEvent.replace(" ","");
-
 		String name = "";
-//		List<String> operations = new ArrayList<>();
-//
+
 		//Get name
 		int colonIndex = inputEvent.indexOf(":");
 		for (int i = 0; i<colonIndex; i++) {

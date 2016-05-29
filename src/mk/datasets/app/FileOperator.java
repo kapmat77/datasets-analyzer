@@ -4,9 +4,7 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * Created by Kapmat on 2016-05-28.
@@ -75,6 +73,8 @@ public class FileOperator {
 				break;
 			}
 		}
+		//Sort record - from oldest data to newest data
+		Collections.sort(records, (record1, record2) -> record1.getLocalDate().compareTo(record2.getLocalDate()));
 	}
 
 	private void readFromTxt(Scanner in) {
@@ -94,5 +94,4 @@ public class FileOperator {
 		String[] parts;
 
 	}
-
 }

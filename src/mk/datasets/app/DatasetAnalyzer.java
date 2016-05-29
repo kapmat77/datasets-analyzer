@@ -1,6 +1,7 @@
 package mk.datasets.app;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -10,9 +11,7 @@ public class DatasetAnalyzer {
 
 	private static List<Dataset> datasets = new ArrayList<>();
 
-	public DatasetAnalyzer() {
-
-	}
+	public DatasetAnalyzer() {}
 
 	public void testAnalyzer() {
 		testAddDatasets();
@@ -29,6 +28,11 @@ public class DatasetAnalyzer {
 
 		datasets.add(datasetEuro);
 		datasets.add(datasetBitcoin);
+
+		//Sort datasets - first contains the oldest data
+		Collections.sort(datasets, (dataset1, dataset2) -> dataset1.getOldestDate().compareTo(dataset2.getOldestDate()));
+
+		assignTimeIdToRecords(0);
 	}
 
 	private void testAddPrimitives() {
@@ -56,9 +60,9 @@ public class DatasetAnalyzer {
 	private void testAddEvents() {
 		//Add events
 		List<String> inputStringEventList = new ArrayList<>();
-		inputStringEventList.add("E1:(P1 || P2) && P3");
-		inputStringEventList.add("E2:P1 && P3");
-		inputStringEventList.add("E3:P1 || P2");
+		inputStringEventList.add("E1:P1 && P3");
+		inputStringEventList.add("E2:P1 || P2");
+		inputStringEventList.add("E3:(P1 || P2) && P3");
 
 		//Covnert events
 		List<Event> eventList = new ArrayList<>();
@@ -73,12 +77,30 @@ public class DatasetAnalyzer {
 			System.out.println("ERROR - duplicates detected");
 		}
 
-		String inputEvent = "E1:(P1 || P2) && P3";
-		Event event = Event.convertStringToEvent(inputEvent);
-		System.out.println(event.toString());
-
 //        System.out.println(Event.getOpearionList("P5 && (P1 || (!P2 && P3) && (P7 || P10)) && P4 || (P11 && P12)"));
 //        System.out.println(Event.getOperionList("(P1 || !P2) && P3"));
+	}
+
+	private void assignTimeIdToRecords(int daysDisplacement) {
+		//TODO poprawić na coś szybszego :v
+		int timeId = 0;
+//		for (Dataset firstDataset: datasets) {
+		Dataset firstDataset = datasets.get(0);
+			for (Dataset secondDataset: datasets) {
+				if (!firstDataset.equals(secondDataset)) {
+					for (Record firstRecord: firstDataset.getRecords()) {
+						for (Record secondRecord: secondDataset.getRecords()) {
+							if (firstRecord.getLocalDate().equals(secondRecord.getLocalDate()) &&
+									firstRecord.getTimeId()==0 && secondRecord.getTimeId()==0) {
+								timeId++;
+								firstRecord.setTimeId(timeId);
+								secondRecord.setTimeId(timeId);
+							}
+						}
+					}
+				}
+			}
+//		}
 	}
 
 	private Dataset getDatasetById(int id) {

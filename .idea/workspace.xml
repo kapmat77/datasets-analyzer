@@ -2,14 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/mk/datasets/app/DatasetAnalyzer.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/datasets-analyzer/mk/datasets/app/DatasetsAnalyzer.class" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/mk/datasets/app/DatasetsAnalyzer.java" afterPath="$PROJECT_DIR$/src/mk/datasets/app/Main.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/mk/datasets/app/Finder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/datasets-analyzer/mk/datasets/app/Dataset.class" afterPath="$PROJECT_DIR$/out/production/datasets-analyzer/mk/datasets/app/Dataset.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/datasets-analyzer/mk/datasets/app/Event.class" afterPath="$PROJECT_DIR$/out/production/datasets-analyzer/mk/datasets/app/Event.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/datasets-analyzer/mk/datasets/app/FileOperator.class" afterPath="$PROJECT_DIR$/out/production/datasets-analyzer/mk/datasets/app/FileOperator.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/datasets-analyzer/mk/datasets/app/Record.class" afterPath="$PROJECT_DIR$/out/production/datasets-analyzer/mk/datasets/app/Record.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/mk/datasets/app/Dataset.java" afterPath="$PROJECT_DIR$/src/mk/datasets/app/Dataset.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/mk/datasets/app/DatasetAnalyzer.java" afterPath="$PROJECT_DIR$/src/mk/datasets/app/DatasetAnalyzer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/mk/datasets/app/Event.java" afterPath="$PROJECT_DIR$/src/mk/datasets/app/Event.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/mk/datasets/app/FileOperator.java" afterPath="$PROJECT_DIR$/src/mk/datasets/app/FileOperator.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/mk/datasets/app/Primitive.java" afterPath="$PROJECT_DIR$/src/mk/datasets/app/Primitive.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/mk/datasets/app/Record.java" afterPath="$PROJECT_DIR$/src/mk/datasets/app/Record.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/resources/various-bitcoin-currency-statist.csv" afterPath="$PROJECT_DIR$/src/resources/various-bitcoin-currency-statist.csv" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -70,10 +76,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/mk/datasets/app/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
+            <state relative-caret-position="383">
               <caret line="24" column="44" selection-start-line="24" selection-start-column="44" selection-end-line="24" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -85,49 +91,63 @@
       <file leaf-file-name="Event.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/mk/datasets/app/Event.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="680">
-              <caret line="79" column="25" selection-start-line="79" selection-start-column="25" selection-end-line="79" selection-end-column="25" />
+            <state relative-caret-position="-110">
+              <caret line="9" column="34" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
               <folding>
                 <element signature="docComment;class#Event#0" expanded="false" />
-                <element signature="e#220#282#0" expanded="false" />
                 <element signature="class#Mark#0;class#Event#0" expanded="false" />
+                <element signature="method#Event#0;class#Event#0" expanded="false" />
+                <element signature="method#Event#1;class#Event#0" expanded="false" />
+                <element signature="method#Event#2;class#Event#0" expanded="false" />
+                <element signature="method#convertStringToEvent#0;class#Event#0" expanded="false" />
                 <element signature="method#getOperionList#0;class#Event#0" expanded="false" />
                 <element signature="method#findOrder#0;class#Event#0" expanded="false" />
+                <element signature="method#duplicatesExist#0;class#Event#0" expanded="false" />
+                <element signature="method#toString#0;class#Event#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DatasetAnalyzer.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/mk/datasets/app/DatasetAnalyzer.java">
+      <file leaf-file-name="FileOperator.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/mk/datasets/app/FileOperator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="24" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
+            <state relative-caret-position="374">
+              <caret line="77" column="5" selection-start-line="77" selection-start-column="5" selection-end-line="77" selection-end-column="5" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="method#readFromTxt#0;class#FileOperator#0" expanded="false" />
+                <element signature="method#readFromXls#0;class#FileOperator#0" expanded="false" />
+                <element signature="method#readFromJson#0;class#FileOperator#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="various-bitcoin-currency-statist.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/resources/various-bitcoin-currency-statist.csv">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="13" selection-start-line="0" selection-start-column="8" selection-end-line="0" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Dataset.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Dataset.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/mk/datasets/app/Dataset.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
-              <caret line="21" column="21" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
+              <caret line="78" column="48" selection-start-line="78" selection-start-column="48" selection-end-line="78" selection-end-column="48" />
               <folding>
                 <element signature="docComment;class#Dataset#0" expanded="false" />
+                <element signature="method#Dataset#1;class#Dataset#0" expanded="false" />
                 <element signature="method#readData#0;class#Dataset#0" expanded="false" />
+                <element signature="method#getRecordByTimeId#0;class#Dataset#0" expanded="false" />
+                <element signature="method#resetTimeId#0;class#Dataset#0" expanded="false" />
+                <element signature="method#printAttributes#0;class#Dataset#0" expanded="false" />
+                <element signature="method#printRecords#0;class#Dataset#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Finder.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/mk/datasets/app/Finder.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="12" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -136,21 +156,58 @@
       <file leaf-file-name="eurofxref-hist.csv" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/resources/eurofxref-hist.csv">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="21" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="21" />
+            <state relative-caret-position="85">
+              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Primitive.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/mk/datasets/app/Primitive.java">
+      <file leaf-file-name="test.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/resources/test.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="32" column="25" selection-start-line="32" selection-start-column="25" selection-end-line="32" selection-end-column="25" />
+            <state relative-caret-position="0">
+              <caret line="0" column="4" selection-start-line="0" selection-start-column="4" selection-end-line="0" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="various-bitcoin-currency-statist.csv" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/resources/various-bitcoin-currency-statist.csv">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Record.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/mk/datasets/app/Record.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
               <folding>
-                <element signature="e#909#910#0" expanded="true" />
-                <element signature="e#925#926#0" expanded="true" />
+                <element signature="docComment;class#Record#0" expanded="false" />
+                <element signature="method#Record#0;class#Record#0" expanded="false" />
+                <element signature="method#Record#1;class#Record#0" expanded="false" />
+                <element signature="method#compareTo#0;class#Record#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DatasetAnalyzer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/mk/datasets/app/DatasetAnalyzer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="11" column="39" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="39" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#testAddDatasets#0;class#DatasetAnalyzer#0" expanded="false" />
+                <element signature="method#testAddPrimitives#0;class#DatasetAnalyzer#0" expanded="false" />
+                <element signature="method#testAddEvents#0;class#DatasetAnalyzer#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -189,18 +246,19 @@
       <list>
         <option value="$PROJECT_DIR$/src/mk/datasets/app/Controller.java" />
         <option value="$PROJECT_DIR$/src/resources/test.txt" />
-        <option value="$PROJECT_DIR$/src/resources/eurofxref-hist.csv" />
-        <option value="$PROJECT_DIR$/src/mk/datasets/app/Record.java" />
-        <option value="$PROJECT_DIR$/src/mk/datasets/app/Dataset.java" />
-        <option value="$PROJECT_DIR$/src/resources/various-bitcoin-currency-statist.csv" />
         <option value="$PROJECT_DIR$/src/mk/datasets/app/Converter.java" />
-        <option value="$PROJECT_DIR$/src/mk/datasets/app/FileOperator.java" />
         <option value="$PROJECT_DIR$/src/mk/datasets/app/Condition.java" />
         <option value="$PROJECT_DIR$/src/mk/datasets/app/DatasetsAnalyzer.java" />
         <option value="$PROJECT_DIR$/src/mk/datasets/app/Main.java" />
-        <option value="$PROJECT_DIR$/src/mk/datasets/app/Primitive.java" />
         <option value="$PROJECT_DIR$/src/mk/datasets/app/Event.java" />
+        <option value="$PROJECT_DIR$/src/mk/datasets/app/Primitive.java" />
+        <option value="$PROJECT_DIR$/src/resources/various-bitcoin-currency-statist.csv" />
+        <option value="$PROJECT_DIR$/src/mk/datasets/app/FileOperator.java" />
+        <option value="$PROJECT_DIR$/src/mk/datasets/app/Finder.java" />
+        <option value="$PROJECT_DIR$/src/resources/eurofxref-hist.csv" />
         <option value="$PROJECT_DIR$/src/mk/datasets/app/DatasetAnalyzer.java" />
+        <option value="$PROJECT_DIR$/src/mk/datasets/app/Record.java" />
+        <option value="$PROJECT_DIR$/src/mk/datasets/app/Dataset.java" />
       </list>
     </option>
   </component>
@@ -821,7 +879,7 @@
       <updated>1359379246138</updated>
       <workItem from="1359379250712" duration="1302000" />
       <workItem from="1464459758123" duration="18308000" />
-      <workItem from="1464508999256" duration="15530000" />
+      <workItem from="1464508999256" duration="23337000" />
     </task>
     <task id="LOCAL-00001" summary="Implement few basic methods">
       <created>1464469022594</created>
@@ -851,11 +909,18 @@
       <option name="project" value="LOCAL" />
       <updated>1464522293922</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Create new class and change main class name">
+      <created>1464524796013</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1464524796013</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35140000" />
+    <option name="totallyTimeSpent" value="42947000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-8" width="1616" height="886" extended-state="6" />
@@ -869,7 +934,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30901858" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2519894" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -880,7 +945,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37798408" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26392573" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -909,31 +974,27 @@
     <MESSAGE value="Implement convertStringToCondition method" />
     <MESSAGE value="Start implement convertStringToEvent" />
     <MESSAGE value="Cahnge name: Condition -&gt; Primitive and implement simple searching" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cahnge name: Condition -&gt; Primitive and implement simple searching" />
+    <MESSAGE value="Create new class and change main class name" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create new class and change main class name" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/mk/datasets/app/Event.java</url>
-          <line>96</line>
+          <url>file://$PROJECT_DIR$/src/mk/datasets/app/DatasetAnalyzer.java</url>
+          <line>18</line>
           <properties />
-          <option name="timeStamp" value="31" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/mk/datasets/app/Primitive.java</url>
-          <line>221</line>
-          <properties />
-          <option name="timeStamp" value="37" />
+          <option name="timeStamp" value="53" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="41" />
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
+      <option name="time" value="54" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
-        <watch expression="exp.charAt(i)" />
-        <watch expression="i" />
-        <watch expression="operations" />
+        <watch expression="datasets" />
       </configuration>
     </watches-manager>
   </component>
@@ -958,10 +1019,15 @@
           <caret line="105" column="0" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
           <folding>
             <element signature="docComment;class#Event#0" expanded="false" />
-            <element signature="e#220#282#0" expanded="false" />
             <element signature="class#Mark#0;class#Event#0" expanded="false" />
+            <element signature="method#Event#0;class#Event#0" expanded="false" />
+            <element signature="method#Event#1;class#Event#0" expanded="false" />
+            <element signature="method#Event#2;class#Event#0" expanded="false" />
+            <element signature="method#convertStringToEvent#0;class#Event#0" expanded="false" />
             <element signature="method#getOperionList#0;class#Event#0" expanded="false" />
             <element signature="method#findOrder#0;class#Event#0" expanded="false" />
+            <element signature="method#duplicatesExist#0;class#Event#0" expanded="false" />
+            <element signature="method#toString#0;class#Event#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -970,10 +1036,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="867">
           <caret line="95" column="44" selection-start-line="95" selection-start-column="44" selection-end-line="95" selection-end-column="44" />
-          <folding>
-            <element signature="e#909#910#0" expanded="true" />
-            <element signature="e#925#926#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -982,7 +1045,11 @@
         <state relative-caret-position="1020">
           <caret line="66" column="0" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="method#readDataFromFile#0;class#FileOperator#0" expanded="false" />
+            <element signature="method#readFromCsv#0;class#FileOperator#0" expanded="false" />
+            <element signature="method#readFromTxt#0;class#FileOperator#0" expanded="false" />
+            <element signature="method#readFromXls#0;class#FileOperator#0" expanded="false" />
+            <element signature="method#readFromJson#0;class#FileOperator#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -993,7 +1060,10 @@
           <caret line="21" column="21" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
           <folding>
             <element signature="docComment;class#Dataset#0" expanded="false" />
+            <element signature="method#Dataset#1;class#Dataset#0" expanded="false" />
             <element signature="method#readData#0;class#Dataset#0" expanded="false" />
+            <element signature="method#printAttributes#0;class#Dataset#0" expanded="false" />
+            <element signature="method#printRecords#0;class#Dataset#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1003,7 +1073,10 @@
         <state relative-caret-position="408">
           <caret line="30" column="45" selection-start-line="30" selection-start-column="45" selection-end-line="30" selection-end-column="45" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="docComment;class#Record#0" expanded="false" />
+            <element signature="method#Record#0;class#Record#0" expanded="false" />
+            <element signature="method#Record#1;class#Record#0" expanded="false" />
+            <element signature="method#compareTo#0;class#Record#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1046,14 +1119,6 @@
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mk/datasets/app/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_60/src.zip!/java/time/LocalDate.java">
@@ -1198,13 +1263,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/resources/test.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="4" selection-start-line="0" selection-start-column="4" selection-end-line="0" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/mk/datasets/app/Converter.java" />
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider editor-type-id="MarkdownFxPreviewEditor">
@@ -1226,28 +1284,52 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/mk/datasets/app/Record.java">
+    <entry file="file://$PROJECT_DIR$/src/mk/datasets/app/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="18" column="35" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
+        <state relative-caret-position="85">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mk/datasets/app/Primitive.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="10" column="34" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mk/datasets/app/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="383">
+          <caret line="24" column="44" selection-start-line="24" selection-start-column="44" selection-end-line="24" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/resources/various-bitcoin-currency-statist.csv">
+    <entry file="file://$PROJECT_DIR$/src/resources/test.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="13" selection-start-line="0" selection-start-column="8" selection-end-line="0" selection-end-column="13" />
+          <caret line="0" column="4" selection-start-line="0" selection-start-column="4" selection-end-line="0" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/mk/datasets/app/FileOperator.java">
+    <entry file="file://$PROJECT_DIR$/src/resources/various-bitcoin-currency-statist.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+        <state relative-caret-position="68">
+          <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mk/datasets/app/Finder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="12" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1256,33 +1338,65 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/resources/eurofxref-hist.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="21" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="21" />
+        <state relative-caret-position="85">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mk/datasets/app/Primitive.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="32" column="25" selection-start-line="32" selection-start-column="25" selection-end-line="32" selection-end-column="25" />
-          <folding>
-            <element signature="e#909#910#0" expanded="true" />
-            <element signature="e#925#926#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/mk/datasets/app/Event.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="79" column="25" selection-start-line="79" selection-start-column="25" selection-end-line="79" selection-end-column="25" />
+        <state relative-caret-position="-110">
+          <caret line="9" column="34" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
           <folding>
             <element signature="docComment;class#Event#0" expanded="false" />
-            <element signature="e#220#282#0" expanded="false" />
             <element signature="class#Mark#0;class#Event#0" expanded="false" />
+            <element signature="method#Event#0;class#Event#0" expanded="false" />
+            <element signature="method#Event#1;class#Event#0" expanded="false" />
+            <element signature="method#Event#2;class#Event#0" expanded="false" />
+            <element signature="method#convertStringToEvent#0;class#Event#0" expanded="false" />
             <element signature="method#getOperionList#0;class#Event#0" expanded="false" />
             <element signature="method#findOrder#0;class#Event#0" expanded="false" />
+            <element signature="method#duplicatesExist#0;class#Event#0" expanded="false" />
+            <element signature="method#toString#0;class#Event#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mk/datasets/app/FileOperator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="77" column="5" selection-start-line="77" selection-start-column="5" selection-end-line="77" selection-end-column="5" />
+          <folding>
+            <element signature="method#readFromTxt#0;class#FileOperator#0" expanded="false" />
+            <element signature="method#readFromXls#0;class#FileOperator#0" expanded="false" />
+            <element signature="method#readFromJson#0;class#FileOperator#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mk/datasets/app/DatasetAnalyzer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="11" column="39" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#testAddDatasets#0;class#DatasetAnalyzer#0" expanded="false" />
+            <element signature="method#testAddPrimitives#0;class#DatasetAnalyzer#0" expanded="false" />
+            <element signature="method#testAddEvents#0;class#DatasetAnalyzer#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mk/datasets/app/Record.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+          <folding>
+            <element signature="docComment;class#Record#0" expanded="false" />
+            <element signature="method#Record#0;class#Record#0" expanded="false" />
+            <element signature="method#Record#1;class#Record#0" expanded="false" />
+            <element signature="method#compareTo#0;class#Record#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1290,30 +1404,15 @@
     <entry file="file://$PROJECT_DIR$/src/mk/datasets/app/Dataset.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
-          <caret line="21" column="21" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
+          <caret line="78" column="48" selection-start-line="78" selection-start-column="48" selection-end-line="78" selection-end-column="48" />
           <folding>
             <element signature="docComment;class#Dataset#0" expanded="false" />
+            <element signature="method#Dataset#1;class#Dataset#0" expanded="false" />
             <element signature="method#readData#0;class#Dataset#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mk/datasets/app/DatasetAnalyzer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="24" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mk/datasets/app/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="24" column="44" selection-start-line="24" selection-start-column="44" selection-end-line="24" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="method#getRecordByTimeId#0;class#Dataset#0" expanded="false" />
+            <element signature="method#resetTimeId#0;class#Dataset#0" expanded="false" />
+            <element signature="method#printAttributes#0;class#Dataset#0" expanded="false" />
+            <element signature="method#printRecords#0;class#Dataset#0" expanded="false" />
           </folding>
         </state>
       </provider>

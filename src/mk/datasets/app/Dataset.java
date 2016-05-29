@@ -1,8 +1,7 @@
 package mk.datasets.app;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.time.LocalDate;
+import java.util.*;
 
 /**
  * Created by Kapmat on 2016-05-28.
@@ -23,7 +22,6 @@ public class Dataset {
 		this.name = name;
 		readData(path);
 	}
-
 
 	public int getId() {
 		return id;
@@ -70,6 +68,29 @@ public class Dataset {
 		fileOperator.readDataFromFile(path, this);
 	}
 
+	public LocalDate getOldestDate() {
+		return Finder.findMinInArray(records).getLocalDate();
+	}
+
+	public LocalDate getNewestDate() {
+		return Finder.findMaxInArray(records).getLocalDate();
+	}
+
+	public Record getRecordByTimeId(int timeId) {
+		for (Record record: records) {
+			if (record.getTimeId() == timeId) {
+				return record;
+			}
+		}
+		return null;
+	}
+
+	public void resetTimeId() {
+		for (Record record: this.records) {
+			record.setTimeId(0);
+		}
+	}
+
 	public void printAttributes() {
 		System.out.println("\n\"" + this.name + "\" attributes:");
 		this.getAttributes().forEach(System.out::println);
@@ -83,4 +104,6 @@ public class Dataset {
 			}
 		}
 	}
+
+
 }

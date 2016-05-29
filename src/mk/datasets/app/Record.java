@@ -1,7 +1,5 @@
 package mk.datasets.app;
 
-import sun.util.resources.LocaleData;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,11 +9,10 @@ import java.util.Map;
 /**
  * Created by Kapmat on 2016-05-28.
  */
-public class Record {
+public class Record implements Comparable{
 
 	private int id;
 	private int timeId;
-//	private List<String> parameters = new ArrayList<>();
 	private Map<String, String> parameters = new HashMap<>();
 	private LocalDate localDate;
 
@@ -63,15 +60,19 @@ public class Record {
 		this.parameters = parameters;
 	}
 
-	//	public List<String> getParameters() {
-//		return parameters;
-//	}
-//
-//	public void setParameters(List<String> parameters) {
-//		this.parameters = parameters;
-//	}
-
 	public void addParameter(String attribute, String parameter) {
 		this.parameters.put(attribute, parameter);
+	}
+
+	//Compare dates
+	@Override
+	public int compareTo(Object o) {
+		if (this.localDate.isAfter(((Record)o).getLocalDate())) {
+			return 1;
+		} else if (this.localDate.isEqual(((Record)o).getLocalDate())) {
+			return 0;
+		} else {
+			return -1;
+		}
 	}
 }
