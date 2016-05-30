@@ -32,6 +32,12 @@ public class DatasetAnalyzer {
 
 	}
 
+	public void activePattern(Pattern.Name patternName, String inputEvents) {
+		String[] events = inputEvents.split(",");
+
+
+	}
+
 	public void testPattern() {
 		Event event = events.get(0);
 		Event secondEvent = events.get(1);
@@ -85,48 +91,56 @@ public class DatasetAnalyzer {
 	}
 
 	public String addPrimitives(String inputPrimitives) {
-		if (!inputPrimitives.isEmpty()) {
-			String[] primitivesTable = inputPrimitives.split("\\n");
+		try {
+			if (!inputPrimitives.isEmpty()) {
+				String[] primitivesTable = inputPrimitives.split("\\n");
 
-			//Covnert primitives
-			List<Primitive> primitiveList = new ArrayList<>();
-			for (int i = 0; i < primitivesTable.length; i++) {
-				Primitive primitive = Primitive.convertStringToPrimitive(primitivesTable[i]);
-				primitive.findRecords(getDatasetById(primitive.getDatasetId()));
-				primitive.toString();
-				primitiveList.add(primitive);
-			}
+				//Covnert primitives
+				List<Primitive> primitiveList = new ArrayList<>();
+				for (int i = 0; i < primitivesTable.length; i++) {
+					Primitive primitive = Primitive.convertStringToPrimitive(primitivesTable[i]);
+					primitive.findRecords(getDatasetById(primitive.getDatasetId()));
+					primitive.toString();
+					primitiveList.add(primitive);
+				}
 
-			//Find duplicates
-			if (Primitive.duplicatesExist(primitiveList)) {
-				return "ERROR - wykryto duplikaty(Prymitywy). Usuń je i spróbuj ponownie.";
+				//Find duplicates
+				if (Primitive.duplicatesExist(primitiveList)) {
+					return "ERROR - wykryto duplikaty(Prymitywy). Usuń je i spróbuj ponownie.";
+				}
+				primitives.addAll(primitiveList);
+				return "Prymitywy zostały wczytane poprawnie.";
 			}
-			primitives.addAll(primitiveList);
-			return "Prymitywy zostały wczytane poprawnie.";
+			return "ERROR - zdefiniuj prymitywy!";
+		} catch (Exception e) {
+			return "ERROR - prymitywy zostały nieprawidłowo zdefiniowane!";
 		}
-		return "ERROR - zdefiniuj prymitywy!";
 	}
 
 	public String addEvents(String inputEvents) {
-		if (!inputEvents.isEmpty()) {
-			String[] eventsTable = inputEvents.split("\\n");
+		try {
+			if (!inputEvents.isEmpty()) {
+				String[] eventsTable = inputEvents.split("\\n");
 
-			//Covnert events
-			List<Event> eventList = new ArrayList<>();
-			for (int i = 0; i < eventsTable.length; i++) {
-				Event event = Event.convertStringToEvent(eventsTable[i]);
-				event.findDates(datasets, primitives);
-				eventList.add(event);
-			}
+				//Covnert events
+				List<Event> eventList = new ArrayList<>();
+				for (int i = 0; i < eventsTable.length; i++) {
+					Event event = Event.convertStringToEvent(eventsTable[i]);
+					event.findDates(datasets, primitives);
+					eventList.add(event);
+				}
 
-			//Find duplicates
-			if (Event.duplicatesExist(eventList)) {
-				return "ERROR - wykryto duplikaty(Eventy). Usuń je i spróbuj ponownie.";
+				//Find duplicates
+				if (Event.duplicatesExist(eventList)) {
+					return "ERROR - wykryto duplikaty(Eventy). Usuń je i spróbuj ponownie.";
+				}
+				events.addAll(eventList);
+				return "Eventy zostały wczytane poprawnie.";
 			}
-			events.addAll(eventList);
-			return "Eventy zostały wczytane poprawnie.";
+			return "ERROR - zdefiniuj eventy!";
+		} catch (Exception e) {
+			return "ERROR - eventy zostały nieprawidłowo zdefiniowane!";
 		}
-		return "ERROR - zdefiniuj eventy!";
 	}
 
 	public void testAddDatasets() {
