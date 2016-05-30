@@ -233,6 +233,14 @@ public class Primitive {
 		}
 	}
 
+	public List<LocalDate> getDates() {
+		List<LocalDate> dates = new ArrayList<>();
+		for (Record record: records) {
+			dates.add(record.getLocalDate());
+		}
+		return dates;
+	}
+
 	public static boolean duplicatesExist(List<Primitive> primitives) {
 		for (Primitive primitive : primitives) {
 			for (Primitive secondPrimitive : primitives) {
@@ -266,8 +274,6 @@ public class Primitive {
 		}
 		return notPrimitive;
 	}
-
-
 
 	public String toString() {
 		return "ID: " + this.id +

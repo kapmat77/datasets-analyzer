@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 import javafx.util.StringConverter;
 import mk.datasets.app.Dataset;
 import mk.datasets.app.DatasetAnalyzer;
+import mk.datasets.app.Pattern;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -109,12 +110,13 @@ public class MainController implements Initializable {
 //		datasetAnalyzer.testAnalyzer();
 
 		//Default text
-		taInputPrimitives.appendText("P1: 1.USD>1.13\nP2: 1.JPY>124\nP3: 2.value>=412");
-		taInputEvents.appendText("E1: P1 && P2\nE2: P1 || P2");
+		taInputPrimitives.appendText("P1: 1.USD>1.13\nP2: 1.JPY>124\nP3: 2.value>=412\nP4: 2.value<0");
+		taInputEvents.appendText("E1: P1 && P2\nE2: P1 || P2\nE3: P4");
 	}
 
 	@FXML
 	public void startAction(ActionEvent event) {
+		datasetAnalyzer.resetLists();
 		if (datasetAnalyzer.getDatasets().isEmpty()) {
 			taOutput.appendText("\n\n" + "Wczytaj zbiór danych!");
 			return;
@@ -127,18 +129,66 @@ public class MainController implements Initializable {
 				String eventsCom = datasetAnalyzer.addEvents(taInputEvents.getText());
 				taOutput.appendText("\n" + eventsCom);
 				if (!eventsCom.contains("ERROR")) {
-					datasetAnalyzer.testPattern();
+					checkAndActivePatterns();
 				} else {
+					taOutput.appendText("\n\n" + "ERROR");
+					taOutput.appendText("\n\n##################### END #####################");
 					return;
 				}
 			} else {
+				taOutput.appendText("\n\n" + "ERROR");
+				taOutput.appendText("\n\n##################### END #####################");
 				return;
 			}
 		} else {
 			taOutput.appendText("\n\n" + "ERROR - popraw daty!");
+			taOutput.appendText("\n\n##################### END #####################");
 			return;
 		}
 		taOutput.appendText("\n\n##################### END #####################");
+	}
+
+	private void checkAndActivePatterns() {
+		if (!tfAbsence.isDisable() && !tfAbsence.getText().isEmpty()) {
+			taOutput.appendText("\n" + datasetAnalyzer.activePattern(Pattern.Name.ABSENCE, tfAbsence.getText(), dpStartDate.getValue(), dpEndDate.getValue()));
+		} else if (!tfAbsence.isDisable()) {
+			taOutput.appendText("\nERROR - pole '" + chAbsence.getText() + "' jest puste");
+		}
+		if (!tfInvariance.isDisable() && !tfInvariance.getText().isEmpty()) {
+			taOutput.appendText("\n" + datasetAnalyzer.activePattern(Pattern.Name.INVARIANCE, tfInvariance.getText(), dpStartDate.getValue(), dpEndDate.getValue()));
+		} else if (!tfInvariance.isDisable()) {
+			taOutput.appendText("\nERROR - pole '" + chInvariance.getText() + "' jest puste");
+		}
+		if (!tfExistence.isDisable() && !tfExistence.getText().isEmpty()) {
+			taOutput.appendText("\n" + datasetAnalyzer.activePattern(Pattern.Name.EXISTENCE, tfExistence.getText(), dpStartDate.getValue(), dpEndDate.getValue()));
+		} else if (!tfExistence.isDisable()) {
+			taOutput.appendText("\nERROR - pole '" + chExistence.getText() + "' jest puste");
+		}
+		if (!tfResponse.isDisable() && !tfResponse.getText().isEmpty()) {
+			taOutput.appendText("\n" + datasetAnalyzer.activePattern(Pattern.Name.RESPONSE, tfResponse.getText(), dpStartDate.getValue(), dpEndDate.getValue()));
+		} else if (!tfResponse.isDisable()) {
+			taOutput.appendText("\nERROR - pole '" + chResponse.getText() + "' jest puste");
+		}
+		if (!tfObligation.isDisable() && !tfObligation.getText().isEmpty()) {
+			taOutput.appendText("\n" + datasetAnalyzer.activePattern(Pattern.Name.OBLIGATION, tfObligation.getText(), dpStartDate.getValue(), dpEndDate.getValue()));
+		} else if (!tfObligation.isDisable()) {
+			taOutput.appendText("\nERROR - pole '" + chObligation.getText() + "' jest puste");
+		}
+		if (!tfResponsively.isDisable() && !tfResponsively.getText().isEmpty()) {
+			taOutput.appendText("\n" + datasetAnalyzer.activePattern(Pattern.Name.RESPONSIVELY, tfResponsively.getText(), dpStartDate.getValue(), dpEndDate.getValue()));
+		} else if (!tfResponsively.isDisable()) {
+			taOutput.appendText("\nERROR - pole '" + chResponsively.getText() + "' jest puste");
+		}
+		if (!tfPersistence.isDisable() && !tfPersistence.getText().isEmpty()) {
+			taOutput.appendText("\n" + datasetAnalyzer.activePattern(Pattern.Name.PERSISTENCE, tfPersistence.getText(), dpStartDate.getValue(), dpEndDate.getValue()));
+		} else if (!tfResponsively.isDisable()) {
+			taOutput.appendText("\nERROR - pole '" + chResponsively.getText() + "' jest puste");
+		}
+		if (!tfReactivity.isDisable() && !tfReactivity.getText().isEmpty()) {
+			taOutput.appendText("\n" + datasetAnalyzer.activePattern(Pattern.Name.REACTIVITY, tfReactivity.getText(), dpStartDate.getValue(), dpEndDate.getValue()));
+		} else if (!tfReactivity.isDisable()) {
+			taOutput.appendText("\nERROR - pole '" + chReactivity.getText() + "' jest puste");
+		}
 	}
 
 	private boolean dateIsSetCorrectly() {

@@ -32,10 +32,60 @@ public class DatasetAnalyzer {
 
 	}
 
-	public void activePattern(Pattern.Name patternName, String inputEvents) {
-		String[] events = inputEvents.split(",");
+	public void resetLists() {
+		primitives.clear();
+		events.clear();
+	}
 
+	public String activePattern(Pattern.Name patternName, String inputE, LocalDate startDate, LocalDate endDate) {
+		String[] inputEvents = inputE.replace(" ","").split(",");
 
+		Event event, secondEvent;
+		Pattern pattern = new Pattern();
+		pattern.setStartDate(startDate);
+		pattern.setEndDate(endDate);
+
+		String outputMsg = "";
+
+		for (int i = 0; i<inputEvents.length; i++) {
+			if (inputEvents[i].contains("->")) {
+				String[] dubleEvent = inputEvents[i].split("->");
+				event = getEventByName(dubleEvent[0]);
+				secondEvent = getEventByName(dubleEvent[1]);
+			} else {
+				event = getEventByName(inputEvents[i]);
+				secondEvent = null;
+			}
+			switch (patternName) {
+				case ABSENCE:
+					outputMsg = outputMsg + pattern.absence(event);
+					break;
+				case INVARIANCE:
+					outputMsg = outputMsg + pattern.invariance(event);
+					break;
+				case EXISTENCE:
+					outputMsg = outputMsg + pattern.existence(event);
+					break;
+				case RESPONSE:
+					outputMsg = outputMsg + pattern.response(event, secondEvent);
+					break;
+				case OBLIGATION:
+					outputMsg = outputMsg + pattern.obligation(event, secondEvent);
+					break;
+				case RESPONSIVELY:
+					outputMsg = outputMsg + pattern.responsively(event);
+					break;
+				case PERSISTENCE:
+					outputMsg = outputMsg + pattern.persistence(event);
+					break;
+				case REACTIVITY:
+					outputMsg = outputMsg + pattern.reactivity(event, secondEvent);
+					break;
+				default:
+					return "ERROR - zły wzorzec";
+			}
+		}
+		return outputMsg;
 	}
 
 	public void testPattern() {
@@ -65,7 +115,7 @@ public class DatasetAnalyzer {
 				pattern.responsively(event);
 				break;
 			case PERSISTENCE:
-				pattern.responsively(event);
+				pattern.persistence(event);
 				break;
 			case REACTIVITY:
 				pattern.reactivity(event, secondEvent);
@@ -239,6 +289,15 @@ public class DatasetAnalyzer {
 		for (Dataset dataset : datasets) {
 			if (dataset.getName().equals(name)) {
 				return dataset;
+			}
+		}
+		return null;
+	}
+
+	public Event getEventByName(String name) {
+		for (Event event : events) {
+			if (event.getName().equals(name)) {
+				return event;
 			}
 		}
 		return null;

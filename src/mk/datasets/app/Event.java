@@ -170,6 +170,7 @@ public class Event {
 				replace("   ","  ").replace("  "," ").replace("(","").replace(")","");
 		String[] primitiveNames = nakedExpressionWithNegation.split(" ");
 
+		//TODO coś dużo tych Prymitytów wrzuca do listy, występują duplikaty
 		List<Primitive> activePrimitives = new ArrayList<>();
 		for (Primitive primitive: primitives) {
 			for (int i = 0; i<primitiveNames.length; i++) {
@@ -184,18 +185,20 @@ public class Event {
 			}
 		}
 
-	//TODO Dokończyć metodę !!!
+		//TODO Dokończyć metodę !!!
 		//TODO TYMCZASOWO
-		int firstIndex = expression.indexOf(activePrimitives.get(0).getName());
-		int secondIndex = expression.indexOf(activePrimitives.get(1).getName());
-
-		switch (expression.substring(secondIndex-2, secondIndex)) {
-			case "||":
-				this.dates = Finder.getRecordsDates(activePrimitives.get(0), Event.Mark.OR, activePrimitives.get(1));
-				break;
-			case "&&":
-				this.dates = Finder.getRecordsDates(activePrimitives.get(0), Event.Mark.AND, activePrimitives.get(1));
-				break;
+		if (primitiveNames.length>1) {
+			int secondPrimitiveIndex = expression.indexOf(activePrimitives.get(1).getName());
+			switch (expression.substring(secondPrimitiveIndex-2, secondPrimitiveIndex)) {
+				case "||":
+					this.dates = Finder.getRecordsDates(activePrimitives.get(0), Event.Mark.OR, activePrimitives.get(1));
+					break;
+				case "&&":
+					this.dates = Finder.getRecordsDates(activePrimitives.get(0), Event.Mark.AND, activePrimitives.get(1));
+					break;
+			}
+		} else {
+			this.dates = activePrimitives.get(0).getDates();
 		}
 	}
 
