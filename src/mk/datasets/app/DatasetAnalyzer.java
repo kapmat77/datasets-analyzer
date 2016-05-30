@@ -1,5 +1,6 @@
 package mk.datasets.app;
 
+import java.io.File;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -14,18 +15,24 @@ public class DatasetAnalyzer {
 	private static List<Primitive> primitives = new ArrayList<>();
 	private static List<Event> events = new ArrayList<>();
 
+	private static int counter = 0;
+
 	public DatasetAnalyzer() {}
 
-	public void testAnalyzer() {
-		testAddDatasets();
-		testAddPrimitives();
-		testAddEvents();
+	public List<Dataset> getDatasets() {
+		return datasets;
+	}
 
-		testPattern();
+	public void testAnalyzer() {
+//		testAddDatasets();
+//		testAddPrimitives();
+//		testAddEvents();
+
+//		testPattern();
 
 	}
 
-	private void testPattern() {
+	public void testPattern() {
 		Event event = events.get(0);
 		Event secondEvent = events.get(1);
 		Pattern.Name patternName = Pattern.Name.ABSENCE;
@@ -39,8 +46,8 @@ public class DatasetAnalyzer {
 			case INVARIANCE:
 				pattern.invariance(event);
 				break;
-			case EXISTANCE:
-				pattern.existance(event);
+			case EXISTENCE:
+				pattern.existence(event);
 				break;
 			case RESPONSE:
 				pattern.response(event, secondEvent);
@@ -59,7 +66,70 @@ public class DatasetAnalyzer {
 		}
 	}
 
-	private void testAddDatasets() {
+	public String addDataset(File file) {
+		int lastBackslash = file.getAbsolutePath().lastIndexOf('\\');
+		String datasetName = file.getAbsolutePath().substring(lastBackslash+1);
+		if (getDatasetByName(datasetName)==null) {
+			counter++;
+			Dataset dataset = new Dataset(counter, datasetName, file.getAbsolutePath());
+			datasets.add(dataset);
+		} else {
+			return "Zbiór danych został załadowany już wcześniej!";
+		}
+
+		//Sort datasets - first contains the oldest data
+		Collections.sort(datasets, (dataset1, dataset2) -> dataset1.getOldestDate().compareTo(dataset2.getOldestDate()));
+
+		assignTimeIdToRecords(0);
+		return "Zbiór danych został wczytany poprawnie.";
+	}
+
+	public String addPrimitives(String inputPrimitives) {
+		if (!inputPrimitives.isEmpty()) {
+			String[] primitivesTable = inputPrimitives.split("\\n");
+
+			//Covnert primitives
+			List<Primitive> primitiveList = new ArrayList<>();
+			for (int i = 0; i < primitivesTable.length; i++) {
+				Primitive primitive = Primitive.convertStringToPrimitive(primitivesTable[i]);
+				primitive.findRecords(getDatasetById(primitive.getDatasetId()));
+				primitive.toString();
+				primitiveList.add(primitive);
+			}
+
+			//Find duplicates
+			if (Primitive.duplicatesExist(primitiveList)) {
+				return "ERROR - wykryto duplikaty(Prymitywy). Usuń je i spróbuj ponownie.";
+			}
+			primitives.addAll(primitiveList);
+			return "Prymitywy zostały wczytane poprawnie.";
+		}
+		return "ERROR - zdefiniuj prymitywy!";
+	}
+
+	public String addEvents(String inputEvents) {
+		if (!inputEvents.isEmpty()) {
+			String[] eventsTable = inputEvents.split("\\n");
+
+			//Covnert events
+			List<Event> eventList = new ArrayList<>();
+			for (int i = 0; i < eventsTable.length; i++) {
+				Event event = Event.convertStringToEvent(eventsTable[i]);
+				event.findDates(datasets, primitives);
+				eventList.add(event);
+			}
+
+			//Find duplicates
+			if (Event.duplicatesExist(eventList)) {
+				return "ERROR - wykryto duplikaty(Eventy). Usuń je i spróbuj ponownie.";
+			}
+			events.addAll(eventList);
+			return "Eventy zostały wczytane poprawnie.";
+		}
+		return "ERROR - zdefiniuj eventy!";
+	}
+
+	public void testAddDatasets() {
 		//Add datasets
 		String path1 = "src/resources/eurofxref-hist.csv";
 		String path2 = "src/resources/various-bitcoin-currency-statist.csv";
@@ -75,7 +145,7 @@ public class DatasetAnalyzer {
 		assignTimeIdToRecords(0);
 	}
 
-	private void testAddPrimitives() {
+	public void testAddPrimitives() {
 		//Add primitives
 		List<String> inputStringPrimitiveList = new ArrayList<>();
 		inputStringPrimitiveList.add("P1:1.USD>1.13");
@@ -99,7 +169,7 @@ public class DatasetAnalyzer {
 		primitives.addAll(primitiveList);
 	}
 
-	private void testAddEvents() {
+	public void testAddEvents() {
 		//Add events
 		List<String> inputStringEventList = new ArrayList<>();
 		inputStringEventList.add("E1:P1 && P2");
@@ -120,9 +190,6 @@ public class DatasetAnalyzer {
 		}
 
 		events.addAll(eventList);
-
-//        System.out.println(Event.getOpearionList("P5 && (P1 || (!P2 && P3) && (P7 || P10)) && P4 || (P11 && P12)"));
-//        System.out.println(Event.getOperionList("(P1 || !P2) && P3"));
 	}
 
 	private void assignTimeIdToRecords(int daysDisplacement) {
@@ -148,6 +215,15 @@ public class DatasetAnalyzer {
 	public static Dataset getDatasetById(int id) {
 		for (Dataset dataset : datasets) {
 			if (dataset.getId() == id) {
+				return dataset;
+			}
+		}
+		return null;
+	}
+
+	public Dataset getDatasetByName(String name) {
+		for (Dataset dataset : datasets) {
+			if (dataset.getName().equals(name)) {
 				return dataset;
 			}
 		}

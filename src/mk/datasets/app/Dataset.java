@@ -112,4 +112,25 @@ public class Dataset {
 				"\nAttributes: " + this.attributes.size() +
 				"\nRecords: " +this.records.size();
 	}
+
+	public String toStringWithAttrubites() {
+		String allAtributes = "";
+		for (String attribute: attributes) {
+			if (!attribute.equalsIgnoreCase("data")) {
+				if (allAtributes.equals("")) {
+					allAtributes = attribute;
+				} else {
+					allAtributes = allAtributes +  ", " + attribute;
+				}
+			}
+		}
+		return 	"\nId: " + this.id +
+				"\nName: " + this.name +
+				"\nDate: " + this.getOldestDate() + " - " + this.getNewestDate() +
+				"\nRecords: " +this.records.size() +
+				"\nAttributes(" + this.attributes.size() +
+				"): " + allAtributes;
+
+
+	}
 }

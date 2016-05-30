@@ -13,7 +13,7 @@ public class Pattern {
 	enum Name {
 		ABSENCE,
 		INVARIANCE,
-		EXISTANCE,
+		EXISTENCE,
 		RESPONSE,
 		OBLIGATION,
 		RESPONSIVELY,
@@ -69,7 +69,7 @@ public class Pattern {
 		}
 	}
 
-	public void existance(Event event) {
+	public void existence(Event event) {
 		boolean patternDetected = false;
 		for (LocalDate date: event.getDates()) {
 			if ((date.isAfter(startDate) && date.isBefore(endDate)) || date.isEqual(startDate) || date.isEqual(endDate)) {
@@ -78,9 +78,9 @@ public class Pattern {
 			}
 		}
 		if (patternDetected) {
-			System.out.println("Wzorzec " + Name.ABSENCE.name() + " jest spełniony w okresie: " + startDate.toString() + " - " + endDate.toString());
+			System.out.println("Wzorzec " + Name.EXISTENCE.name() + " jest spełniony w okresie: " + startDate.toString() + " - " + endDate.toString());
 		} else {
-			System.out.println("Wzorzec " + Name.ABSENCE.name() + " nie jest spełniony w okresie: " + startDate.toString() + " - " + endDate.toString());
+			System.out.println("Wzorzec " + Name.EXISTENCE.name() + " nie jest spełniony w okresie: " + startDate.toString() + " - " + endDate.toString());
 		}
 	}
 
