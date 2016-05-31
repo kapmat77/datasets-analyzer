@@ -1,6 +1,6 @@
 package mk.datasets.app;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.*;
 
 /**
@@ -13,7 +13,7 @@ public class Event {
 	private final int id;
 	private String name;
 	private String expression;
-	private List<LocalDate> dates = new ArrayList<>();
+	private List<LocalDateTime> dates = new ArrayList<>();
 
 	enum Mark {
 		NOT,
@@ -59,11 +59,11 @@ public class Event {
 		this.name = name;
 	}
 
-	public List<LocalDate> getDates() {
+	public List<LocalDateTime> getDates() {
 		return dates;
 	}
 
-	public void setDates(List<LocalDate> dates) {
+	public void setDates(List<LocalDateTime> dates) {
 		this.dates = dates;
 	}
 
@@ -163,7 +163,7 @@ public class Event {
 	}
 
 	public void findDates(List<Dataset> datasets, List<Primitive> primitives) {
-//		List<LocalDate> dates = new ArrayList<>();
+//		List<LocalDateTime> dates = new ArrayList<>();
 
 		//TODO sprawdzić czy to faktycznie działa !!!
 		String nakedExpressionWithNegation = expression.replace("&"," ").replace("|", " ").
@@ -208,7 +208,7 @@ public class Event {
 
 	public String showDates() {
 		String output = "\n\tDate:";
-		for (LocalDate date: this.getDates()) {
+		for (LocalDateTime date: this.getDates()) {
 			output = output + "\n\t" + date.toString();
 		}
 		return output + "\n";

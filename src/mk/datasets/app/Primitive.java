@@ -1,6 +1,6 @@
 package mk.datasets.app;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -233,10 +233,10 @@ public class Primitive {
 		}
 	}
 
-	public List<LocalDate> getDates() {
-		List<LocalDate> dates = new ArrayList<>();
+	public List<LocalDateTime> getDates() {
+		List<LocalDateTime> dates = new ArrayList<>();
 		for (Record record: records) {
-			dates.add(record.getLocalDate());
+			dates.add(record.getLocalDateTime());
 		}
 		return dates;
 	}
@@ -281,7 +281,7 @@ public class Primitive {
 
 	public String showDates() {
 		String output = "\n\tDate:";
-		for (LocalDate date: this.getDates()) {
+		for (LocalDateTime date: this.getDates()) {
 			output = output + "\n\t" + date.toString();
 		}
 		return output + "\n\n";

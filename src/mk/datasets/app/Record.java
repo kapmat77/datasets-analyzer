@@ -1,6 +1,8 @@
 package mk.datasets.app;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -14,18 +16,18 @@ public class Record implements Comparable{
 	private int id;
 	private int timeId;
 	private Map<String, String> parameters = new HashMap<>();
-	private LocalDate localDate;
+	private LocalDateTime localDateTime;
 
 	public Record() {
 		this.id = 0;
 		this.timeId = 0;
-		this.localDate = LocalDate.of(1,1,1);
+		this.localDateTime = LocalDateTime.of(1,1,1,0,0);
 	}
 
 	public Record(int id) {
 		this.id = id;
 		this.timeId = 0;
-		this.localDate = LocalDate.of(1,1,1);
+		this.localDateTime = LocalDateTime.of(1,1,1,0,0);
 	}
 
 	public int getId() {
@@ -44,12 +46,16 @@ public class Record implements Comparable{
 		this.timeId = timeId;
 	}
 
-	public LocalDate getLocalDate() {
-		return localDate;
+	public LocalDateTime getLocalDateTime() {
+		return localDateTime;
 	}
 
-	public void setLocalDate(LocalDate localDate) {
-		this.localDate = localDate;
+	public void setLocalDateTime(LocalDateTime localDateTime) {
+		this.localDateTime = localDateTime;
+	}
+
+	public void setLocalDateTime(LocalDate localDate, LocalTime localTime) {
+		this.localDateTime = LocalDateTime.of(localDate, localTime);
 	}
 
 	public Map<String, String> getParameters() {
@@ -67,9 +73,9 @@ public class Record implements Comparable{
 	//Compare dates
 	@Override
 	public int compareTo(Object o) {
-		if (this.localDate.isAfter(((Record)o).getLocalDate())) {
+		if (this.localDateTime.isAfter(((Record)o).getLocalDateTime())) {
 			return 1;
-		} else if (this.localDate.isEqual(((Record)o).getLocalDate())) {
+		} else if (this.localDateTime.isEqual(((Record)o).getLocalDateTime())) {
 			return 0;
 		} else {
 			return -1;

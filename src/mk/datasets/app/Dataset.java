@@ -1,6 +1,6 @@
 package mk.datasets.app;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.*;
 
 /**
@@ -68,12 +68,12 @@ public class Dataset {
 		fileOperator.readDataFromFile(path, this);
 	}
 
-	public LocalDate getOldestDate() {
-		return Finder.findMinInArray(records).getLocalDate();
+	public LocalDateTime getOldestDate() {
+		return Finder.findMinInArray(records).getLocalDateTime();
 	}
 
-	public LocalDate getNewestDate() {
-		return Finder.findMaxInArray(records).getLocalDate();
+	public LocalDateTime getNewestDate() {
+		return Finder.findMaxInArray(records).getLocalDateTime();
 	}
 
 	public Record getRecordByTimeId(int timeId) {

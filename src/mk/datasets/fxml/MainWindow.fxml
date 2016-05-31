@@ -15,12 +15,13 @@
                                 <Menu mnemonicParsing="false" text="File">
                                     <items>
                                         <MenuItem fx:id="miLoadDataset" mnemonicParsing="false" onAction="#loadDatasetAction" text="Load" />
+                                        <MenuItem fx:id="miAbout" mnemonicParsing="false" onAction="#aboutAction" text="About" />
                                         <MenuItem fx:id="miExit" mnemonicParsing="false" onAction="#exitAction" text="Exit" />
                                     </items>
                                 </Menu>
                                 <Menu mnemonicParsing="false" text="Help">
                                     <items>
-                                        <MenuItem fx:id="miAbout" mnemonicParsing="false" onAction="#aboutAction" text="About" />
+                                        <MenuItem fx:id="miBssicInfo" mnemonicParsing="false" onAction="#infoAction" text="Basic information" />
                                     </items>
                                 </Menu>
                             </menus>

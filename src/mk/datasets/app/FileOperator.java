@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.*;
 
 /**
@@ -18,19 +20,15 @@ public class FileOperator {
 
 	public void readDataFromFile(String file, Dataset newDataset) {
 		dataset = newDataset;
-		Path path = Paths.get(file);
 		try {
-
-			//TODO zmienić przekazywanie Scannera na Stringa ze ścieżką
-			Scanner in = new Scanner(path);
 			if (file.endsWith(".csv")) {
-				readFromCsv(in);
+				readFromCsv(file);
 			} else if (file.endsWith(".txt")) {
-				readFromTxt(in);
+				readFromTxt(file);
 			} else if (file.endsWith(".json")) {
-				readFromJson(in);
+				readFromJson(file);
 			} else if (file.endsWith(".xls")) {
-				readFromXls(in);
+				readFromXls(file);
 			}
 		} catch (IOException e) {
 			System.out.println("Plik nie zostal wczytany poprawnie!");
@@ -46,7 +44,9 @@ public class FileOperator {
 		}
 	}
 
-	private void readFromCsv(Scanner in) {
+	private void readFromCsv(String file) throws IOException {
+		Path path = Paths.get(file);
+		Scanner in = new Scanner(path);
 		String line;
 		String[] parts;
 		line = in.nextLine();
@@ -65,7 +65,7 @@ public class FileOperator {
 				for (int i = 0; i<parts.length; i++) {
 					if (attributes.get(i).equalsIgnoreCase("date")) {
 						String[] dateParts = parts[i].replace("\"","").split("-");
-						record.setLocalDate(LocalDate.of(Integer.valueOf(dateParts[0]), Integer.valueOf(dateParts[1]), Integer.valueOf(dateParts[2])));
+						record.setLocalDateTime(LocalDate.of(Integer.valueOf(dateParts[0]), Integer.valueOf(dateParts[1]), Integer.valueOf(dateParts[2])), LocalTime.of(0,0));
 					} else {
 						record.addParameter(attributes.get(i), parts[i]);
 					}
@@ -76,22 +76,22 @@ public class FileOperator {
 			}
 		}
 		//Sort record - from oldest data to newest data
-		Collections.sort(records, (record1, record2) -> record1.getLocalDate().compareTo(record2.getLocalDate()));
+		Collections.sort(records, (record1, record2) -> record1.getLocalDateTime().compareTo(record2.getLocalDateTime()));
 	}
 
-	private void readFromTxt(Scanner in) {
+	private void readFromTxt(String file) {
 		String line;
 		String[] parts;
 
 	}
 
-	private void readFromXls(Scanner in) {
+	private void readFromXls(String file) {
 		String line;
 		String[] parts;
 
 	}
 
-	private void readFromJson(Scanner in) {
+	private void readFromJson(String file) {
 		String line;
 		String[] parts;
 

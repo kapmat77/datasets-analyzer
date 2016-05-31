@@ -1,7 +1,7 @@
 package mk.datasets.app;
 
 import java.io.File;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -37,7 +37,7 @@ public class DatasetAnalyzer {
 		events.clear();
 	}
 
-	public String activePattern(Pattern.Name patternName, String inputE, LocalDate startDate, LocalDate endDate) {
+	public String activePattern(Pattern.Name patternName, String inputE, LocalDateTime startDate, LocalDateTime endDate) {
 		String[] inputEvents = inputE.replace(" ","").split(",");
 
 		Event event, secondEvent;
@@ -96,39 +96,39 @@ public class DatasetAnalyzer {
 		return outputMsg;
 	}
 
-	public void testPattern() {
-		Event event = events.get(0);
-		Event secondEvent = events.get(1);
-		Pattern.Name patternName = Pattern.Name.ABSENCE;
-		Pattern pattern = new Pattern();
-		pattern.setStartDate(LocalDate.of(1970,1,1));
-		pattern.setEndDate(LocalDate.of(2016,12,31));
-		switch (patternName) {
-			case ABSENCE:
-				pattern.absence(event);
-				break;
-			case INVARIANCE:
-				pattern.invariance(event);
-				break;
-			case EXISTENCE:
-				pattern.existence(event);
-				break;
-			case RESPONSE:
-				pattern.response(event, secondEvent);
-				break;
-			case OBLIGATION:
-				pattern.obligation(event, secondEvent);
-				break;
-			case RESPONSIVELY:
-				pattern.responsively(event);
-				break;
-			case PERSISTENCE:
-				pattern.persistence(event);
-				break;
-			case REACTIVITY:
-				pattern.reactivity(event, secondEvent);
-		}
-	}
+//	public void testPattern() {
+//		Event event = events.get(0);
+//		Event secondEvent = events.get(1);
+//		Pattern.Name patternName = Pattern.Name.ABSENCE;
+//		Pattern pattern = new Pattern();
+//		pattern.setStartDate(LocalDateTime.of(1970,1,1));
+//		pattern.setEndDate(LocalDateTime.of(2016,12,31));
+//		switch (patternName) {
+//			case ABSENCE:
+//				pattern.absence(event);
+//				break;
+//			case INVARIANCE:
+//				pattern.invariance(event);
+//				break;
+//			case EXISTENCE:
+//				pattern.existence(event);
+//				break;
+//			case RESPONSE:
+//				pattern.response(event, secondEvent);
+//				break;
+//			case OBLIGATION:
+//				pattern.obligation(event, secondEvent);
+//				break;
+//			case RESPONSIVELY:
+//				pattern.responsively(event);
+//				break;
+//			case PERSISTENCE:
+//				pattern.persistence(event);
+//				break;
+//			case REACTIVITY:
+//				pattern.reactivity(event, secondEvent);
+//		}
+//	}
 
 	public String addDataset(File file) {
 		int lastBackslash = file.getAbsolutePath().lastIndexOf('\\');
@@ -274,7 +274,7 @@ public class DatasetAnalyzer {
 			if (!firstDataset.equals(secondDataset)) {
 				for (Record firstRecord: firstDataset.getRecords()) {
 					for (Record secondRecord: secondDataset.getRecords()) {
-						if (firstRecord.getLocalDate().equals(secondRecord.getLocalDate()) &&
+						if (firstRecord.getLocalDateTime().equals(secondRecord.getLocalDateTime()) &&
 								firstRecord.getTimeId()==0 && secondRecord.getTimeId()==0) {
 							timeId++;
 							firstRecord.setTimeId(timeId);
