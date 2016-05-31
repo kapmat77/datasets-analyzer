@@ -284,7 +284,7 @@ public class Primitive {
 		for (LocalDateTime date: this.getDates()) {
 			output = output + "\n\t" + date.toString();
 		}
-		return output + "\n\n";
+		return output + "\n";
 	}
 
 	public String toString() {

@@ -113,37 +113,43 @@ public class Event {
 			}
 		}
 
-		for (int i = startIndexes.get(0)+1; i<exp.length(); i++) {
-			if (exp.charAt(i)=='(') {
-				startIndexes.add(i);
-			}
-			if (exp.charAt(i)==')') {
-				for (int k = startIndexes.size()-1; k>=0; k--) {
-					if (!endIndexes.containsKey(startIndexes.get(k))) {
-						endIndexes.put(startIndexes.get(k),i);
-						break;
+		if (!startIndexes.isEmpty()) {
+			for (int i = startIndexes.get(0)+1; i<exp.length(); i++) {
+				if (exp.charAt(i)=='(') {
+					startIndexes.add(i);
+				}
+				if (exp.charAt(i)==')') {
+					for (int k = startIndexes.size()-1; k>=0; k--) {
+						if (!endIndexes.containsKey(startIndexes.get(k))) {
+							endIndexes.put(startIndexes.get(k),i);
+							break;
+						}
 					}
 				}
 			}
-		}
 
-		for (int k = 0; k<startIndexes.size(); k++) {
-			int currentKey = startIndexes.get(k);
-			int currentValue = endIndexes.get(currentKey);
-			boolean findAnother = false;
-			for (Map.Entry<Integer, Integer> entry: endIndexes.entrySet()) {
-				if (entry.getValue() < currentValue && !order.containsKey(entry.getKey())) {
-					findAnother = true;
-					break;
+			for (int k = 0; k<startIndexes.size(); k++) {
+				int currentKey = startIndexes.get(k);
+				int currentValue = endIndexes.get(currentKey);
+				boolean findAnother = false;
+				for (Map.Entry<Integer, Integer> entry: endIndexes.entrySet()) {
+					if (entry.getValue() < currentValue && !order.containsKey(entry.getKey())) {
+						findAnother = true;
+						break;
+					}
+				}
+				if (!findAnother) {
+					order.put(currentKey, endIndexes.get(currentKey));
+				}
+				if ((k+1) == startIndexes.size() && order.size() != startIndexes.size()) {
+					k = -1;
 				}
 			}
-			if (!findAnother) {
-				order.put(currentKey, endIndexes.get(currentKey));
-			}
-			if ((k+1) == startIndexes.size() && order.size() != startIndexes.size()) {
-				k = -1;
-			}
+		} else {
+			//TODO poprawić albo i nie
+			order.put(-1,exp.length());
 		}
+
 		return order;
 	}
 
@@ -163,27 +169,58 @@ public class Event {
 	}
 
 	public void findDates(List<Dataset> datasets, List<Primitive> primitives) {
-//		List<LocalDateTime> dates = new ArrayList<>();
-
-		//TODO sprawdzić czy to faktycznie działa !!!
 		String nakedExpressionWithNegation = expression.replace("&"," ").replace("|", " ").
 				replace("   ","  ").replace("  "," ").replace("(","").replace(")","");
 		String[] primitiveNames = nakedExpressionWithNegation.split(" ");
 
-		//TODO coś dużo tych Prymitytów wrzuca do listy, występują duplikaty
 		List<Primitive> activePrimitives = new ArrayList<>();
 		for (Primitive primitive: primitives) {
 			for (int i = 0; i<primitiveNames.length; i++) {
 				if (primitiveNames[i].contains(primitive.getName()) && primitiveNames[i].contains("!")) {
 					Primitive notPrimitive = Primitive.createNegation(primitive);
-					activePrimitives.add(notPrimitive);
-					break;
-				} else if (primitiveNames[i].contains(primitive.getName()) && !primitiveNames[i].contains("!")) {
+					if (!activePrimitives.contains(notPrimitive)) {
+						activePrimitives.add(notPrimitive);
+					}
+				} else if (primitiveNames[i].contains(primitive.getName()) && !primitiveNames[i].contains("!") && !activePrimitives.contains(primitive)) {
 					activePrimitives.add(primitive);
-					break;
 				}
 			}
 		}
+
+
+		List<String> operationList = getOperionList(expression);
+
+		List<Event> temporaryEventsList = new ArrayList<>();
+		for (int i = 0; i<operationList.size(); i++) {
+			Event temporaryEvent = new Event("TEMPORARY" + i, operationList.get(i));
+			temporaryEventsList.add(temporaryEvent);
+			for (int j = 0; j<temporaryEventsList.size(); j++) {
+				if (operationList.get(i).contains(temporaryEventsList.get(j).getExpression()) && operationList.get(i).length()!=temporaryEventsList.get(j).getExpression().length()) {
+					if (operationList.get(i).indexOf(temporaryEventsList.get(j).getExpression()) == 0) {
+						operationList.add(i, temporaryEvent.name);
+						operationList.remove(i+1);
+					} else {
+						char beforeExp = operationList.get(i).charAt(operationList.get(i).indexOf(temporaryEventsList.get(j).getExpression())-1);
+						if (beforeExp=='(') {
+							String newOperation = operationList.get(i).replace("(" + temporaryEventsList.get(j).getExpression(), "(" + temporaryEventsList.get(j).name);
+							if (newOperation.indexOf(temporaryEventsList.get(j).name) != 0 && newOperation.charAt(newOperation.indexOf(temporaryEventsList.get(j).name) + temporaryEventsList.get(j).name.length()) == ')') {
+								newOperation = operationList.get(i).replace("(" + temporaryEventsList.get(j).getExpression() + ")", temporaryEventsList.get(j).name);
+							}
+							operationList.remove(i);
+							operationList.add(i, newOperation);
+							Event secondEvent = new Event("TEMPORARY" + i+1, newOperation);
+							temporaryEventsList.remove(i);
+							temporaryEventsList.add(i, secondEvent);
+//							temporaryEventsList.remove(i);
+//							Event secondEvent = new Event("TEMPORARY" + j, operationList.get(i));
+//							temporaryEventsList.add(i, newOperation);
+						}
+					}
+				}
+			}
+		}
+
+		//TODO zamiana na 2 argumenty z nawiasów już gotowa !!
 
 		//TODO Dokończyć metodę !!!
 		//TODO TYMCZASOWO
