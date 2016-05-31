@@ -20,6 +20,8 @@ public class FileOperator {
 		dataset = newDataset;
 		Path path = Paths.get(file);
 		try {
+
+			//TODO zmienić przekazywanie Scannera na Stringa ze ścieżką
 			Scanner in = new Scanner(path);
 			if (file.endsWith(".csv")) {
 				readFromCsv(in);

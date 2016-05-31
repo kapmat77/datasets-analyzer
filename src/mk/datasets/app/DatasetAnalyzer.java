@@ -45,8 +45,16 @@ public class DatasetAnalyzer {
 		pattern.setStartDate(startDate);
 		pattern.setEndDate(endDate);
 
-		String outputMsg = "";
-
+		String outputMsg;
+		outputMsg = "\nPoszukiwanie wzorca " + patternName.name() +" dla eventów: ";
+		for (int i = 0; i<inputEvents.length; i++) {
+			outputMsg = outputMsg + inputEvents[i];
+			if (i==(inputEvents.length-1)) {
+				outputMsg = outputMsg + ".";
+			} else {
+				outputMsg = outputMsg + ", ";
+			}
+		}
 		for (int i = 0; i<inputEvents.length; i++) {
 			if (inputEvents[i].contains("->")) {
 				String[] dubleEvent = inputEvents[i].split("->");
@@ -58,28 +66,28 @@ public class DatasetAnalyzer {
 			}
 			switch (patternName) {
 				case ABSENCE:
-					outputMsg = outputMsg + pattern.absence(event);
+					outputMsg = outputMsg + "\n\t" + pattern.absence(event);
 					break;
 				case INVARIANCE:
-					outputMsg = outputMsg + pattern.invariance(event);
+					outputMsg = outputMsg + "\n\t" + pattern.invariance(event);
 					break;
 				case EXISTENCE:
-					outputMsg = outputMsg + pattern.existence(event);
+					outputMsg = outputMsg + "\n\t" + pattern.existence(event);
 					break;
 				case RESPONSE:
-					outputMsg = outputMsg + pattern.response(event, secondEvent);
+					outputMsg = outputMsg + "\n\t" + pattern.response(event, secondEvent);
 					break;
 				case OBLIGATION:
-					outputMsg = outputMsg + pattern.obligation(event, secondEvent);
+					outputMsg = outputMsg + "\n\t" + pattern.obligation(event, secondEvent);
 					break;
 				case RESPONSIVELY:
-					outputMsg = outputMsg + pattern.responsively(event);
+					outputMsg = outputMsg + "\n\t" + pattern.responsively(event);
 					break;
 				case PERSISTENCE:
-					outputMsg = outputMsg + pattern.persistence(event);
+					outputMsg = outputMsg + "\n\t" + pattern.persistence(event);
 					break;
 				case REACTIVITY:
-					outputMsg = outputMsg + pattern.reactivity(event, secondEvent);
+					outputMsg = outputMsg + "\n\t" + pattern.reactivity(event, secondEvent);
 					break;
 				default:
 					return "ERROR - zły wzorzec";
@@ -141,6 +149,7 @@ public class DatasetAnalyzer {
 	}
 
 	public String addPrimitives(String inputPrimitives) {
+		Primitive.resetCounter();
 		try {
 			if (!inputPrimitives.isEmpty()) {
 				String[] primitivesTable = inputPrimitives.split("\\n");
@@ -168,6 +177,7 @@ public class DatasetAnalyzer {
 	}
 
 	public String addEvents(String inputEvents) {
+		Event.resetCounter();
 		try {
 			if (!inputEvents.isEmpty()) {
 				String[] eventsTable = inputEvents.split("\\n");
@@ -301,5 +311,23 @@ public class DatasetAnalyzer {
 			}
 		}
 		return null;
+	}
+
+	public String showPrimitives() {
+		String output = "\n";
+		for (Primitive primitive: primitives) {
+			output = output + primitive.toString();
+			output = output + primitive.showDates();
+		}
+		return output;
+	}
+
+	public String showEvents() {
+		String output = "\n";
+		for (Event event: events) {
+			output = output + event.toString();
+			output = output + event.showDates();
+		}
+		return output;
 	}
 }

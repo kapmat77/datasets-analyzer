@@ -202,6 +202,18 @@ public class Event {
 		}
 	}
 
+	public static void resetCounter() {
+		counter=1;
+	}
+
+	public String showDates() {
+		String output = "\n\tDate:";
+		for (LocalDate date: this.getDates()) {
+			output = output + "\n\t" + date.toString();
+		}
+		return output + "\n";
+	}
+
 	public String toString() {
 		return "\nID: " + this.id +
 				"\nName: " + this.name +

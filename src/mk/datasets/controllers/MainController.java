@@ -86,6 +86,10 @@ public class MainController implements Initializable {
 	private Button buttonStart;
 	@FXML
 	private Button buttonMove;
+	@FXML
+	private Button buttonPrimitives;
+	@FXML
+	private Button buttonEvents;
 
 	//#################### DATA_PICKER ####################
 	@FXML
@@ -123,12 +127,12 @@ public class MainController implements Initializable {
 		} else if (dateIsSetCorrectly()){
 			taOutput.appendText("\n\n#################### START ####################");
 			taOutput.appendText("\n" + "Wyszukiwanie wzorców dla okresu od " + dpStartDate.getValue() + " do " + dpEndDate.getValue());
-			String primitivesCom = datasetAnalyzer.addPrimitives(taInputPrimitives.getText());
-			taOutput.appendText("\n" + primitivesCom);
-			if (!primitivesCom.contains("ERROR")) {
-				String eventsCom = datasetAnalyzer.addEvents(taInputEvents.getText());
-				taOutput.appendText("\n" + eventsCom);
-				if (!eventsCom.contains("ERROR")) {
+			String primitivesComment = datasetAnalyzer.addPrimitives(taInputPrimitives.getText());
+			taOutput.appendText("\n" + primitivesComment);
+			if (!primitivesComment.contains("ERROR")) {
+				String eventsComment = datasetAnalyzer.addEvents(taInputEvents.getText());
+				taOutput.appendText("\n" + eventsComment);
+				if (!eventsComment.contains("ERROR")) {
 					checkAndActivePatterns();
 				} else {
 					taOutput.appendText("\n\n" + "ERROR");
@@ -216,6 +220,7 @@ public class MainController implements Initializable {
 	private void initializeComponents() {
 		disableAllPatternTextFields();
 		buttonStart.setDisable(true);
+
 		taOutput.setWrapText(true);
 		taInputPrimitives.setWrapText(true);
 		taInputPrimitives.setStyle("" + "-fx-font-size: 13px;");
@@ -406,5 +411,39 @@ public class MainController implements Initializable {
 
 	@FXML
 	public void moveAction(ActionEvent event) {
+	}
+
+	@FXML
+	public void showDatasets(ActionEvent event) {
+		datasetAnalyzer.resetLists();
+		taOutput.appendText("\n\n#################### DATASETS ####################");
+		for (Dataset dataset: datasetAnalyzer.getDatasets()) {
+			taOutput.appendText(dataset.toStringWithAttrubites() + "\n");
+		}
+		taOutput.appendText("##################### END #####################");
+	}
+
+	@FXML
+	public void showPrimitives(ActionEvent event) {
+		datasetAnalyzer.resetLists();
+		taOutput.appendText("\n\n#################### PRYMITYWY ####################");
+		String primitivesComment = datasetAnalyzer.addPrimitives(taInputPrimitives.getText());
+		taOutput.appendText("\n" + primitivesComment);
+		taOutput.appendText(datasetAnalyzer.showPrimitives());
+		taOutput.appendText("##################### END #####################");
+	}
+
+	@FXML
+	public void showEvents(ActionEvent event) {
+		datasetAnalyzer.resetLists();
+		taOutput.appendText("\n\n#################### EVENTY ####################");
+		String primitivesComment = datasetAnalyzer.addPrimitives(taInputPrimitives.getText());
+		taOutput.appendText("\n" + primitivesComment);
+		if (!primitivesComment.contains("ERROR")) {
+			String eventsComment = datasetAnalyzer.addEvents(taInputEvents.getText());
+			taOutput.appendText("\n" + eventsComment);
+		}
+		taOutput.appendText(datasetAnalyzer.showEvents());
+		taOutput.appendText("##################### END #####################");
 	}
 }

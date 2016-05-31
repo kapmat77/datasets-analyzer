@@ -275,12 +275,24 @@ public class Primitive {
 		return notPrimitive;
 	}
 
+	public static void resetCounter() {
+		counter = 1;
+	}
+
+	public String showDates() {
+		String output = "\n\tDate:";
+		for (LocalDate date: this.getDates()) {
+			output = output + "\n\t" + date.toString();
+		}
+		return output + "\n\n";
+	}
+
 	public String toString() {
-		return "ID: " + this.id +
+		return "\nID: " + this.id +
 				"\nName: " + this.name +
 				"\nDatasetID: " + this.datasetId +
 				"\nAttribute: " + this.attribute +
-				"\n Mark: " + this.mark.name() +
-				"\n Value: " + this.value;
+				"\nMark: " + this.mark.name() +
+				"\nValue: " + this.value;
 	}
 }
