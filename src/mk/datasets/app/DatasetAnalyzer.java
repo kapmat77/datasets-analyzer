@@ -103,27 +103,56 @@ public class DatasetAnalyzer {
 
 		//Sort datasets - first contains the oldest data
 		Collections.sort(datasets, (dataset1, dataset2) -> dataset1.getOldestDate().compareTo(dataset2.getOldestDate()));
-
 		assignTimeIdToRecords(0);
+
+		//Convert data if datasets have different date format
+		convertDatasetsToOneDateFormat();
+
 		return "Zbiór danych został wczytany poprawnie.";
 	}
 
-	private void setOldestAndNewestDate() {
+	private void convertDatasetsToOneDateFormat() {
+		FileOperator.DateSmallestPart smallestPart = smallestDateFormat();
+
+		//INTERPOLACJA
+//		for (Dataset dataset: datasets) {
+//			if (!dataset.getMeasurement().equalsIgnoreCase(smallestPart.name())) {
+//
+//			}
+//		}
+
+	}
+
+	private FileOperator.DateSmallestPart smallestDateFormat() {
 		boolean start = true;
+		FileOperator.DateSmallestPart dateSmallestPart = FileOperator.DateSmallestPart.DAY;
+		FileOperator.DateSmallestPart dateFormat;
 		for (Dataset dataset: datasets) {
+			switch (dataset.getMeasurement()) {
+				case "SECOND":
+					dateFormat = FileOperator.DateSmallestPart.SECOND;
+					break;
+				case "MINUTE":
+					dateFormat = FileOperator.DateSmallestPart.MINUTE;
+					break;
+				case "HOUR":
+					dateFormat = FileOperator.DateSmallestPart.HOUR;
+					break;
+				case "DAY":
+					dateFormat = FileOperator.DateSmallestPart.DAY;
+					break;
+				default:
+					dateFormat = FileOperator.DateSmallestPart.DAY;
+					break;
+			}
 			if (start) {
-				oldestDate = dataset.getOldestDate();
-				newestDate = dataset.getNewestDate();
+				dateSmallestPart = dateFormat;
 				start = false;
-			} else {
-				if (dataset.getNewestDate().isAfter(newestDate)) {
-					newestDate = dataset.getNewestDate();
-				}
-				if (dataset.getOldestDate().isBefore(oldestDate)) {
-					oldestDate = dataset.getOldestDate();
-				}
+			} else if (dateSmallestPart.isBiggerThan(dateFormat)) {
+				dateSmallestPart = dateFormat;
 			}
 		}
+		return dateSmallestPart;
 	}
 
 	public String addPrimitives(String inputPrimitives) {
@@ -196,6 +225,24 @@ public class DatasetAnalyzer {
 							secondRecord.setTimeId(timeId);
 						}
 					}
+				}
+			}
+		}
+	}
+
+	private void setOldestAndNewestDate() {
+		boolean start = true;
+		for (Dataset dataset: datasets) {
+			if (start) {
+				oldestDate = dataset.getOldestDate();
+				newestDate = dataset.getNewestDate();
+				start = false;
+			} else {
+				if (dataset.getNewestDate().isAfter(newestDate)) {
+					newestDate = dataset.getNewestDate();
+				}
+				if (dataset.getOldestDate().isBefore(oldestDate)) {
+					oldestDate = dataset.getOldestDate();
 				}
 			}
 		}

@@ -35,6 +35,41 @@ public class FileOperator {
 		FULL_DATE_ONE_COLUMN
 	}
 
+	enum DateSmallestPart {
+		SECOND,
+		MINUTE,
+		HOUR,
+		DAY;
+
+		public boolean isBiggerThan(DateSmallestPart dateFormat) {
+			switch (this) {
+				case SECOND:
+					return false;
+				case MINUTE:
+					if (dateFormat.name().equalsIgnoreCase("Second")) {
+						return true;
+					} else {
+						return false;
+					}
+				case HOUR:
+					if (dateFormat.name().equalsIgnoreCase("Second") || dateFormat.name().equalsIgnoreCase("Minute")) {
+						return true;
+					} else {
+						return false;
+					}
+				case DAY:
+					if (dateFormat.name().equalsIgnoreCase("Second") || dateFormat.name().equalsIgnoreCase("Minute") ||
+							dateFormat.name().equalsIgnoreCase("Hour")) {
+						return true;
+					} else {
+						return false;
+					}
+				default:
+					return false;
+			}
+		}
+	}
+
 	public void setDateFormat(DateFormat dateFormat) {
 		this.dateFormat = dateFormat;
 	}
@@ -42,15 +77,15 @@ public class FileOperator {
 	public String getDateFormat() {
 		switch (dateFormat) {
 			case DATE:
-				return "Day";
+				return DateSmallestPart.DAY.name();
 			case TIME:
-				return "Hour";
+				return DateSmallestPart.HOUR.name();
 			case DATE_AND_TIME:
-				return "Hour";
+				return DateSmallestPart.HOUR.name();
 			case FULL_DATE_ONE_COLUMN:
-				return "Hour";
+				return DateSmallestPart.HOUR.name();
 			default:
-				return "Day";
+				return DateSmallestPart.DAY.name();
 		}
 	}
 

@@ -142,7 +142,5 @@ public class Dataset {
 				"\nRecords: " +this.records.size() +
 				"\nAttributes(" + this.attributes.size() +
 				"): " + allAtributes;
-
-
 	}
 }

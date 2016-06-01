@@ -190,8 +190,12 @@ public class Event implements InputText{
 			}
 		}
 
-
-		List<String> operationList = getOperionList(expression);
+		List<String> operationList;
+		if (expression.substring(1,expression.length()).contains("(")) {
+			operationList = getOperionList(expression);
+		} else {
+			operationList = getOperionList(expression.replace("(","").replace(")",""));
+		}
 
 		List<Event> temporaryEventsList = new ArrayList<>();
 		for (int i = 0; i<operationList.size(); i++) {
@@ -220,33 +224,22 @@ public class Event implements InputText{
 			}
 		}
 
-		//Ustawić daty dla TEMPORARY eventów
-		for (Event event: temporaryEventsList) {
-//			if (!event.getExpression().contains(TEMPORARY)) {
-//				event.setDates(Finder.getRecordsDates(expression, activePrimitives));
-//				event.setDates(Finder.getRecordsDates(event.getExpression(), activePrimitives));
-//				this.dates = event.getDates();
-				this.dates = Finder.getRecordsDates(event.getExpression(), activePrimitives);
-				activePrimitives.add(new Primitive(event.getName(),this.dates));
+		for (int i = 0; i<temporaryEventsList.size(); i++) {
+				this.dates = Finder.getRecordsDates(temporaryEventsList.get(i).getExpression(), activePrimitives);
+				activePrimitives.add(new Primitive(temporaryEventsList.get(i).getName(),this.dates));
 		}
+		if (primitiveNames.length==1) {
+			this.dates = gerPrimitiveByName(temporaryEventsList.get(0).getExpression(), activePrimitives).getDates();
+		}
+	}
 
-		//TODO zamiana na 2 argumenty z nawiasów już gotowa !!
-
-		//TODO Dokończyć metodę !!!
-		//TODO TYMCZASOWO
-//		if (primitiveNames.length>1) {
-//			int secondPrimitiveIndex = expression.indexOf(activePrimitives.get(1).getName());
-//			switch (expression.substring(secondPrimitiveIndex-2, secondPrimitiveIndex)) {
-//				case "||":
-//					this.dates = Finder.getRecordsDates(activePrimitives.get(0), Event.Mark.OR, activePrimitives.get(1));
-//					break;
-//				case "&&":
-//					this.dates = Finder.getRecordsDates(activePrimitives.get(0), Event.Mark.AND, activePrimitives.get(1));
-//					break;
-//			}
-//		} else {
-//			this.dates = activePrimitives.get(0).getDates();
-//		}
+	public Primitive gerPrimitiveByName(String name, List<Primitive> primitiveList) {
+		for (Primitive primitive: primitiveList) {
+			if (primitive.getName().equalsIgnoreCase(name)) {
+				return primitive;
+			}
+		}
+		return null;
 	}
 
 	public static void resetCounter() {
