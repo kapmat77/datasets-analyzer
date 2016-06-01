@@ -1,14 +1,17 @@
 package mk.datasets.app;
 
+import mk.datasets.interfaces.InputText;
+
 import java.time.LocalDateTime;
 import java.util.*;
 
 /**
  * Created by Kapmat on 2016-05-28.
  */
-public class Event {
+public class Event implements InputText{
 
 	private static int counter = 1;
+	private static final String TEMPORARY = "TEMPORARY";
 
 	private final int id;
 	private String name;
@@ -192,7 +195,7 @@ public class Event {
 
 		List<Event> temporaryEventsList = new ArrayList<>();
 		for (int i = 0; i<operationList.size(); i++) {
-			Event temporaryEvent = new Event("TEMPORARY" + i, operationList.get(i));
+			Event temporaryEvent = new Event(TEMPORARY + i, operationList.get(i));
 			temporaryEventsList.add(temporaryEvent);
 			for (int j = 0; j<temporaryEventsList.size(); j++) {
 				if (operationList.get(i).contains(temporaryEventsList.get(j).getExpression()) && operationList.get(i).length()!=temporaryEventsList.get(j).getExpression().length()) {
@@ -208,7 +211,7 @@ public class Event {
 							}
 							operationList.remove(i);
 							operationList.add(i, newOperation);
-							Event secondEvent = new Event("TEMPORARY" + i+1, newOperation);
+							Event secondEvent = new Event(TEMPORARY + i+1, newOperation);
 							temporaryEventsList.remove(i);
 							temporaryEventsList.add(i, secondEvent);
 						}
@@ -217,23 +220,33 @@ public class Event {
 			}
 		}
 
+		//Ustawić daty dla TEMPORARY eventów
+		for (Event event: temporaryEventsList) {
+//			if (!event.getExpression().contains(TEMPORARY)) {
+//				event.setDates(Finder.getRecordsDates(expression, activePrimitives));
+//				event.setDates(Finder.getRecordsDates(event.getExpression(), activePrimitives));
+//				this.dates = event.getDates();
+				this.dates = Finder.getRecordsDates(event.getExpression(), activePrimitives);
+				activePrimitives.add(new Primitive(event.getName(),this.dates));
+		}
+
 		//TODO zamiana na 2 argumenty z nawiasów już gotowa !!
 
 		//TODO Dokończyć metodę !!!
 		//TODO TYMCZASOWO
-		if (primitiveNames.length>1) {
-			int secondPrimitiveIndex = expression.indexOf(activePrimitives.get(1).getName());
-			switch (expression.substring(secondPrimitiveIndex-2, secondPrimitiveIndex)) {
-				case "||":
-					this.dates = Finder.getRecordsDates(activePrimitives.get(0), Event.Mark.OR, activePrimitives.get(1));
-					break;
-				case "&&":
-					this.dates = Finder.getRecordsDates(activePrimitives.get(0), Event.Mark.AND, activePrimitives.get(1));
-					break;
-			}
-		} else {
-			this.dates = activePrimitives.get(0).getDates();
-		}
+//		if (primitiveNames.length>1) {
+//			int secondPrimitiveIndex = expression.indexOf(activePrimitives.get(1).getName());
+//			switch (expression.substring(secondPrimitiveIndex-2, secondPrimitiveIndex)) {
+//				case "||":
+//					this.dates = Finder.getRecordsDates(activePrimitives.get(0), Event.Mark.OR, activePrimitives.get(1));
+//					break;
+//				case "&&":
+//					this.dates = Finder.getRecordsDates(activePrimitives.get(0), Event.Mark.AND, activePrimitives.get(1));
+//					break;
+//			}
+//		} else {
+//			this.dates = activePrimitives.get(0).getDates();
+//		}
 	}
 
 	public static void resetCounter() {

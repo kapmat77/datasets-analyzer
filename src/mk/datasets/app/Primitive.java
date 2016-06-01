@@ -1,5 +1,8 @@
 package mk.datasets.app;
 
+import mk.datasets.interfaces.InputText;
+
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -7,8 +10,7 @@ import java.util.List;
 /**
  * Created by Kapmat on 2016-05-28.
  */
-public class Primitive {
-
+public class Primitive implements InputText {
 	private static int counter = 1;
 
 	private final int id;
@@ -18,6 +20,7 @@ public class Primitive {
 	private Mark mark;
 	private Double value;
 	private List<Record> records = new ArrayList<>();
+	private List<LocalDateTime> datesLocal = new ArrayList<>();
 
 	enum Mark {
 		EQUAL,
@@ -36,6 +39,16 @@ public class Primitive {
 		this.attribute = null;
 		this.mark = null;
 		this.value = null;
+	}
+
+	public Primitive(String name, List<LocalDateTime> datesLocal) {
+		this.id = counter++;
+		this.name = name;
+		this.datasetId = 0;
+		this.attribute = "";
+		this.mark = Mark.NONE;
+		this.value = 0.0;
+		this.datesLocal = datesLocal;
 	}
 
 	public Primitive(String name, int databaseId, String attribute, Mark mark, Double value) {
@@ -235,10 +248,19 @@ public class Primitive {
 
 	public List<LocalDateTime> getDates() {
 		List<LocalDateTime> dates = new ArrayList<>();
-		for (Record record: records) {
-			dates.add(record.getLocalDateTime());
+		if (records.isEmpty()) {
+			return datesLocal;
+		} else {
+			for (Record record: records) {
+				dates.add(record.getLocalDateTime());
+			}
 		}
 		return dates;
+	}
+
+	@Override
+	public String getExpression() {
+		return this.name;
 	}
 
 	public static boolean duplicatesExist(List<Primitive> primitives) {

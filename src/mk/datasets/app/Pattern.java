@@ -87,13 +87,17 @@ public class Pattern {
 
 	public String response(Event firstEvent, Event secondEvent) {
 		boolean patternDetected = false;
-		LocalDateTime firstDate = firstEvent.getDates().get(0);
-		for (LocalDateTime secondDate: secondEvent.getDates()) {
-			if ((firstDate.isAfter(startDate) || firstDate.isEqual(startDate)) && firstDate.isBefore(endDate) && (secondDate.isBefore(endDate) || secondDate.isEqual(endDate)) &&
-					firstDate.isBefore(secondDate)) {
-				patternDetected = true;
-				break;
+		if (!firstEvent.getDates().isEmpty()) {
+			LocalDateTime firstDate = firstEvent.getDates().get(0);
+			for (LocalDateTime secondDate: secondEvent.getDates()) {
+				if ((firstDate.isAfter(startDate) || firstDate.isEqual(startDate)) && firstDate.isBefore(endDate) && (secondDate.isBefore(endDate) || secondDate.isEqual(endDate)) &&
+						firstDate.isBefore(secondDate)) {
+					patternDetected = true;
+					break;
+				}
 			}
+		} else {
+			patternDetected = false;
 		}
 		if (patternDetected) {
 			return "TRUE - Wzorzec " + Name.RESPONSE.name() + " występuje dla eventów '" + firstEvent.getName() + "->" + secondEvent.getName() + "' w okresie: " + startDate.toString() + " - " + endDate.toString();

@@ -131,8 +131,7 @@ public class MainController implements Initializable {
 
 		//Default text
 		taInputPrimitives.appendText("P1: 1.USD>1.13\nP2: 1.JPY>124\nP3: 2.value>=412\nP4: 2.value<0");
-		taInputEvents.appendText("E1: ((P1 && P2) || P3) && P4");
-//		taInputEvents.appendText("E1: (P1 && P2) || P3\nE2: P1 || P2\nE3: P4");
+		taInputEvents.appendText("E1: (P1 || (P2 && P3)) && !P4\nE2: P1 || P2\nE3: P4");
 	}
 
 	@FXML
@@ -294,8 +293,8 @@ public class MainController implements Initializable {
 //		});
 
 		//Set default values
-		ldtpStartDate.setLocalDateTime(LocalDateTime.now().minusYears(100));
-		ldtpEndDate.setLocalDateTime(LocalDateTime.now());
+		ldtpStartDate.setLocalDateTime(LocalDateTime.now().minusYears(100).withSecond(0));
+		ldtpEndDate.setLocalDateTime(LocalDateTime.now().withSecond(0));
 	}
 
 	private void disableAllPatternTextFields() {
@@ -490,5 +489,8 @@ public class MainController implements Initializable {
 		} else {
 			spMain.setDividerPositions(0.0);
 		}
+	}
+
+	public void saveOutput(ActionEvent event) {
 	}
 }

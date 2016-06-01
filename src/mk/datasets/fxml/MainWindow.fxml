@@ -4,7 +4,6 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<?import jfxtras.scene.control.LocalDateTimePicker?>
 <?import jfxtras.scene.control.LocalDateTimeTextField?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mk.datasets.controllers.MainController">
     <children>
@@ -16,10 +15,11 @@
                             <menus>
                                 <Menu mnemonicParsing="false" text="Main menu">
                                     <items>
-                                        <MenuItem fx:id="miShowHideOutput" mnemonicParsing="false" onAction="#showHideOutputAction" text="Change output console size" />
+                                        <MenuItem fx:id="miShowHideOutput" mnemonicParsing="false" onAction="#showHideOutputAction" text="Show/hide option panel" />
                                         <MenuItem fx:id="miLoadDataset" mnemonicParsing="false" onAction="#loadDatasetAction" text="Load dataset" />
                                         <MenuItem fx:id="miLoadPrimAndEve" mnemonicParsing="false" onAction="#loadPrimitivesAndEvents" text="Load primitives and events" />
                                         <MenuItem fx:id="miSavePrimAndEve" mnemonicParsing="false" onAction="#savePrimitivesAndEvents" text="Save primitives and events" />
+                                        <MenuItem fx:id="miSaveOutput" mnemonicParsing="false" onAction="#saveOutput" text="Save output" />
                                         <MenuItem fx:id="miExit" mnemonicParsing="false" onAction="#exitAction" text="Exit" />
                                     </items>
                                 </Menu>
@@ -69,8 +69,8 @@
                                         <Label layoutX="25.0" layoutY="290.0" text="Przesunięcie czasowe (w dniach)" />
                                         <Button fx:id="buttonStart" layoutX="29.0" layoutY="10.0" mnemonicParsing="false" onAction="#startAction" prefHeight="39.0" prefWidth="100.0" text="START" />
                                         <Button fx:id="buttonDatasets" layoutX="29.0" layoutY="57.0" mnemonicParsing="false" onAction="#showDatasets" text="Pokaż dane datasetów" />
-                                        <Button fx:id="buttonPrimitives" layoutX="29.0" layoutY="89.0" mnemonicParsing="false" onAction="#showPrimitives" text="Pokaż daty prymitywów" />
-                                        <Button fx:id="buttonEvents" layoutX="29.0" layoutY="121.0" mnemonicParsing="false" onAction="#showEvents" text="Pokaż daty eventów" />
+                                        <Button fx:id="buttonPrimitives" layoutX="29.0" layoutY="89.0" mnemonicParsing="false" onAction="#showPrimitives" text="Pokaż dane prymitywów" />
+                                        <Button fx:id="buttonEvents" layoutX="29.0" layoutY="121.0" mnemonicParsing="false" onAction="#showEvents" text="Pokaż dane eventów" />
                                         <Button fx:id="buttonMove" layoutX="450.0" layoutY="314.0" mnemonicParsing="false" onAction="#moveAction" text="Przesuń" />
                                     </children>
                                 </AnchorPane>
