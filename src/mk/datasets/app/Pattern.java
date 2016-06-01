@@ -160,9 +160,9 @@ public class Pattern {
 				LocalDateTime helpDate = LocalDateTime.from(date);
 				while (helpDate.isBefore(endDate)) {
 					helpDate = helpDate.plusDays(1);
+					patternDetected = true;
 					if (!event.getDates().contains(helpDate)) {
 						patternDetected = false;
-						break;
 					}
 				}
 				if (!patternDetected) {

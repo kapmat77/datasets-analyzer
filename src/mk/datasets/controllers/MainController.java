@@ -129,6 +129,9 @@ public class MainController implements Initializable {
 		initializeComponents();
 		initializeTooltips();
 
+		//TODO odblokowac po zaimplementowaniu wzorca
+		chResponsively.setDisable(true);
+
 		//Default text
 		taInputPrimitives.appendText("P1: 1.USD>1.13\nP2: 1.JPY>124\nP3: 2.value>=412\nP4: 2.value<0");
 		taInputEvents.appendText("E1: (P1 || (P2 && P3)) && !P4\nE2: P1 || P2\nE3: P4");
@@ -313,7 +316,7 @@ public class MainController implements Initializable {
 		FileChooser filechooser = new FileChooser();
 		filechooser.setTitle("Load data");
 		filechooser.setInitialDirectory(new File(System.getProperty("user.dir")));
-		filechooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Dataset file", "*.txt", "*.xls", "*.csv", "*.xml", "*.json"));
+		filechooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Dataset file", "*.txt", "*.xlsx", "*.xls", "*.csv", "*.xml", "*.json"));
 		File file = filechooser.showOpenDialog(loadStage);
 
 		String output = datasetAnalyzer.addDataset(file);
@@ -326,6 +329,10 @@ public class MainController implements Initializable {
 
 		//Show basic information about loaded dataset
 		taOutput.appendText(dataset.toStringWithAttrubites());
+
+		//Update start and end date
+		ldtpStartDate.setLocalDateTime(DatasetAnalyzer.getOldestDate());
+		ldtpEndDate.setLocalDateTime(DatasetAnalyzer.getNewestDate());
 	}
 
 	private void initializeAboutWindow() {

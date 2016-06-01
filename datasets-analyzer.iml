@@ -8,5 +8,8 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="org.jfxtras:jfxtras-agenda:8.0-r5" level="project" />
+    <orderEntry type="library" name="org.apache.poi:poi:3.14" level="project" />
+    <orderEntry type="library" name="org.apache.poi:poi-ooxml-schemas:3.14" level="project" />
+    <orderEntry type="library" name="org.apache.poi:poi-ooxml:3.14" level="project" />
   </component>
 </module>

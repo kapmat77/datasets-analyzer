@@ -10,6 +10,7 @@ public class Dataset {
 
 	private int id;
 	private String name;
+	private String measurement;
 	private List<String> attributes = new ArrayList<>();
 	private List<Record> records = new ArrayList<>();
 
@@ -20,7 +21,7 @@ public class Dataset {
 	public Dataset(int id, String name, String path) {
 		this.id = id;
 		this.name = name;
-		readData(path);
+		this.measurement = readData(path);
 	}
 
 	public int getId() {
@@ -63,9 +64,18 @@ public class Dataset {
 		this.records.add(record);
 	}
 
-	private void readData(String path) {
+	public String getMeasurement() {
+		return measurement;
+	}
+
+	public void setMeasurement(String measurement) {
+		this.measurement = measurement;
+	}
+
+	private String readData(String path) {
 		FileOperator fileOperator = new FileOperator();
 		fileOperator.readDataFromFile(path, this);
+		return fileOperator.getDateFormat();
 	}
 
 	public LocalDateTime getOldestDate() {
@@ -109,6 +119,7 @@ public class Dataset {
 		return "\nDATASET" +
 				"\nId: " + this.id +
 				"\nName: " + this.name +
+				"\nFrequency: " + this.measurement +
 				"\nAttributes: " + this.attributes.size() +
 				"\nRecords: " +this.records.size();
 	}
@@ -127,6 +138,7 @@ public class Dataset {
 		return 	"\nId: " + this.id +
 				"\nName: " + this.name +
 				"\nDate: " + this.getOldestDate() + " - " + this.getNewestDate() +
+				"\nMeasurement: " + this.measurement +
 				"\nRecords: " +this.records.size() +
 				"\nAttributes(" + this.attributes.size() +
 				"): " + allAtributes;
