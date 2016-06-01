@@ -211,9 +211,6 @@ public class Event {
 							Event secondEvent = new Event("TEMPORARY" + i+1, newOperation);
 							temporaryEventsList.remove(i);
 							temporaryEventsList.add(i, secondEvent);
-//							temporaryEventsList.remove(i);
-//							Event secondEvent = new Event("TEMPORARY" + j, operationList.get(i));
-//							temporaryEventsList.add(i, newOperation);
 						}
 					}
 				}

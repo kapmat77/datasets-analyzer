@@ -7,10 +7,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Region;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.StringConverter;
+
+import jfxtras.scene.control.LocalDateTimeTextField;
 import mk.datasets.app.Dataset;
 import mk.datasets.app.DatasetAnalyzer;
 import mk.datasets.app.Finder;
@@ -95,10 +98,20 @@ public class MainController implements Initializable {
 	private Button buttonEvents;
 
 	//#################### DATA_PICKER ####################
+//	@FXML
+//	private DatePicker dpStartDate;
+//	@FXML
+//	private DatePicker dpEndDate;
+
+	//#################### LOCAL_DATA_TIME_TEXT_FIELD ####################
 	@FXML
-	private DatePicker dpStartDate;
+	private LocalDateTimeTextField ldtpStartDate;
 	@FXML
-	private DatePicker dpEndDate;
+	private LocalDateTimeTextField ldtpEndDate;
+
+	//#################### SPLIT_PANE ####################
+	@FXML
+	private SplitPane spMain;
 
 	//#################### STAGES ####################
 	private Stage loadStage = new Stage();
@@ -130,7 +143,7 @@ public class MainController implements Initializable {
 			return;
 		} else if (dateIsSetCorrectly()) {
 			taOutput.appendText("\n\n#################### START ####################");
-			taOutput.appendText("\n" + "Wyszukiwanie wzorców dla okresu od " + dpStartDate.getValue() + " " + startTime.toString() + " do " + dpEndDate.getValue() + " " + endTime.toString());
+			taOutput.appendText("\n" + "Wyszukiwanie wzorców dla okresu od " + ldtpStartDate.getLocalDateTime() + " do " + ldtpEndDate.getLocalDateTime());
 			String primitivesComment = datasetAnalyzer.addPrimitives(taInputPrimitives.getText());
 			taOutput.appendText("\n" + primitivesComment);
 			if (!primitivesComment.contains("ERROR")) {
@@ -158,52 +171,52 @@ public class MainController implements Initializable {
 
 	private void checkAndActivePatterns() {
 		if (!tfAbsence.isDisable() && !tfAbsence.getText().isEmpty()) {
-			taOutput.appendText("\n" + datasetAnalyzer.activePattern(Pattern.Name.ABSENCE, tfAbsence.getText(), LocalDateTime.of(dpStartDate.getValue(), startTime), LocalDateTime.of(dpEndDate.getValue(), endTime)));
+			taOutput.appendText("\n" + datasetAnalyzer.activePattern(Pattern.Name.ABSENCE, tfAbsence.getText(),ldtpStartDate.getLocalDateTime(), ldtpEndDate.getLocalDateTime()));
 		} else if (!tfAbsence.isDisable()) {
 			taOutput.appendText("\nERROR - pole '" + chAbsence.getText() + "' jest puste");
 		}
 		if (!tfInvariance.isDisable() && !tfInvariance.getText().isEmpty()) {
-			taOutput.appendText("\n" + datasetAnalyzer.activePattern(Pattern.Name.INVARIANCE, tfInvariance.getText(), LocalDateTime.of(dpStartDate.getValue(), startTime), LocalDateTime.of(dpEndDate.getValue(), endTime)));
+			taOutput.appendText("\n" + datasetAnalyzer.activePattern(Pattern.Name.INVARIANCE, tfInvariance.getText(), ldtpStartDate.getLocalDateTime(), ldtpEndDate.getLocalDateTime()));
 		} else if (!tfInvariance.isDisable()) {
 			taOutput.appendText("\nERROR - pole '" + chInvariance.getText() + "' jest puste");
 		}
 		if (!tfExistence.isDisable() && !tfExistence.getText().isEmpty()) {
-			taOutput.appendText("\n" + datasetAnalyzer.activePattern(Pattern.Name.EXISTENCE, tfExistence.getText(), LocalDateTime.of(dpStartDate.getValue(), startTime), LocalDateTime.of(dpEndDate.getValue(), endTime)));
+			taOutput.appendText("\n" + datasetAnalyzer.activePattern(Pattern.Name.EXISTENCE, tfExistence.getText(), ldtpStartDate.getLocalDateTime(), ldtpEndDate.getLocalDateTime()));
 		} else if (!tfExistence.isDisable()) {
 			taOutput.appendText("\nERROR - pole '" + chExistence.getText() + "' jest puste");
 		}
 		if (!tfResponse.isDisable() && !tfResponse.getText().isEmpty()) {
-			taOutput.appendText("\n" + datasetAnalyzer.activePattern(Pattern.Name.RESPONSE, tfResponse.getText(), LocalDateTime.of(dpStartDate.getValue(), startTime), LocalDateTime.of(dpEndDate.getValue(), endTime)));
+			taOutput.appendText("\n" + datasetAnalyzer.activePattern(Pattern.Name.RESPONSE, tfResponse.getText(), ldtpStartDate.getLocalDateTime(), ldtpEndDate.getLocalDateTime()));
 		} else if (!tfResponse.isDisable()) {
 			taOutput.appendText("\nERROR - pole '" + chResponse.getText() + "' jest puste");
 		}
 		if (!tfObligation.isDisable() && !tfObligation.getText().isEmpty()) {
-			taOutput.appendText("\n" + datasetAnalyzer.activePattern(Pattern.Name.OBLIGATION, tfObligation.getText(), LocalDateTime.of(dpStartDate.getValue(), startTime), LocalDateTime.of(dpEndDate.getValue(), endTime)));
+			taOutput.appendText("\n" + datasetAnalyzer.activePattern(Pattern.Name.OBLIGATION, tfObligation.getText(), ldtpStartDate.getLocalDateTime(), ldtpEndDate.getLocalDateTime()));
 		} else if (!tfObligation.isDisable()) {
 			taOutput.appendText("\nERROR - pole '" + chObligation.getText() + "' jest puste");
 		}
 		if (!tfResponsively.isDisable() && !tfResponsively.getText().isEmpty()) {
-			taOutput.appendText("\n" + datasetAnalyzer.activePattern(Pattern.Name.RESPONSIVELY, tfResponsively.getText(), LocalDateTime.of(dpStartDate.getValue(), startTime), LocalDateTime.of(dpEndDate.getValue(), endTime)));
+			taOutput.appendText("\n" + datasetAnalyzer.activePattern(Pattern.Name.RESPONSIVELY, tfResponsively.getText(), ldtpStartDate.getLocalDateTime(), ldtpEndDate.getLocalDateTime()));
 		} else if (!tfResponsively.isDisable()) {
 			taOutput.appendText("\nERROR - pole '" + chResponsively.getText() + "' jest puste");
 		}
 		if (!tfPersistence.isDisable() && !tfPersistence.getText().isEmpty()) {
-			taOutput.appendText("\n" + datasetAnalyzer.activePattern(Pattern.Name.PERSISTENCE, tfPersistence.getText(), LocalDateTime.of(dpStartDate.getValue(), startTime), LocalDateTime.of(dpEndDate.getValue(), endTime)));
+			taOutput.appendText("\n" + datasetAnalyzer.activePattern(Pattern.Name.PERSISTENCE, tfPersistence.getText(), ldtpStartDate.getLocalDateTime(), ldtpEndDate.getLocalDateTime()));
 		} else if (!tfResponsively.isDisable()) {
 			taOutput.appendText("\nERROR - pole '" + chResponsively.getText() + "' jest puste");
 		}
 		if (!tfReactivity.isDisable() && !tfReactivity.getText().isEmpty()) {
-			taOutput.appendText("\n" + datasetAnalyzer.activePattern(Pattern.Name.REACTIVITY, tfReactivity.getText(), LocalDateTime.of(dpStartDate.getValue(), startTime), LocalDateTime.of(dpEndDate.getValue(), endTime)));
+			taOutput.appendText("\n" + datasetAnalyzer.activePattern(Pattern.Name.REACTIVITY, tfReactivity.getText(), ldtpStartDate.getLocalDateTime(), ldtpEndDate.getLocalDateTime()));
 		} else if (!tfReactivity.isDisable()) {
 			taOutput.appendText("\nERROR - pole '" + chReactivity.getText() + "' jest puste");
 		}
 	}
 
 	private boolean dateIsSetCorrectly() {
-		if (dpStartDate.getValue() == null || dpEndDate.getValue() == null) {
+		if (ldtpStartDate.getLocalDateTime() == null || ldtpEndDate.getLocalDateTime() == null) {
 			return false;
 		}
-		return dpStartDate.getValue().isBefore(dpEndDate.getValue()) || dpStartDate.getValue().isEqual(dpEndDate.getValue());
+		return ldtpStartDate.getLocalDateTime().isBefore(ldtpEndDate.getLocalDateTime()) || ldtpStartDate.getLocalDateTime().isEqual(ldtpEndDate.getLocalDateTime());
 	}
 
 	private void initializeTooltips() {
@@ -231,58 +244,58 @@ public class MainController implements Initializable {
 		taInputEvents.setWrapText(true);
 		taInputEvents.setStyle("" + "-fx-font-size: 13px;");
 
-		//Initialize datePicker
-		String pattern = "yyyy-MM-dd";
-		dpStartDate.setPromptText(pattern.toLowerCase());
-		dpEndDate.setPromptText(pattern.toLowerCase());
-
-		dpStartDate.setConverter(new StringConverter<LocalDate>() {
-			DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern(pattern);
-
-			@Override
-			public String toString(LocalDate date) {
-				if (date != null) {
-					return dateFormatter.format(date);
-				} else {
-					return "";
-				}
-			}
-
-			@Override
-			public LocalDate fromString(String string) {
-				if (string != null && !string.isEmpty()) {
-					return LocalDate.parse(string, dateFormatter);
-				} else {
-					return null;
-				}
-			}
-		});
-
-		dpEndDate.setConverter(new StringConverter<LocalDate>() {
-			DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern(pattern);
-
-			@Override
-			public String toString(LocalDate date) {
-				if (date != null) {
-					return dateFormatter.format(date);
-				} else {
-					return "";
-				}
-			}
-
-			@Override
-			public LocalDate fromString(String string) {
-				if (string != null && !string.isEmpty()) {
-					return LocalDate.parse(string, dateFormatter);
-				} else {
-					return null;
-				}
-			}
-		});
+//		//Initialize datePicker
+//		String pattern = "yyyy-MM-dd";
+//		dpStartDate.setPromptText(pattern.toLowerCase());
+//		dpEndDate.setPromptText(pattern.toLowerCase());
+//
+//		dpStartDate.setConverter(new StringConverter<LocalDate>() {
+//			DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern(pattern);
+//
+//			@Override
+//			public String toString(LocalDate date) {
+//				if (date != null) {
+//					return dateFormatter.format(date);
+//				} else {
+//					return "";
+//				}
+//			}
+//
+//			@Override
+//			public LocalDate fromString(String string) {
+//				if (string != null && !string.isEmpty()) {
+//					return LocalDate.parse(string, dateFormatter);
+//				} else {
+//					return null;
+//				}
+//			}
+//		});
+//
+//		dpEndDate.setConverter(new StringConverter<LocalDate>() {
+//			DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern(pattern);
+//
+//			@Override
+//			public String toString(LocalDate date) {
+//				if (date != null) {
+//					return dateFormatter.format(date);
+//				} else {
+//					return "";
+//				}
+//			}
+//
+//			@Override
+//			public LocalDate fromString(String string) {
+//				if (string != null && !string.isEmpty()) {
+//					return LocalDate.parse(string, dateFormatter);
+//				} else {
+//					return null;
+//				}
+//			}
+//		});
 
 		//Set default values
-		dpStartDate.setValue(LocalDate.of(1, 1, 1));
-		dpEndDate.setValue(LocalDate.now());
+		ldtpStartDate.setLocalDateTime(LocalDateTime.now().minusYears(100));
+		ldtpEndDate.setLocalDateTime(LocalDateTime.now());
 	}
 
 	private void disableAllPatternTextFields() {
@@ -455,5 +468,27 @@ public class MainController implements Initializable {
 	@FXML
 	public void infoAction(ActionEvent event) {
 
+	}
+
+	@FXML
+	public void loadPrimitivesAndEvents(ActionEvent event) {
+		FileChooser filechooser = new FileChooser();
+		filechooser.setTitle("Load default primitives and events");
+		filechooser.setInitialDirectory(new File(System.getProperty("user.dir")));
+		filechooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Primitives and events", "*.txt"));
+		File file = filechooser.showOpenDialog(loadStage);
+
+		//TODO dokończyć implementacje
+	}
+
+	public void savePrimitivesAndEvents(ActionEvent event) {
+	}
+
+	public void showHideOutputAction(ActionEvent event) {
+		if (spMain.getDividerPositions()[0] < 0.1) {
+			spMain.setDividerPositions(0.45112781954887216);
+		} else {
+			spMain.setDividerPositions(0.0);
+		}
 	}
 }

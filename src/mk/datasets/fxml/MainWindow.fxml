@@ -4,6 +4,8 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
+<?import jfxtras.scene.control.LocalDateTimePicker?>
+<?import jfxtras.scene.control.LocalDateTimeTextField?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mk.datasets.controllers.MainController">
     <children>
         <SplitPane dividerPositions="0.045112781954887216" orientation="VERTICAL" prefHeight="667.0" prefWidth="993.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -12,16 +14,19 @@
                     <children>
                         <MenuBar prefHeight="28.0" prefWidth="991.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                             <menus>
-                                <Menu mnemonicParsing="false" text="File">
+                                <Menu mnemonicParsing="false" text="Main menu">
                                     <items>
-                                        <MenuItem fx:id="miLoadDataset" mnemonicParsing="false" onAction="#loadDatasetAction" text="Load" />
-                                        <MenuItem fx:id="miAbout" mnemonicParsing="false" onAction="#aboutAction" text="About" />
+                                        <MenuItem fx:id="miShowHideOutput" mnemonicParsing="false" onAction="#showHideOutputAction" text="Change output console size" />
+                                        <MenuItem fx:id="miLoadDataset" mnemonicParsing="false" onAction="#loadDatasetAction" text="Load dataset" />
+                                        <MenuItem fx:id="miLoadPrimAndEve" mnemonicParsing="false" onAction="#loadPrimitivesAndEvents" text="Load primitives and events" />
+                                        <MenuItem fx:id="miSavePrimAndEve" mnemonicParsing="false" onAction="#savePrimitivesAndEvents" text="Save primitives and events" />
                                         <MenuItem fx:id="miExit" mnemonicParsing="false" onAction="#exitAction" text="Exit" />
                                     </items>
                                 </Menu>
-                                <Menu mnemonicParsing="false" text="Help">
+                                <Menu mnemonicParsing="false" text="Info">
                                     <items>
                                         <MenuItem fx:id="miBssicInfo" mnemonicParsing="false" onAction="#infoAction" text="Basic information" />
+                                        <MenuItem fx:id="miAbout" mnemonicParsing="false" onAction="#aboutAction" text="About" />
                                     </items>
                                 </Menu>
                             </menus>
@@ -30,14 +35,16 @@
                 </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                     <children>
-                        <SplitPane dividerPositions="0.45652173913043476" prefHeight="631.0" prefWidth="991.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <SplitPane fx:id="spMain" dividerPositions="0.45652173913043476" prefHeight="631.0" prefWidth="991.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                             <items>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="614.0" prefWidth="567.0">
                                     <children>
-                                        <DatePicker fx:id="dpStartDate" layoutX="53.0" layoutY="173.0" prefHeight="25.0" prefWidth="113.0" />
-                                        <DatePicker fx:id="dpEndDate" layoutX="53.0" layoutY="237.0" prefHeight="25.0" prefWidth="113.0" />
-                                        <Label layoutX="64.0" layoutY="149.0" text="Data początkowa" />
-                                        <Label layoutX="72.0" layoutY="213.0" text="Data końcowa" />
+                                        <!--<DatePicker fx:id="dpStartDate" layoutX="53.0" layoutY="173.0" prefHeight="25.0" prefWidth="113.0" />-->
+                                        <!--<DatePicker fx:id="dpEndDate" layoutX="53.0" layoutY="237.0" prefHeight="25.0" prefWidth="113.0" />-->
+                                        <LocalDateTimeTextField fx:id="ldtpStartDate" layoutX="29.0" layoutY="185.0" prefHeight="25.0" prefWidth="147.0" />
+                                        <LocalDateTimeTextField fx:id="ldtpEndDate" layoutX="29.0" layoutY="245.0" prefHeight="25.0" prefWidth="147.0" />
+                                        <Label layoutX="50.0" layoutY="165.0" text="Data początkowa" />
+                                        <Label layoutX="50.0" layoutY="225.0" text="Data końcowa" />
                                         <CheckBox fx:id="chAbsence" layoutX="211.0" layoutY="29.0" mnemonicParsing="false" onAction="#checkBoxAction" text="Absencja(1)" />
                                         <CheckBox fx:id="chInvariance" layoutX="211.0" layoutY="61.0" mnemonicParsing="false" onAction="#checkBoxAction" text="Niezmienniczość(1)" />
                                         <CheckBox fx:id="chExistence" layoutX="211.0" layoutY="93.0" mnemonicParsing="false" onAction="#checkBoxAction" text="Możliwość(1)" />
