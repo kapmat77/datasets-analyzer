@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Kapmat on 2016-05-29.
@@ -115,11 +116,36 @@ public class DatasetAnalyzer {
 		FileOperator.DateSmallestPart smallestPart = smallestDateFormat();
 
 		//INTERPOLACJA
-//		for (Dataset dataset: datasets) {
-//			if (!dataset.getMeasurement().equalsIgnoreCase(smallestPart.name())) {
-//
-//			}
-//		}
+		for (Dataset dataset: datasets) {
+			if (!dataset.getMeasurement().equalsIgnoreCase(smallestPart.name())) {
+				int multiplier = getMultiplier(dataset.getMeasurement(), smallestPart);
+				List<Record> oldRecords = dataset.getRecords();
+				List<Record> newRecords = new ArrayList<>();
+				for (int j = 0; j<oldRecords.size(); j++) {
+					for (int i = 0; i<multiplier; i++) {
+						Record newRecord = new Record(j * multiplier + i + 1);
+						if (j != 0) {
+							for (Map.Entry<String, String> entry: oldRecords.get(i).getParameters().entrySet()) {
+								if (!(entry.getKey().equalsIgnoreCase("data") || entry.getKey().equalsIgnoreCase("time"))) {
+									if ((j-1)<oldRecords.size()) {
+										double diff = Double.valueOf(entry.getValue()) - Double.valueOf(oldRecords.get(i+1).getParameters().get(entry.getKey()));
+										double partValue = diff/multiplier;
+										switch (smallestPart) {
+											case SECOND:
+												//TODO dokończyć
+//												newRecord.setLocalDateTime(oldRecords.get);
+												break;
+										}
+									}
+								}
+							}
+						} else {
+							newRecords.add(newRecord);
+						}
+					}
+				}
+			}
+		}
 
 	}
 
@@ -153,6 +179,47 @@ public class DatasetAnalyzer {
 			}
 		}
 		return dateSmallestPart;
+	}
+
+	private int getMultiplier(String currentUnit, FileOperator.DateSmallestPart smallUnit) {
+		int multiplier = 0;
+		switch (smallUnit) {
+			case SECOND:
+				switch (currentUnit) {
+					case "MINUTE":
+						multiplier = 60;
+						break;
+					case "HOUR":
+						multiplier = 3600;
+						break;
+					case "DAY":
+						multiplier = 86400;
+						break;
+				}
+				break;
+			case MINUTE:
+				switch (currentUnit) {
+					case "HOUR":
+						multiplier = 60;
+						break;
+					case "DAY":
+						multiplier = 1440;
+						break;
+				}
+				break;
+			case HOUR:
+				switch (currentUnit) {
+					case "DAY":
+						multiplier = 24;
+						break;
+				}
+				break;
+			case DAY:
+				break;
+			default:
+				break;
+		}
+		return multiplier;
 	}
 
 	public String addPrimitives(String inputPrimitives) {
