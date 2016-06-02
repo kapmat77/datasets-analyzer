@@ -241,9 +241,9 @@ public class MainController implements Initializable {
 		buttonStart.setDisable(true);
 
 		taOutput.setWrapText(true);
-		taInputPrimitives.setWrapText(true);
+		taInputPrimitives.setWrapText(false);
 		taInputPrimitives.setStyle("" + "-fx-font-size: 13px;");
-		taInputEvents.setWrapText(true);
+		taInputEvents.setWrapText(false);
 		taInputEvents.setStyle("" + "-fx-font-size: 13px;");
 
 //		//Initialize datePicker

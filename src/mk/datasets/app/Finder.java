@@ -31,7 +31,8 @@ public class Finder {
 			while (primitivesList.size() > 2) {
 				String firstName = primitivesList.get(0);
 				String secondName = primitivesList.get(1);
-				int secondPrimitiveIndex = expression.indexOf(activePrimitives.get(1).getName());
+//				int secondPrimitiveIndex = expression.indexOf(activePrimitives.get(1).getName());
+				int secondPrimitiveIndex = expression.indexOf(secondName);
 				Event temporaryEvent = new Event(TEMPEVENT + counter,firstName+expression.substring(secondPrimitiveIndex-2, secondPrimitiveIndex)+secondName);
 				counter++;
 				tempEventList.add(temporaryEvent);

@@ -107,7 +107,7 @@ public class DatasetAnalyzer {
 		assignTimeIdToRecords(0);
 
 		//Convert data if datasets have different date format
-		convertDatasetsToOneDateFormat();
+//		convertDatasetsToOneDateFormat();
 
 		return "Zbiór danych został wczytany poprawnie.";
 	}
@@ -136,6 +136,7 @@ public class DatasetAnalyzer {
 //												newRecord.setLocalDateTime(oldRecords.get);
 												break;
 										}
+
 									}
 								}
 							}
