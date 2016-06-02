@@ -67,7 +67,9 @@ public class Record implements Comparable{
 	}
 
 	public void addParameter(String attribute, String parameter) {
-		this.parameters.put(attribute, parameter);
+		if (!parameters.containsKey(attribute)) {
+			this.parameters.put(attribute, parameter);
+		}
 	}
 
 	//Compare dates

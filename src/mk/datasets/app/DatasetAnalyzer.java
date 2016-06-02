@@ -1,11 +1,10 @@
 package mk.datasets.app;
 
 import java.io.File;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
+import java.time.temporal.ChronoUnit;
+import java.util.*;
 
 /**
  * Created by Kapmat on 2016-05-29.
@@ -107,7 +106,7 @@ public class DatasetAnalyzer {
 		assignTimeIdToRecords(0);
 
 		//Convert data if datasets have different date format
-//		convertDatasetsToOneDateFormat();
+		convertDatasetsToOneDateFormat();
 
 		return "Zbiór danych został wczytany poprawnie.";
 	}
@@ -121,33 +120,102 @@ public class DatasetAnalyzer {
 				int multiplier = getMultiplier(dataset.getMeasurement(), smallestPart);
 				List<Record> oldRecords = dataset.getRecords();
 				List<Record> newRecords = new ArrayList<>();
+
 				for (int j = 0; j<oldRecords.size(); j++) {
 					for (int i = 0; i<multiplier; i++) {
+//						Map<String, String> newParam = new HashMap<>();
 						Record newRecord = new Record(j * multiplier + i + 1);
-						if (j != 0) {
-							for (Map.Entry<String, String> entry: oldRecords.get(i).getParameters().entrySet()) {
+						if (i !=0) {
+							for (Map.Entry<String, String> entry: oldRecords.get(j).getParameters().entrySet()) {
 								if (!(entry.getKey().equalsIgnoreCase("data") || entry.getKey().equalsIgnoreCase("time"))) {
-									if ((j-1)<oldRecords.size()) {
-										double diff = Double.valueOf(entry.getValue()) - Double.valueOf(oldRecords.get(i+1).getParameters().get(entry.getKey()));
-										double partValue = diff/multiplier;
-										switch (smallestPart) {
-											case SECOND:
-												//TODO dokończyć
-//												newRecord.setLocalDateTime(oldRecords.get);
-												break;
+									if ((j+1)<oldRecords.size()) {
+										long secondTimeDiff = differenceLocalDateTime(oldRecords.get(j).getLocalDateTime(),oldRecords.get(j+1).getLocalDateTime());
+										double valueDiff = 0;
+										boolean appropriateData = true;
+										try {
+											valueDiff = Double.valueOf(Double.valueOf(oldRecords.get(j+1).getParameters().get(entry.getKey())) - Double.valueOf(entry.getValue()));
+										} catch (Exception e) {
+											//TODO w przypadku braku danych !!
+											valueDiff = 0;
+											appropriateData = false;
+										}
+										double partValue = valueDiff/multiplier;
+
+										if (appropriateData) {
+											newRecord.addParameter(entry.getKey(), String.valueOf(Double.valueOf(entry.getValue())+partValue*i));
+										} else {
+											newRecord.addParameter(entry.getKey(), "N/A");
 										}
 
+										//TODO poprawić, dział tylko dla przejścia z DNI na mniejsze jednostki
+										switch (smallestPart) {
+											case SECOND:
+												if (newRecord.getLocalDateTime().isEqual(LocalDateTime.of(1,1,1,0,0))) {
+													newRecord.setLocalDateTime(oldRecords.get(j).getLocalDateTime().plusSeconds(i*(secondTimeDiff/(24*3600))));
+													newRecords.add(newRecord);
+												}
+												break;
+											case MINUTE:
+												if (newRecord.getLocalDateTime().isEqual(LocalDateTime.of(1,1,1,0,0))) {
+													newRecord.setLocalDateTime(oldRecords.get(j).getLocalDateTime().plusSeconds(i * (secondTimeDiff / (24 * 60))));
+													newRecords.add(newRecord);
+												}
+												break;
+											case HOUR:
+												if (newRecord.getLocalDateTime().isEqual(LocalDateTime.of(1,1,1,0,0))) {
+													newRecord.setLocalDateTime(oldRecords.get(j).getLocalDateTime().plusSeconds(i*(secondTimeDiff/24)));
+													newRecords.add(newRecord);
+												}
+												break;
+										}
 									}
 								}
 							}
 						} else {
-							newRecords.add(newRecord);
+							newRecords.add(oldRecords.get(j));
 						}
 					}
 				}
+				dataset.setRecords(newRecords);
+				dataset.setMeasurement(smallestDateFormat().name());
 			}
 		}
 
+	}
+
+	private long convertToSeconds(LocalDateTime timeDiff) {
+		long hours = timeDiff.getHour();
+		long minutes = timeDiff.getMinute();
+		long seconds = timeDiff.getSecond();
+
+		if (hours == 0 && minutes == 0 && seconds == 0) {
+
+		}
+
+		return (hours*3600 + minutes*60 + seconds);
+	}
+
+	private long differenceLocalDateTime(LocalDateTime firstDate, LocalDateTime secondDate) {
+		LocalDateTime tempDateTime = LocalDateTime.from(firstDate);
+
+		long years = tempDateTime.until(secondDate, ChronoUnit.YEARS);
+		tempDateTime = tempDateTime.plusYears(years);
+
+		long months = tempDateTime.until(secondDate, ChronoUnit.MONTHS);
+		tempDateTime = tempDateTime.plusMonths(months);
+
+		long days = tempDateTime.until(secondDate, ChronoUnit.DAYS);
+		tempDateTime = tempDateTime.plusDays(days);
+
+		long hours = tempDateTime.until(secondDate, ChronoUnit.HOURS);
+		tempDateTime = tempDateTime.plusHours(hours);
+
+		long minutes = tempDateTime.until(secondDate, ChronoUnit.MINUTES);
+		tempDateTime = tempDateTime.plusMinutes(minutes);
+
+		long seconds = tempDateTime.until(secondDate, ChronoUnit.SECONDS);
+
+		return (days*3600*24 + hours*3600 + minutes*60 + seconds);
 	}
 
 	private FileOperator.DateSmallestPart smallestDateFormat() {
@@ -261,7 +329,7 @@ public class DatasetAnalyzer {
 				List<Event> eventList = new ArrayList<>();
 				for (int i = 0; i < eventsTable.length; i++) {
 					Event event = Event.convertStringToEvent(eventsTable[i]);
-					event.findDates(datasets, primitives);
+					event.findDates(primitives);
 					eventList.add(event);
 				}
 

@@ -171,7 +171,7 @@ public class Event implements InputText{
 		return false;
 	}
 
-	public void findDates(List<Dataset> datasets, List<Primitive> primitives) {
+	public void findDates(List<Primitive> primitives) {
 		String nakedExpressionWithNegation = expression.replace("&"," ").replace("|", " ").
 				replace("   ","  ").replace("  "," ").replace("(","").replace(")","");
 		String[] primitiveNames = nakedExpressionWithNegation.split(" ");
