@@ -16,6 +16,7 @@
                                     <items>
                                         <MenuItem fx:id="miShowHideOutput" mnemonicParsing="false" onAction="#showHideOutputAction" text="Show/hide option panel" />
                                         <MenuItem fx:id="miLoadDataset" mnemonicParsing="false" onAction="#loadDatasetAction" text="Load dataset" />
+                                        <MenuItem fx:id="miShowChart" mnemonicParsing="false" onAction="#showChart" text="Show chart" />
                                         <!--<MenuItem fx:id="miLoadPrimAndEve" mnemonicParsing="false" onAction="#loadPrimitivesAndEvents" text="Load primitives and events" />-->
                                         <!--<MenuItem fx:id="miSavePrimAndEve" mnemonicParsing="false" onAction="#savePrimitivesAndEvents" text="Save primitives and events" />-->
                                         <!--<MenuItem fx:id="miSaveOutput" mnemonicParsing="false" onAction="#saveOutput" text="Save output" />-->

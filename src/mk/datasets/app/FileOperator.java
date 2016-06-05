@@ -148,7 +148,7 @@ public class FileOperator {
 				}
 				for (int i = 0; i<parts.length; i++) {
 					//Check if there is hidden time in "date" column
-					String checkSize = parts[i].replace("-","").replace(":","").replace(" ","").replace("\"","");
+					String checkSize = parts[0].replace("-","").replace(":","").replace(" ","").replace("\"","");
 					if (checkSize.length() > 8) {
 						setDateFormat(DateFormat.FULL_DATE_ONE_COLUMN);
 					}

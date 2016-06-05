@@ -7,26 +7,22 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Region;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import javafx.util.StringConverter;
 
 import jfxtras.scene.control.LocalDateTimeTextField;
+import mk.datasets.app.DatasetsChart;
 import mk.datasets.app.Dataset;
 import mk.datasets.app.DatasetAnalyzer;
-import mk.datasets.app.Finder;
 import mk.datasets.app.Pattern;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 /**
@@ -468,25 +464,6 @@ public class MainController implements Initializable {
 		taOutput.appendText("##################### END #####################");
 	}
 
-	@FXML
-	public void infoAction(ActionEvent event) {
-
-	}
-
-	@FXML
-	public void loadPrimitivesAndEvents(ActionEvent event) {
-		FileChooser filechooser = new FileChooser();
-		filechooser.setTitle("Load default primitives and events");
-		filechooser.setInitialDirectory(new File(System.getProperty("user.dir")));
-		filechooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Primitives and events", "*.txt"));
-		File file = filechooser.showOpenDialog(loadStage);
-
-		//TODO dokończyć implementacje
-	}
-
-	public void savePrimitivesAndEvents(ActionEvent event) {
-	}
-
 	public void showHideOutputAction(ActionEvent event) {
 		if (spMain.getDividerPositions()[0] < 0.1) {
 			spMain.setDividerPositions(0.45112781954887216);
@@ -495,6 +472,10 @@ public class MainController implements Initializable {
 		}
 	}
 
-	public void saveOutput(ActionEvent event) {
+	public void showChart(ActionEvent event) {
+		DatasetsChart chart = new DatasetsChart();
+		Stage stage = new Stage();
+		chart.setDatasets(datasetAnalyzer.getDatasets());
+		chart.start(stage);
 	}
 }
