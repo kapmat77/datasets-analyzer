@@ -1,6 +1,7 @@
 package mk.datasets.app;
 
 import java.time.LocalDateTime;
+import java.util.*;
 
 /**
  * Created by Kapmat on 2016-05-29.
@@ -18,7 +19,30 @@ public class Pattern {
 		OBLIGATION,
 		RESPONSIVELY,
 		PERSISTENCE,
-		REACTIVITY
+		REACTIVITY;
+
+		public String getName() {
+			switch (this) {
+				case ABSENCE:
+					return "ABSENCJA";
+				case INVARIANCE:
+					return "NIEZMIENNICZOŚĆ";
+				case EXISTENCE:
+					return "MOŻLIWOŚĆ";
+				case RESPONSE:
+					return "RESPONSYWNOŚĆ ZDARZEŃ";
+				case OBLIGATION:
+					return "OBLIGACJA";
+				case RESPONSIVELY:
+					return "RESPONSYWNOŚĆ (AUTO)";
+				case PERSISTENCE:
+					return "PERSYSTANCJA";
+				case REACTIVITY:
+					return "REAKTYWNOŚĆ";
+				default:
+					return "NONE";
+			}
+		}
 	}
 
 	public LocalDateTime getStartDate() {
@@ -46,69 +70,78 @@ public class Pattern {
 			}
 		}
 		if (patternDetected) {
-			return "TRUE - Wzorzec " + Name.ABSENCE.name() + " występuje dla eventu '" + event.getName() + "' w okresie: " + startDate.toString() + " - " + endDate.toString();
+			return "TRUE - Wzorzec " + Name.ABSENCE.getName() + " występuje dla eventu '" + event.getName() + "' w okresie: " + startDate.toString() + " - " + endDate.toString();
 		} else {
-			return "FALSE - Wzorzec " + Name.ABSENCE.name() + " nie występuje dla eventu '" + event.getName() + "' w okresie: " + startDate.toString() + " - " + endDate.toString();
+			return "FALSE - Wzorzec " + Name.ABSENCE.getName() + " nie występuje dla eventu '" + event.getName() + "' w okresie: " + startDate.toString() + " - " + endDate.toString();
 		}
 	}
 
-	//TODO zmienić wszystkie patterny plusDay
 	public String invariance(Event event) {
 		boolean patternDetected = true;
 		LocalDateTime startd = LocalDateTime.from(startDate);
 		while (startd.isBefore(endDate)) {
-			startd = startd.plusDays(1);
+			startd = nextDate(startd, DatasetAnalyzer.smallestDateFormat());
 			if (!event.getDates().contains(startd)) {
 				patternDetected = false;
 				break;
 			}
 		}
 		if (patternDetected) {
-			return "TRUE - Wzorzec " + Name.INVARIANCE.name() + " występuje dla eventu '" + event.getName() + "' w okresie: " + startDate.toString() + " - " + endDate.toString();
+			return "TRUE - Wzorzec " + Name.INVARIANCE.getName() + " występuje dla eventu '" + event.getName() + "' w okresie: " + startDate.toString() + " - " + endDate.toString();
 		} else {
-			return "FALSE - Wzorzec " + Name.INVARIANCE.name() + " nie występuje dla eventu '" + event.getName() + "' w okresie: " + startDate.toString() + " - " + endDate.toString();
+			return "FALSE - Wzorzec " + Name.INVARIANCE.getName() + " nie występuje dla eventu '" + event.getName() + "' w okresie: " + startDate.toString() + " - " + endDate.toString();
 		}
 	}
 
 	public String existence(Event event) {
+		List<LocalDateTime> dateList = new ArrayList<>();
 		boolean patternDetected = false;
 		for (LocalDateTime date: event.getDates()) {
 			if ((date.isAfter(startDate) && date.isBefore(endDate)) || date.isEqual(startDate) || date.isEqual(endDate)) {
 				patternDetected = true;
-				break;
+				dateList.add(date);
+//				break;
 			}
 		}
 		if (patternDetected) {
-			return "TRUE - Wzorzec " + Name.EXISTENCE.name() + " występuje dla eventu '" + event.getName() + "' w okresie: " + startDate.toString() + " - " + endDate.toString();
+			return "TRUE - Wzorzec " + Name.EXISTENCE.getName() + " występuje dla eventu '" + event.getName() + "' w okresie: " + startDate.toString() + " - " + endDate.toString() + showDates(dateList);
 		} else {
-			return "FALSE - Wzorzec " + Name.EXISTENCE.name() + " nie występuje dla eventu '" + event.getName() + "' w okresie: " + startDate.toString() + " - " + endDate.toString();
+			return "FALSE - Wzorzec " + Name.EXISTENCE.getName() + " nie występuje dla eventu '" + event.getName() + "' w okresie: " + startDate.toString() + " - " + endDate.toString();
 		}
 	}
 
 	public String response(Event firstEvent, Event secondEvent) {
 		boolean patternDetected = false;
+		Map<LocalDateTime, LocalDateTime> dateMap = new LinkedHashMap<>();
+		List<LocalDateTime> usedDates = new ArrayList<>();
 		if (!firstEvent.getDates().isEmpty()) {
-			LocalDateTime firstDate = firstEvent.getDates().get(0);
-			for (LocalDateTime secondDate: secondEvent.getDates()) {
-				if ((firstDate.isAfter(startDate) || firstDate.isEqual(startDate)) && firstDate.isBefore(endDate) && (secondDate.isBefore(endDate) || secondDate.isEqual(endDate)) &&
-						firstDate.isBefore(secondDate)) {
-					patternDetected = true;
-					break;
+			for (LocalDateTime firstDate: firstEvent.getDates()) {
+				for (LocalDateTime secondDate: secondEvent.getDates()) {
+					if (((firstDate.isAfter(startDate) || firstDate.isEqual(startDate)) && firstDate.isBefore(endDate) && (secondDate.isBefore(endDate) || secondDate.isEqual(endDate)) &&
+							firstDate.isBefore(secondDate)) && !usedDates.contains(secondDate)) {
+						dateMap.put(firstDate, secondDate);
+						usedDates.add(secondDate);
+						patternDetected = true;
+						break;
+					}
 				}
 			}
 		} else {
 			patternDetected = false;
 		}
 		if (patternDetected) {
-			return "TRUE - Wzorzec " + Name.RESPONSE.name() + " występuje dla eventów '" + firstEvent.getName() + "->" + secondEvent.getName() + "' w okresie: " + startDate.toString() + " - " + endDate.toString();
+			return "TRUE - Wzorzec " + Name.RESPONSE.getName() + " występuje dla eventów '" + firstEvent.getName() + "->" + secondEvent.getName() + "' w okresie: " + startDate.toString() + " - " + endDate.toString() + showDates(dateMap);
 		} else {
-			return "FALSE - Wzorzec " + Name.RESPONSE.name() + " nie występuje dla eventów '" + firstEvent.getName() + "->" + secondEvent.getName() + "' w okresie: " + startDate.toString() + " - " + endDate.toString();
+			return "FALSE - Wzorzec " + Name.RESPONSE.getName() + " nie występuje dla eventów '" + firstEvent.getName() + "->" + secondEvent.getName() + "' w okresie: " + startDate.toString() + " - " + endDate.toString();
 		}
+
+
 	}
 
 	//TODO przeanalizować jeszcze
 	public String obligation(Event firstEvent, Event secondEvent) {
 		boolean patternDetected = false;
+		Map<LocalDateTime, LocalDateTime> dateMap = new LinkedHashMap<>();
 		for (LocalDateTime firstDate: firstEvent.getDates()) {
 			for (LocalDateTime secondDate: secondEvent.getDates()) {
 				if ((firstDate.isAfter(startDate) || firstDate.isEqual(startDate)) && firstDate.isBefore(endDate) && (secondDate.isBefore(endDate) || secondDate.isEqual(endDate)) &&
@@ -122,21 +155,21 @@ public class Pattern {
 			}
 		}
 		if (patternDetected) {
-			return "TRUE - Wzorzec " + Name.OBLIGATION.name() + " występuje dla eventów '" + firstEvent.getName() + "->" + secondEvent.getName() + "' w okresie: " + startDate.toString() + " - " + endDate.toString();
+			return "TRUE - Wzorzec " + Name.OBLIGATION.getName() + " występuje dla eventów '" + firstEvent.getName() + "->" + secondEvent.getName() + "' w okresie: " + startDate.toString() + " - " + endDate.toString() + showDates(dateMap);
 		} else {
-			return "FALSE - Wzorzec " + Name.OBLIGATION.name() + " nie występuje dla eventów '" + firstEvent.getName() + "->" + secondEvent.getName() + "' w okresie: " + startDate.toString() + " - " + endDate.toString();
+			return "FALSE - Wzorzec " + Name.OBLIGATION.getName() + " nie występuje dla eventów '" + firstEvent.getName() + "->" + secondEvent.getName() + "' w okresie: " + startDate.toString() + " - " + endDate.toString();
 		}
 	}
 
-	//TODO zmienić wszystkie patterny plusDay
 	//TODO zaimplementować
 	public String responsively(Event event) {
 		boolean patternDetected = true;
+		List<LocalDateTime> dateList = new ArrayList<>();
 //		for (LocalDateTime date: event.getDates()) {
 //			if ((date.isAfter(startDate) || date.isEqual(startDate)) && (date.isBefore(endDate) || date.isEqual(endDate))) {
 //				LocalDateTime helpDate = LocalDateTime.from(date);
 //				while (helpDate.isBefore(endDate) || helpDate.isEqual(endDate)) {
-//					helpDate = helpDate.plusDays(1);
+//					helpDate = nextDate(helpDate, DatasetAnalyzer.smallestDateFormat());
 //					if (!event.getDates().contains(helpDate)) {
 //						patternDetected = false;
 //					}
@@ -145,21 +178,21 @@ public class Pattern {
 //			}
 //		}
 //		if (patternDetected) {
-//			return "TRUE - Wzorzec " + Name.RESPONSIVELY.name() + " występuje dla eventu " + event.getName() + " w okresie: " + startDate.toString() + " - " + endDate.toString();
+//			return "TRUE - Wzorzec " + Name.RESPONSIVELY.getName() + " występuje dla eventu " + event.getName() + " w okresie: " + startDate.toString() + " - " + endDate.toString() + showDates(dateList);
 //		} else {
-//			return "FALSE - Wzorzec " + Name.RESPONSIVELY.name() + " nie występuje dla eventu " + event.getName() + " w okresie: " + startDate.toString() + " - " + endDate.toString();
+//			return "FALSE - Wzorzec " + Name.RESPONSIVELY.getName() + " nie występuje dla eventu " + event.getName() + " w okresie: " + startDate.toString() + " - " + endDate.toString();
 //		}
 		return "Wzorzec nie zaimplementowany !";
 	}
 
-	//TODO zmienić wszystkie patterny plusDay
 	public String persistence(Event event) {
 		boolean patternDetected = true;
+		List<LocalDateTime> dateList = new ArrayList<>();
 		for (LocalDateTime date: event.getDates()) {
 			if ((date.isAfter(startDate) || date.isEqual(startDate)) && (date.isBefore(endDate) || date.isEqual(endDate))) {
 				LocalDateTime helpDate = LocalDateTime.from(date);
 				while (helpDate.isBefore(endDate)) {
-					helpDate = helpDate.plusDays(1);
+					helpDate = nextDate(helpDate, DatasetAnalyzer.smallestDateFormat());
 					patternDetected = true;
 					if (!event.getDates().contains(helpDate)) {
 						patternDetected = false;
@@ -171,17 +204,17 @@ public class Pattern {
 			}
 		}
 		if (patternDetected) {
-			return "TRUE - Wzorzec " + Name.PERSISTENCE.name() + " występuje dla eventu '" + event.getName() + "' w okresie: " + startDate.toString() + " - " + endDate.toString();
+			return "TRUE - Wzorzec " + Name.PERSISTENCE.getName() + " występuje dla eventu '" + event.getName() + "' w okresie: " + startDate.toString() + " - " + endDate.toString() + showDates(dateList);
 		} else {
-			return "FALSE - Wzorzec " + Name.PERSISTENCE.name() + " nie występuje dla eventu '" + event.getName() + "' w okresie: " + startDate.toString() + " - " + endDate.toString();
+			return "FALSE - Wzorzec " + Name.PERSISTENCE.getName() + " nie występuje dla eventu '" + event.getName() + "' w okresie: " + startDate.toString() + " - " + endDate.toString();
 		}
 	}
 
 	//TODO przetestować
-	//TODO zmienić wszystkie patterny plusDay
 	public String reactivity(Event firstEvent, Event secondEvent) {
 		boolean firstPersistance = false;
 		boolean patternDetected = true;
+		Map<LocalDateTime, LocalDateTime> dateMap = new LinkedHashMap<>();
 		//first event
 		LocalDateTime startPersistanceDate = LocalDateTime.now();
 		for (LocalDateTime date: firstEvent.getDates()) {
@@ -190,7 +223,7 @@ public class Pattern {
 				LocalDateTime helpDate = LocalDateTime.from(date);
 				firstPersistance = true;
 				while (helpDate.isBefore(endDate)) {
-					helpDate = helpDate.plusDays(1);
+					helpDate = nextDate(helpDate, DatasetAnalyzer.smallestDateFormat());
 					if (!firstEvent.getDates().contains(helpDate)) {
 						firstPersistance = false;
 						break;
@@ -221,9 +254,41 @@ public class Pattern {
 			patternDetected = false;
 		}
 		if (patternDetected) {
-			return "TRUE - Wzorzec " + Name.REACTIVITY.name() + " występuje dla eventów '" + firstEvent.getName() + "->" + secondEvent.getName() + "' w okresie: " + startDate.toString() + " - " + endDate.toString();
+			return "TRUE - Wzorzec " + Name.REACTIVITY.getName() + " występuje dla eventów '" + firstEvent.getName() + "->" + secondEvent.getName() + "' w okresie: " + startDate.toString() + " - " + endDate.toString() + showDates(dateMap);
 		} else {
-			return "FALSE - Wzorzec " + Name.REACTIVITY.name() + " nie występuje dla eventów '" + firstEvent.getName() + "->" + secondEvent.getName() + "' w okresie: " + startDate.toString() + " - " + endDate.toString();
+			return "FALSE - Wzorzec " + Name.REACTIVITY.getName() + " nie występuje dla eventów '" + firstEvent.getName() + "->" + secondEvent.getName() + "' w okresie: " + startDate.toString() + " - " + endDate.toString();
 		}
+	}
+
+	private LocalDateTime nextDate(LocalDateTime date, FileOperator.DateSmallestPart smallestPart) {
+		switch (smallestPart) {
+			case DAY:
+				return date.plusDays(1);
+			case HOUR:
+				return date.plusHours(1);
+			case MINUTE:
+				return date.plusMinutes(1);
+			case SECOND:
+				return date.plusSeconds(1);
+			default:
+				return LocalDateTime.MAX;
+		}
+	}
+
+	private String showDates(List<LocalDateTime> dateList) {
+		String output = "\n\tDate:";
+		for (LocalDateTime date: dateList) {
+			output = output + "\n\t" + date.toString();
+		}
+		return output + "\n";
+	}
+
+	private String showDates(Map<LocalDateTime, LocalDateTime> dateMap) {
+		String output = "\n\tDate:";
+		for (Map.Entry<LocalDateTime, LocalDateTime> entry: dateMap.entrySet()) {
+
+			output = output + "\n\t" + entry.getKey().toString() + " -> " + entry.getValue().toString();
+		}
+		return output + "\n";
 	}
 }

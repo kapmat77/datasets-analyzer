@@ -103,15 +103,15 @@ public class FileOperator {
 			}
 		} catch (IOException e) {
 			System.out.println("Plik nie zostal wczytany poprawnie!");
-			e.printStackTrace();
-			System.exit(-1);
+//			e.printStackTrace();
+//			System.exit(-1);
 		}
 		if (attributes.size()>0 && records.size()>0) {
 			dataset.setAttributes(attributes);
 			dataset.setRecords(records);
 		} else {
 			System.out.println("Plik nie zostal wczytany poprawnie!");
-			System.exit(-1);
+//			System.exit(-1);
 		}
 	}
 

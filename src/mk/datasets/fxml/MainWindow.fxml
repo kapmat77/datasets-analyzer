@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
 <?import jfxtras.scene.control.LocalDateTimeTextField?>
@@ -17,15 +16,15 @@
                                     <items>
                                         <MenuItem fx:id="miShowHideOutput" mnemonicParsing="false" onAction="#showHideOutputAction" text="Show/hide option panel" />
                                         <MenuItem fx:id="miLoadDataset" mnemonicParsing="false" onAction="#loadDatasetAction" text="Load dataset" />
-                                        <MenuItem fx:id="miLoadPrimAndEve" mnemonicParsing="false" onAction="#loadPrimitivesAndEvents" text="Load primitives and events" />
-                                        <MenuItem fx:id="miSavePrimAndEve" mnemonicParsing="false" onAction="#savePrimitivesAndEvents" text="Save primitives and events" />
-                                        <MenuItem fx:id="miSaveOutput" mnemonicParsing="false" onAction="#saveOutput" text="Save output" />
+                                        <!--<MenuItem fx:id="miLoadPrimAndEve" mnemonicParsing="false" onAction="#loadPrimitivesAndEvents" text="Load primitives and events" />-->
+                                        <!--<MenuItem fx:id="miSavePrimAndEve" mnemonicParsing="false" onAction="#savePrimitivesAndEvents" text="Save primitives and events" />-->
+                                        <!--<MenuItem fx:id="miSaveOutput" mnemonicParsing="false" onAction="#saveOutput" text="Save output" />-->
                                         <MenuItem fx:id="miExit" mnemonicParsing="false" onAction="#exitAction" text="Exit" />
                                     </items>
                                 </Menu>
                                 <Menu mnemonicParsing="false" text="Info">
                                     <items>
-                                        <MenuItem fx:id="miBssicInfo" mnemonicParsing="false" onAction="#infoAction" text="Basic information" />
+                                        <!--<MenuItem fx:id="miBssicInfo" mnemonicParsing="false" onAction="#infoAction" text="Basic information" />-->
                                         <MenuItem fx:id="miAbout" mnemonicParsing="false" onAction="#aboutAction" text="About" />
                                     </items>
                                 </Menu>
@@ -39,8 +38,6 @@
                             <items>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="614.0" prefWidth="567.0">
                                     <children>
-                                        <!--<DatePicker fx:id="dpStartDate" layoutX="53.0" layoutY="173.0" prefHeight="25.0" prefWidth="113.0" />-->
-                                        <!--<DatePicker fx:id="dpEndDate" layoutX="53.0" layoutY="237.0" prefHeight="25.0" prefWidth="113.0" />-->
                                         <LocalDateTimeTextField fx:id="ldtpStartDate" layoutX="29.0" layoutY="185.0" prefHeight="25.0" prefWidth="147.0" />
                                         <LocalDateTimeTextField fx:id="ldtpEndDate" layoutX="29.0" layoutY="245.0" prefHeight="25.0" prefWidth="147.0" />
                                         <Label layoutX="50.0" layoutY="165.0" text="Data początkowa" />
@@ -53,8 +50,8 @@
                                         <CheckBox fx:id="chResponsively" layoutX="211.0" layoutY="189.0" mnemonicParsing="false" onAction="#checkBoxAction" text="Responsywność (auto)(1)" />
                                         <CheckBox fx:id="chPersistence" layoutX="211.0" layoutY="221.0" mnemonicParsing="false" onAction="#checkBoxAction" text="Persystencja(1)" />
                                         <CheckBox fx:id="chReactivity" layoutX="211.0" layoutY="253.0" mnemonicParsing="false" onAction="#checkBoxAction" text="Reaktywność(2)" />
-                                        <Label layoutX="27.0" layoutY="347.0" text="Primitives" />
-                                        <Label layoutX="288.0" layoutY="347.0" text="Events" />
+                                        <Label layoutX="27.0" layoutY="300.0" text="Primitives" />
+                                        <Label layoutX="288.0" layoutY="300.0" text="Events" />
                                         <TextField fx:id="tfAbsence" layoutX="376.0" layoutY="25.0" />
                                         <TextField fx:id="tfInvariance" layoutX="376.0" layoutY="57.0" />
                                         <TextField fx:id="tfExistence" layoutX="376.0" layoutY="89.0" />
@@ -63,15 +60,15 @@
                                         <TextField fx:id="tfResponsively" layoutX="376.0" layoutY="185.0" />
                                         <TextField fx:id="tfPersistence" layoutX="376.0" layoutY="217.0" />
                                         <TextField fx:id="tfReactivity" layoutX="376.0" layoutY="249.0" />
-                                        <TextField fx:id="tfDataDisplacement" layoutX="27.0" layoutY="314.0" prefHeight="25.0" prefWidth="400.0" />
-                                        <TextArea fx:id="taInputPrimitives" layoutX="25.0" layoutY="370.0" prefHeight="230.0" prefWidth="225.0" />
-                                        <TextArea fx:id="taInputEvents" layoutX="286.0" layoutY="370.0" prefHeight="230.0" prefWidth="225.0" />
-                                        <Label layoutX="25.0" layoutY="290.0" text="Przesunięcie czasowe (w dniach)" />
+                                        <!--<TextField fx:id="tfDataDisplacement" layoutX="27.0" layoutY="314.0" prefHeight="25.0" prefWidth="400.0" />-->
+                                        <TextArea fx:id="taInputPrimitives" layoutX="25.0" layoutY="320.0" prefHeight="270.0" prefWidth="225.0" />
+                                        <TextArea fx:id="taInputEvents" layoutX="286.0" layoutY="320.0" prefHeight="270.0" prefWidth="225.0" />
+                                        <!--<Label layoutX="25.0" layoutY="290.0" text="Przesunięcie czasowe (w dniach)" />-->
                                         <Button fx:id="buttonStart" layoutX="29.0" layoutY="10.0" mnemonicParsing="false" onAction="#startAction" prefHeight="39.0" prefWidth="100.0" text="START" />
                                         <Button fx:id="buttonDatasets" layoutX="29.0" layoutY="57.0" mnemonicParsing="false" onAction="#showDatasets" text="Pokaż dane datasetów" />
                                         <Button fx:id="buttonPrimitives" layoutX="29.0" layoutY="89.0" mnemonicParsing="false" onAction="#showPrimitives" text="Pokaż dane prymitywów" />
                                         <Button fx:id="buttonEvents" layoutX="29.0" layoutY="121.0" mnemonicParsing="false" onAction="#showEvents" text="Pokaż dane eventów" />
-                                        <Button fx:id="buttonMove" layoutX="450.0" layoutY="314.0" mnemonicParsing="false" onAction="#moveAction" text="Przesuń" />
+                                        <!--<Button fx:id="buttonMove" layoutX="450.0" layoutY="314.0" mnemonicParsing="false" onAction="#moveAction" text="Przesuń" />-->
                                     </children>
                                 </AnchorPane>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">

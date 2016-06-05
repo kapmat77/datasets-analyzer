@@ -39,7 +39,7 @@ public class DatasetAnalyzer {
 		pattern.setEndDate(endDate);
 
 		String outputMsg;
-		outputMsg = "\nPoszukiwanie wzorca " + patternName.name() +" dla eventów: ";
+		outputMsg = "\nPoszukiwanie wzorca " + patternName.getName() +" dla eventów: ";
 		for (int i = 0; i<inputEvents.length; i++) {
 			outputMsg = outputMsg + inputEvents[i];
 			if (i==(inputEvents.length-1)) {
@@ -94,9 +94,15 @@ public class DatasetAnalyzer {
 		String datasetName = file.getAbsolutePath().substring(lastBackslash+1);
 		if (getDatasetByName(datasetName)==null) {
 			counter++;
-			Dataset dataset = new Dataset(counter, datasetName, file.getAbsolutePath());
-			datasets.add(dataset);
-			setOldestAndNewestDate();
+			try {
+				Dataset dataset = new Dataset(counter, datasetName, file.getAbsolutePath());
+				datasets.add(dataset);
+				setOldestAndNewestDate();
+			} catch (Exception e) {
+				counter--;
+				return "Wczytywany jest zły plik !";
+			}
+
 		} else {
 			return "Zbiór danych został załadowany już wcześniej!";
 		}
@@ -218,7 +224,7 @@ public class DatasetAnalyzer {
 		return (days*3600*24 + hours*3600 + minutes*60 + seconds);
 	}
 
-	private FileOperator.DateSmallestPart smallestDateFormat() {
+	public static FileOperator.DateSmallestPart smallestDateFormat() {
 		boolean start = true;
 		FileOperator.DateSmallestPart dateSmallestPart = FileOperator.DateSmallestPart.DAY;
 		FileOperator.DateSmallestPart dateFormat;
