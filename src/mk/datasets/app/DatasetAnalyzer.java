@@ -153,26 +153,94 @@ public class DatasetAnalyzer {
 											newRecord.addParameter(entry.getKey(), "N/A");
 										}
 
-										//TODO poprawić, dział tylko dla przejścia z DNI na mniejsze jednostki
-										switch (smallestPart) {
-											case SECOND:
-												if (newRecord.getLocalDateTime().isEqual(LocalDateTime.of(1,1,1,0,0))) {
-													newRecord.setLocalDateTime(oldRecords.get(j).getLocalDateTime().plusSeconds(i*(secondTimeDiff/(24*3600))));
-													newRecords.add(newRecord);
-												}
-												break;
-											case MINUTE:
-												if (newRecord.getLocalDateTime().isEqual(LocalDateTime.of(1,1,1,0,0))) {
-													newRecord.setLocalDateTime(oldRecords.get(j).getLocalDateTime().plusSeconds(i * (secondTimeDiff / (24 * 60))));
-													newRecords.add(newRecord);
-												}
-												break;
-											case HOUR:
-												if (newRecord.getLocalDateTime().isEqual(LocalDateTime.of(1,1,1,0,0))) {
-													newRecord.setLocalDateTime(oldRecords.get(j).getLocalDateTime().plusSeconds(i*(secondTimeDiff/24)));
-													newRecords.add(newRecord);
-												}
-												break;
+										if (dataset.getMeasurement().equals("DAY")) {
+											switch (smallestPart) {
+												case SECOND:
+													if (newRecord.getLocalDateTime().isEqual(LocalDateTime.of(1,1,1,0,0))) {
+														newRecord.setLocalDateTime(oldRecords.get(j).getLocalDateTime().plusSeconds(i*(secondTimeDiff/(24*3600))));
+														newRecords.add(newRecord);
+													}
+													break;
+												case MINUTE:
+													if (newRecord.getLocalDateTime().isEqual(LocalDateTime.of(1,1,1,0,0))) {
+														newRecord.setLocalDateTime(oldRecords.get(j).getLocalDateTime().plusSeconds(i * (secondTimeDiff / (24 * 60))));
+														newRecords.add(newRecord);
+													}
+													break;
+												case HOUR:
+													if (newRecord.getLocalDateTime().isEqual(LocalDateTime.of(1,1,1,0,0))) {
+														newRecord.setLocalDateTime(oldRecords.get(j).getLocalDateTime().plusSeconds(i*(secondTimeDiff/24)));
+														newRecords.add(newRecord);
+													}
+													break;
+											}
+										} else if (dataset.getMeasurement().equals("MONTH")) {
+											int daysInMonth = 0;
+											switch (oldRecords.get(j).getLocalDateTime().getMonth()) {
+												case JANUARY:
+													daysInMonth = 31;
+													break;
+												case FEBRUARY:
+													daysInMonth = 28;
+													break;
+												case MARCH:
+													daysInMonth = 31;
+													break;
+												case APRIL:
+													daysInMonth = 30;
+													break;
+												case MAY:
+													daysInMonth = 31;
+													break;
+												case JUNE:
+													daysInMonth = 30;
+													break;
+												case JULY:
+													daysInMonth = 31;
+													break;
+												case AUGUST:
+													daysInMonth = 31;
+													break;
+												case SEPTEMBER:
+													daysInMonth = 30;
+													break;
+												case NOVEMBER:
+													daysInMonth = 31;
+													break;
+												case OCTOBER:
+													daysInMonth = 30;
+													break;
+												case DECEMBER:
+													daysInMonth = 31;
+													break;
+											}
+											daysInMonth = 31;
+											switch (smallestPart) {
+												case SECOND:
+													if (newRecord.getLocalDateTime().isEqual(LocalDateTime.of(1,1,1,0,0))) {
+														newRecord.setLocalDateTime(oldRecords.get(j).getLocalDateTime().plusSeconds(i*(secondTimeDiff/(daysInMonth * 24*3600))));
+														newRecords.add(newRecord);
+													}
+													break;
+												case MINUTE:
+													if (newRecord.getLocalDateTime().isEqual(LocalDateTime.of(1,1,1,0,0))) {
+														newRecord.setLocalDateTime(oldRecords.get(j).getLocalDateTime().plusSeconds(i * (secondTimeDiff / (daysInMonth * 24 * 60))));
+														newRecords.add(newRecord);
+													}
+													break;
+												case HOUR:
+													if (newRecord.getLocalDateTime().isEqual(LocalDateTime.of(1,1,1,0,0))) {
+														newRecord.setLocalDateTime(oldRecords.get(j).getLocalDateTime().plusSeconds(i*(secondTimeDiff/(daysInMonth*24))));
+														newRecords.add(newRecord);
+													}
+													break;
+												case DAY:
+													if (newRecord.getLocalDateTime().isEqual(LocalDateTime.of(1,1,1,0,0))) {
+														newRecord.setLocalDateTime(oldRecords.get(j).getLocalDateTime().plusSeconds(i*(secondTimeDiff/(daysInMonth))));
+														newRecords.add(newRecord);
+													}
+													break;
+											}
 										}
 									}
 								}
@@ -221,12 +289,12 @@ public class DatasetAnalyzer {
 
 		long seconds = tempDateTime.until(secondDate, ChronoUnit.SECONDS);
 
-		return (days*3600*24 + hours*3600 + minutes*60 + seconds);
+		return (months*31*24*3600 + days*3600*24 + hours*3600 + minutes*60 + seconds);
 	}
 
 	public static FileOperator.DateSmallestPart smallestDateFormat() {
 		boolean start = true;
-		FileOperator.DateSmallestPart dateSmallestPart = FileOperator.DateSmallestPart.DAY;
+		FileOperator.DateSmallestPart dateSmallestPart = FileOperator.DateSmallestPart.MONTH;
 		FileOperator.DateSmallestPart dateFormat;
 		for (Dataset dataset: datasets) {
 			switch (dataset.getMeasurement()) {
@@ -241,6 +309,9 @@ public class DatasetAnalyzer {
 					break;
 				case "DAY":
 					dateFormat = FileOperator.DateSmallestPart.DAY;
+					break;
+				case "MONTH":
+					dateFormat = FileOperator.DateSmallestPart.MONTH;
 					break;
 				default:
 					dateFormat = FileOperator.DateSmallestPart.DAY;
@@ -270,6 +341,10 @@ public class DatasetAnalyzer {
 					case "DAY":
 						multiplier = 86400;
 						break;
+					case "MONTH":
+						multiplier = 86400*31;
+						break;
+
 				}
 				break;
 			case MINUTE:
@@ -280,6 +355,9 @@ public class DatasetAnalyzer {
 					case "DAY":
 						multiplier = 1440;
 						break;
+					case "MONTH":
+						multiplier = 1440*31;
+						break;
 				}
 				break;
 			case HOUR:
@@ -287,9 +365,17 @@ public class DatasetAnalyzer {
 					case "DAY":
 						multiplier = 24;
 						break;
+					case "MONTH":
+						multiplier = 24*31;
+						break;
 				}
 				break;
 			case DAY:
+				switch (currentUnit) {
+					case "MONTH":
+						multiplier = 31;
+						break;
+				}
 				break;
 			default:
 				break;

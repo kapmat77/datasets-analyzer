@@ -39,6 +39,9 @@ public class DatasetsChart extends Application {
 			dateList.add(helpDate);
 			timeSeries.getData().add(new XYChart.Data(helpDate.toString(), 0));
 			switch (DatasetAnalyzer.smallestDateFormat()) {
+				case MONTH:
+					helpDate = helpDate.plusMonths(1);
+					break;
 				case DAY:
 					helpDate = helpDate.plusDays(1);
 					break;

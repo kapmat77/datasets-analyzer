@@ -29,6 +29,7 @@ public class FileOperator {
 	private DateFormat dateFormat;
 
 	enum DateFormat {
+		DATE_MONTH,
 		DATE,
 		TIME,
 		DATE_AND_TIME,
@@ -39,7 +40,8 @@ public class FileOperator {
 		SECOND,
 		MINUTE,
 		HOUR,
-		DAY;
+		DAY,
+		MONTH;
 
 		public boolean isBiggerThan(DateSmallestPart dateFormat) {
 			switch (this) {
@@ -64,6 +66,13 @@ public class FileOperator {
 					} else {
 						return false;
 					}
+				case MONTH:
+					if (dateFormat.name().equalsIgnoreCase("Second") || dateFormat.name().equalsIgnoreCase("Minute") ||
+							dateFormat.name().equalsIgnoreCase("Hour") || dateFormat.name().equalsIgnoreCase("Day")) {
+						return true;
+					} else {
+						return false;
+					}
 				default:
 					return false;
 			}
@@ -76,6 +85,8 @@ public class FileOperator {
 
 	public String getDateFormat() {
 		switch (dateFormat) {
+			case DATE_MONTH:
+				return DateSmallestPart.MONTH.name();
 			case DATE:
 				return DateSmallestPart.DAY.name();
 			case TIME:
@@ -153,10 +164,28 @@ public class FileOperator {
 						setDateFormat(DateFormat.FULL_DATE_ONE_COLUMN);
 					}
 					switch (dateFormat) {
+						case DATE_MONTH:
+							if (attributes.get(i).equalsIgnoreCase("date")) {
+								String[] dateParts = parts[i].replace("\"","").split("-");
+								if (checkSize.length() == 6) {
+									record.setLocalDateTime(LocalDate.of(Integer.valueOf(dateParts[0]), Integer.valueOf(dateParts[1]), 1), LocalTime.of(0,0,0));
+								} else {
+									record.setLocalDateTime(LocalDate.of(Integer.valueOf(dateParts[0]), Integer.valueOf(dateParts[1]), Integer.valueOf(dateParts[2])), LocalTime.of(0,0,0));
+								}
+							} else {
+								record.addParameter(attributes.get(i), parts[i]);
+							}
+							break;
+
 						case DATE:
 							if (attributes.get(i).equalsIgnoreCase("date")) {
 								String[] dateParts = parts[i].replace("\"","").split("-");
-								record.setLocalDateTime(LocalDate.of(Integer.valueOf(dateParts[0]), Integer.valueOf(dateParts[1]), Integer.valueOf(dateParts[2])), LocalTime.of(0,0,0));
+								if (checkSize.length() == 6) {
+									dateFormat = DateFormat.DATE_MONTH;
+									record.setLocalDateTime(LocalDate.of(Integer.valueOf(dateParts[0]), Integer.valueOf(dateParts[1]), 1), LocalTime.of(0,0,0));
+								} else {
+									record.setLocalDateTime(LocalDate.of(Integer.valueOf(dateParts[0]), Integer.valueOf(dateParts[1]), Integer.valueOf(dateParts[2])), LocalTime.of(0,0,0));
+								}
 							} else {
 								record.addParameter(attributes.get(i), parts[i]);
 							}
