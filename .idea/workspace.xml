@@ -2,12 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/resources/co2-ppm-mauna-loa-19651980.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/resources/exchange-rate-twi-may-1970-aug-1.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/resources/monthly-number-of-unemployed-per _OLDER.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/resources/monthly-total-number-of-pigs-sla.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/datasets-analyzer/mk/datasets/app/FileOperator.class" afterPath="$PROJECT_DIR$/out/production/datasets-analyzer/mk/datasets/app/FileOperator.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/resources/month/test.csv" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/resources/test.txt" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/resources/AirQuality_BIG.csv" afterPath="$PROJECT_DIR$/src/resources/hour/AirQuality_BIG.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/resources/AirQuality_SMALL.csv" afterPath="$PROJECT_DIR$/src/resources/hour/AirQuality_SMALL.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/resources/co2-ppm-mauna-loa-19651980.csv" afterPath="$PROJECT_DIR$/src/resources/month/co2-ppm-mauna-loa-19651980.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/resources/eurofxref-hist.csv" afterPath="$PROJECT_DIR$/src/resources/day/eurofxref-hist.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/resources/eurofxref-hist_BIG.csv" afterPath="$PROJECT_DIR$/src/resources/day/eurofxref-hist_BIG.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/resources/exchange-rate-twi-may-1970-aug-1.csv" afterPath="$PROJECT_DIR$/src/resources/month/exchange-rate-twi-may-1970-aug-1.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/resources/mean-daily-saugeen-river-flows-j.csv" afterPath="$PROJECT_DIR$/src/resources/day/mean-daily-saugeen-river-flows-j.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/resources/monthly-number-of-unemployed-per _OLDER.csv" afterPath="$PROJECT_DIR$/src/resources/month/monthly-number-of-unemployed-per _OLDER.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/resources/monthly-number-of-unemployed-per.csv" afterPath="$PROJECT_DIR$/src/resources/month/monthly-number-of-unemployed-per_SMALL.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/resources/monthly-total-number-of-pigs-sla.csv" afterPath="$PROJECT_DIR$/src/resources/month/monthly-total-number-of-pigs-sla.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/resources/various-bitcoin-currency-statist.csv" afterPath="$PROJECT_DIR$/src/resources/day/various-bitcoin-currency-statist.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/resources/various-bitcoin-currency-statist_BIG.csv" afterPath="$PROJECT_DIR$/src/resources/day/various-bitcoin-currency-statist_BIG.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/mk/datasets/app/DatasetAnalyzer.java" afterPath="$PROJECT_DIR$/src/mk/datasets/app/DatasetAnalyzer.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,67 +34,125 @@
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
+  <component name="DatabaseView">
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_TABLE_DETAILS" value="true" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="JavaFxApplication" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="co2-ppm-mauna-loa-19651980.csv" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/resources/co2-ppm-mauna-loa-19651980.csv">
+      <file leaf-file-name="eurofxref-hist.csv" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/resources/day/eurofxref-hist.csv">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="148">
-              <caret line="183" column="16" selection-start-line="183" selection-start-column="16" selection-end-line="183" selection-end-column="16" />
+            <state relative-caret-position="85">
+              <caret line="5" column="41" selection-start-line="5" selection-start-column="41" selection-end-line="5" selection-end-column="41" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="monthly-total-number-of-pigs-sla.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/resources/monthly-total-number-of-pigs-sla.csv">
+      <file leaf-file-name="monthly-number-of-unemployed-per_SMALL.csv" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/resources/month/monthly-number-of-unemployed-per_SMALL.csv">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="624">
-              <caret line="188" column="14" selection-start-line="188" selection-start-column="14" selection-end-line="188" selection-end-column="14" />
+            <state relative-caret-position="0">
+              <caret line="0" column="14" selection-start-line="0" selection-start-column="14" selection-end-line="0" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="monthly-number-of-unemployed-per _OLDER.csv" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/resources/month/monthly-number-of-unemployed-per _OLDER.csv">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="37" column="16" selection-start-line="37" selection-start-column="16" selection-end-line="37" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test.csv" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/resources/month/test.csv">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DatasetAnalyzer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/mk/datasets/app/DatasetAnalyzer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="599">
+              <caret line="313" column="32" selection-start-line="313" selection-start-column="32" selection-end-line="313" selection-end-column="32" />
+              <folding>
+                <element signature="docComment;class#DatasetAnalyzer#0" expanded="false" />
+                <element signature="method#resetLists#0;class#DatasetAnalyzer#0" expanded="false" />
+                <element signature="method#addEvents#0;class#DatasetAnalyzer#0" expanded="false" />
+                <element signature="method#assignTimeIdToRecords#0;class#DatasetAnalyzer#0" expanded="false" />
+                <element signature="method#setOldestAndNewestDate#0;class#DatasetAnalyzer#0" expanded="false" />
+                <element signature="method#getDatasetById#0;class#DatasetAnalyzer#0" expanded="false" />
+                <element signature="method#getDatasetByName#0;class#DatasetAnalyzer#0" expanded="false" />
+                <element signature="method#getEventByName#0;class#DatasetAnalyzer#0" expanded="false" />
+                <element signature="method#showPrimitives#0;class#DatasetAnalyzer#0" expanded="false" />
+                <element signature="method#showEvents#0;class#DatasetAnalyzer#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FileOperator.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/mk/datasets/app/FileOperator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="216">
+              <caret line="106" column="34" selection-start-line="106" selection-start-column="34" selection-end-line="106" selection-end-column="34" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="exchange-rate-twi-may-1970-aug-1.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/resources/exchange-rate-twi-may-1970-aug-1.csv">
+        <entry file="file://$PROJECT_DIR$/src/resources/month/exchange-rate-twi-may-1970-aug-1.csv">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="590">
+            <state relative-caret-position="5168">
               <caret line="304" column="14" selection-start-line="304" selection-start-column="14" selection-end-line="304" selection-end-column="14" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="monthly-number-of-unemployed-per _OLDER.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/resources/monthly-number-of-unemployed-per _OLDER.csv">
+      <file leaf-file-name="co2-ppm-mauna-loa-19651980.csv" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/resources/month/co2-ppm-mauna-loa-19651980.csv">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
-              <caret line="211" column="16" selection-start-line="211" selection-start-column="16" selection-end-line="211" selection-end-column="16" />
+            <state relative-caret-position="3111">
+              <caret line="183" column="16" selection-start-line="183" selection-start-column="16" selection-end-line="183" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="eurofxref-hist_BIG.csv" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/resources/day/eurofxref-hist_BIG.csv">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="10" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="mean-daily-saugeen-river-flows-j.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/resources/mean-daily-saugeen-river-flows-j.csv">
+        <entry file="file://$PROJECT_DIR$/src/resources/day/mean-daily-saugeen-river-flows-j.csv">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
+            <state relative-caret-position="3298">
               <caret line="194" column="16" selection-start-line="194" selection-start-column="16" selection-end-line="194" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="eurofxref-hist.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/resources/eurofxref-hist.csv">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="3" selection-start-line="1" selection-start-column="3" selection-end-line="1" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -153,7 +221,6 @@
         <option value="$PROJECT_DIR$/src/mk/datasets/app/test.java" />
         <option value="$PROJECT_DIR$/src/mk/datasets/app/FileOperator.java" />
         <option value="$PROJECT_DIR$/src/resources/mean-daily-saugeen-river-flows-j.csv" />
-        <option value="$PROJECT_DIR$/src/mk/datasets/app/DatasetAnalyzer.java" />
         <option value="$PROJECT_DIR$/src/resources/monthly-number-of-unemployed-per.csv" />
         <option value="$PROJECT_DIR$/src/resources/eurofxref-hist.csv" />
         <option value="$PROJECT_DIR$/src/mk/datasets/app/DatasetsChart.java" />
@@ -161,6 +228,10 @@
         <option value="$PROJECT_DIR$/src/resources/exchange-rate-twi-may-1970-aug-1.csv" />
         <option value="$PROJECT_DIR$/src/resources/monthly-number-of-unemployed-per _OLDER.csv" />
         <option value="$PROJECT_DIR$/src/resources/co2-ppm-mauna-loa-19651980.csv" />
+        <option value="$PROJECT_DIR$/src/resources/month/monthly-number-of-unemployed-per_SMALL.csv" />
+        <option value="$PROJECT_DIR$/src/resources/month/monthly-number-of-unemployed-per _OLDER.csv" />
+        <option value="$PROJECT_DIR$/src/resources/month/test.csv" />
+        <option value="$PROJECT_DIR$/src/mk/datasets/app/DatasetAnalyzer.java" />
       </list>
     </option>
   </component>
@@ -203,6 +274,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -236,6 +310,54 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="month" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="datasets-analyzer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="datasets-analyzer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hour" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="datasets-analyzer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="datasets-analyzer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="day" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -341,25 +463,8 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="datasets-analyzer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="datasets-analyzer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="out" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -367,12 +472,16 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Kapmat\Desktop\JavaGitProjects\datasets-analyzer\src\resources\day" />
+      <recent name="C:\Users\Kapmat\Desktop\JavaGitProjects\datasets-analyzer\src\resources\month" />
+      <recent name="C:\Users\Kapmat\Desktop\JavaGitProjects\datasets-analyzer\src\resources\hour" />
+      <recent name="C:\Users\Kapmat\Desktop\JavaGitProjects\datasets-analyzer\src\mk\datasets\fxml" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Kapmat\Desktop\JavaGitProjects\datasets-analyzer\src\resources\month" />
       <recent name="C:\Users\Kapmat\Desktop\JavaGitProjects\datasets-analyzer\src\resources" />
       <recent name="C:\Users\Kapmat\Desktop\JavaGitProjects\datasets-analyzer\src\mk\datasets\app" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Kapmat\Desktop\JavaGitProjects\datasets-analyzer\src\mk\datasets\fxml" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
@@ -896,7 +1005,8 @@
       <workItem from="1465207085082" duration="7683000" />
       <workItem from="1465236250586" duration="7903000" />
       <workItem from="1465290329613" duration="1236000" />
-      <workItem from="1465305642469" duration="940000" />
+      <workItem from="1465305642469" duration="988000" />
+      <workItem from="1465415643358" duration="5022000" />
     </task>
     <task id="LOCAL-00001" summary="Implement few basic methods">
       <created>1464469022594</created>
@@ -1087,11 +1197,18 @@
       <option name="project" value="LOCAL" />
       <updated>1465247767033</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Updated datasets">
+      <created>1465306600015</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1465306600015</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="214814000" />
+    <option name="totallyTimeSpent" value="219884000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-8" width="1616" height="886" extended-state="6" />
@@ -1105,17 +1222,17 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891247" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891247" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.42838195" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20424403" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.311054" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2667095" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969153" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3541114" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="1912" y="122" width="508" height="580" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27718833" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="1912" y="122" width="508" height="580" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1174,7 +1291,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Cahnge name: Condition -&gt; Primitive and implement simple searching" />
     <MESSAGE value="Create new class and change main class name" />
     <MESSAGE value="Add Finder class and a few useful methods" />
     <MESSAGE value="Add getRecordsDates methods" />
@@ -1199,7 +1315,8 @@
     <MESSAGE value="Fixed problem with loading dataset and added chart" />
     <MESSAGE value="Update chart" />
     <MESSAGE value="Added MONTH-&gt;HOUR converter" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added MONTH-&gt;HOUR converter" />
+    <MESSAGE value="Updated datasets" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated datasets" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1269,11 +1386,23 @@
           <properties />
           <option name="timeStamp" value="244" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/mk/datasets/app/DatasetAnalyzer.java</url>
+          <line>123</line>
+          <properties />
+          <option name="timeStamp" value="245" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/mk/datasets/app/DatasetAnalyzer.java</url>
+          <line>238</line>
+          <properties />
+          <option name="timeStamp" value="246" />
+        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="245" />
+      <option name="time" value="247" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
@@ -1282,6 +1411,8 @@
         <watch expression="datasets.get(i).getId()" />
         <watch expression="getIndex(record.getLocalDateTime(), days)" />
         <watch expression="i*(secondTimeDiff/(daysInMonth))" />
+        <watch expression="newRecord" />
+        <watch expression="oldRecords.get(j)" />
       </configuration>
     </watches-manager>
   </component>
@@ -1290,13 +1421,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_60/javafx-src.zip!/javafx/scene/control/TextInputControl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="347" column="35" selection-start-line="347" selection-start-column="35" selection-end-line="347" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_60/src.zip!/java/time/LocalDate.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1972">
@@ -1365,13 +1489,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/resources/AirQualityUCI2.csv" />
-    <entry file="file://$PROJECT_DIR$/src/resources/AirQuality_BIG.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-157861">
-          <caret line="42" column="23" selection-start-line="42" selection-start-column="23" selection-end-line="42" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/resources/test.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1460,20 +1577,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/resources/various-bitcoin-currency-statist (2).csv" />
-    <entry file="file://$PROJECT_DIR$/src/resources/various-bitcoin-currency-statist.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/resources/various-bitcoin-currency-statist_BIG.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="587">
-          <caret line="1162" column="18" selection-start-line="1162" selection-start-column="18" selection-end-line="1162" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_60/javafx-src.zip!/javafx/scene/chart/ValueAxis.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
@@ -1563,7 +1666,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/resources/AirQuality_SMALL.csv">
+    <entry file="file://$PROJECT_DIR$/src/resources/hour/AirQuality_SMALL.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="16" column="79" selection-start-line="16" selection-start-column="79" selection-end-line="16" selection-end-column="79" />
@@ -1571,18 +1674,116 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/resources/eurofxref-hist.csv">
+    <entry file="file://$PROJECT_DIR$/src/mk/datasets/app/DatasetsChart.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="120" column="65" selection-start-line="120" selection-start-column="65" selection-end-line="120" selection-end-column="65" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/day/various-bitcoin-currency-statist_BIG.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19448">
+          <caret line="1144" column="18" selection-start-line="1144" selection-start-column="18" selection-end-line="1144" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/day/various-bitcoin-currency-statist.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/hour/AirQuality_BIG.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
-          <caret line="1" column="3" selection-start-line="1" selection-start-column="3" selection-end-line="1" selection-end-column="3" />
+          <caret line="42" column="23" selection-start-line="42" selection-start-column="23" selection-end-line="42" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/month/monthly-total-number-of-pigs-sla.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="188" column="14" selection-start-line="188" selection-start-column="14" selection-end-line="188" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/month/exchange-rate-twi-may-1970-aug-1.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5168">
+          <caret line="304" column="14" selection-start-line="304" selection-start-column="14" selection-end-line="304" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/month/co2-ppm-mauna-loa-19651980.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3111">
+          <caret line="183" column="16" selection-start-line="183" selection-start-column="16" selection-end-line="183" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/day/eurofxref-hist.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="41" selection-start-line="5" selection-start-column="41" selection-end-line="5" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/day/eurofxref-hist_BIG.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="10" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/day/mean-daily-saugeen-river-flows-j.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3298">
+          <caret line="194" column="16" selection-start-line="194" selection-start-column="16" selection-end-line="194" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/month/monthly-number-of-unemployed-per_SMALL.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="14" selection-start-line="0" selection-start-column="14" selection-end-line="0" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/month/test.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mk/datasets/app/FileOperator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="106" column="34" selection-start-line="106" selection-start-column="34" selection-end-line="106" selection-end-column="34" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/mk/datasets/app/DatasetAnalyzer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4182">
-          <caret line="257" column="0" selection-start-line="257" selection-start-column="0" selection-end-line="257" selection-end-column="0" />
+        <state relative-caret-position="599">
+          <caret line="313" column="32" selection-start-line="313" selection-start-column="32" selection-end-line="313" selection-end-column="32" />
           <folding>
             <element signature="docComment;class#DatasetAnalyzer#0" expanded="false" />
             <element signature="method#resetLists#0;class#DatasetAnalyzer#0" expanded="false" />
@@ -1598,76 +1799,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/resources/eurofxref-hist_BIG.csv">
+    <entry file="file://$PROJECT_DIR$/src/resources/month/monthly-number-of-unemployed-per _OLDER.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="6" column="10" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/resources/monthly-total-number-of-pigs-sla.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="624">
-          <caret line="188" column="14" selection-start-line="188" selection-start-column="14" selection-end-line="188" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/resources/exchange-rate-twi-may-1970-aug-1.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="590">
-          <caret line="304" column="14" selection-start-line="304" selection-start-column="14" selection-end-line="304" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/resources/monthly-number-of-unemployed-per _OLDER.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="211" column="16" selection-start-line="211" selection-start-column="16" selection-end-line="211" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/resources/mean-daily-saugeen-river-flows-j.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="194" column="16" selection-start-line="194" selection-start-column="16" selection-end-line="194" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mk/datasets/app/FileOperator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="103" column="0" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mk/datasets/app/DatasetsChart.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="120" column="65" selection-start-line="120" selection-start-column="65" selection-end-line="120" selection-end-column="65" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/resources/monthly-number-of-unemployed-per.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="5" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/resources/co2-ppm-mauna-loa-19651980.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="183" column="16" selection-start-line="183" selection-start-column="16" selection-end-line="183" selection-end-column="16" />
+        <state relative-caret-position="425">
+          <caret line="37" column="16" selection-start-line="37" selection-start-column="16" selection-end-line="37" selection-end-column="16" />
           <folding />
         </state>
       </provider>

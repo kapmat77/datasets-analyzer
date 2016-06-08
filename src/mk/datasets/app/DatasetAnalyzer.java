@@ -135,7 +135,7 @@ public class DatasetAnalyzer {
 							for (Map.Entry<String, String> entry: oldRecords.get(j).getParameters().entrySet()) {
 								if (!(entry.getKey().equalsIgnoreCase("data") || entry.getKey().equalsIgnoreCase("time"))) {
 									if ((j+1)<oldRecords.size()) {
-										long secondTimeDiff = differenceLocalDateTime(oldRecords.get(j).getLocalDateTime(),oldRecords.get(j+1).getLocalDateTime());
+										long secondTimeDiff = differenceLocalDateTime(dataset.getMeasurement(), oldRecords.get(j).getLocalDateTime(),oldRecords.get(j+1).getLocalDateTime());
 										double valueDiff = 0;
 										boolean appropriateData = true;
 										try {
@@ -153,7 +153,7 @@ public class DatasetAnalyzer {
 											newRecord.addParameter(entry.getKey(), "N/A");
 										}
 
-										if (dataset.getMeasurement().equals("DAY")) {
+										if (dataset.getMeasurement().equals("DAY") && secondTimeDiff!=0) {
 											switch (smallestPart) {
 												case SECOND:
 													if (newRecord.getLocalDateTime().isEqual(LocalDateTime.of(1,1,1,0,0))) {
@@ -174,7 +174,7 @@ public class DatasetAnalyzer {
 													}
 													break;
 											}
-										} else if (dataset.getMeasurement().equals("MONTH")) {
+										} else if (dataset.getMeasurement().equals("MONTH") && secondTimeDiff!=0) {
 											int daysInMonth = 0;
 											switch (oldRecords.get(j).getLocalDateTime().getMonth()) {
 												case JANUARY:
@@ -269,7 +269,7 @@ public class DatasetAnalyzer {
 		return (hours*3600 + minutes*60 + seconds);
 	}
 
-	private long differenceLocalDateTime(LocalDateTime firstDate, LocalDateTime secondDate) {
+	private long differenceLocalDateTime(String measurement, LocalDateTime firstDate, LocalDateTime secondDate) {
 		LocalDateTime tempDateTime = LocalDateTime.from(firstDate);
 
 		long years = tempDateTime.until(secondDate, ChronoUnit.YEARS);
@@ -288,6 +288,33 @@ public class DatasetAnalyzer {
 		tempDateTime = tempDateTime.plusMinutes(minutes);
 
 		long seconds = tempDateTime.until(secondDate, ChronoUnit.SECONDS);
+
+		switch (measurement) {
+			case "MONTH":
+				if (months>1) {
+					return 0;
+				}
+				break;
+			case "DAY":
+				if (days>1) {
+					return 0;
+				}
+				break;
+			case "HOUR":
+				if (hours>1) {
+					return 0;
+				}
+				break;
+			case "MINUTE":
+				if (minutes>1) {
+					return 0;
+				}
+				break;
+			case "SECOND":
+				if (seconds>1) {
+					return 0;
+				}
+		}
 
 		return (months*31*24*3600 + days*3600*24 + hours*3600 + minutes*60 + seconds);
 	}
