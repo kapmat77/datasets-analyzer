@@ -270,6 +270,7 @@ public class Pattern {
 	}
 
 	private LocalDateTime nextDate(LocalDateTime date, FileOperator.DateSmallestPart smallestPart) {
+//		LocalDateTime nextTime = LocalDateTime.now();
 		switch (smallestPart) {
 			case DAY:
 				return date.plusDays(1);
