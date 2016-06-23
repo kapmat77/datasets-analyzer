@@ -50,46 +50,66 @@
                             <items>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="614.0" prefWidth="567.0">
                                     <children>
-                                        <LocalDateTimeTextField fx:id="ldtpStartDate" layoutX="178" layoutY="40" prefHeight="25.0" prefWidth="147.0"/>
-                                        <LocalDateTimeTextField fx:id="ldtpEndDate" layoutX="353" layoutY="40" prefHeight="25.0" prefWidth="147.0"/>
-                                        <Label layoutX="178.0" layoutY="14.0" text="Oldest date" />
-                                        <Label layoutX="353.0" layoutY="14.0" text="Newest date" />
-                                        <CheckBox fx:id="chAbsence" layoutX="39.0" layoutY="282.0" mnemonicParsing="false" onAction="#checkBoxAction" text="Absence" />
-                                        <CheckBox fx:id="chInvariance" layoutX="39.0" layoutY="314.0" mnemonicParsing="false" onAction="#checkBoxAction" text="Invariance (Universality)" />
-                                        <CheckBox fx:id="chExistence" layoutX="39.0" layoutY="346.0" mnemonicParsing="false" onAction="#checkBoxAction" text="Existence" />
-                                        <CheckBox fx:id="chResponse" layoutX="39.0" layoutY="378.0" mnemonicParsing="false" onAction="#checkBoxAction" text="Response" />
-                                        <CheckBox fx:id="chObligation" layoutX="39.0" layoutY="410.0" mnemonicParsing="false" onAction="#checkBoxAction" text="Obligacja" />
-                                        <CheckBox fx:id="chResponsively" layoutX="39.0" layoutY="442.0" mnemonicParsing="false" onAction="#checkBoxAction" text="Responsywność (auto)" />
-                                        <CheckBox fx:id="chPersistence" layoutX="39.0" layoutY="474.0" mnemonicParsing="false" onAction="#checkBoxAction" text="Persystencja" />
-                                        <CheckBox fx:id="chReactivity" layoutX="39.0" layoutY="506.0" mnemonicParsing="false" onAction="#checkBoxAction" text="Reaktywność" />
-                                        <Label fx:id="lAbsence" layoutX="196.0" layoutY="279.0" />
-                                        <Label fx:id="lInvariance" layoutX="196.0" layoutY="311.0" />
-                                        <Label fx:id="lExistence" layoutX="196.0" layoutY="343.0" />
-                                        <Label fx:id="lResponse" layoutX="196.0" layoutY="375.0" />
-                                        <Label fx:id="lObligation" layoutX="196.0" layoutY="407.0" />
-                                        <Label fx:id="lResponsively" layoutX="196.0" layoutY="439.0" />
-                                        <Label fx:id="lPersistence" layoutX="196.0" layoutY="471.0" />
-                                        <Label fx:id="lReactivity" layoutX="196.0" layoutY="503.0" />
-                                        <Label layoutX="27.0" layoutY="79.0" text="Primitives" />
-                                        <Label layoutX="290.0" layoutY="79.0" text="Events" />
-                                        <TextField fx:id="tfAbsence" layoutX="346.0" layoutY="282.0" prefHeight="25.0" prefWidth="170.0" />
-                                        <TextField fx:id="tfInvariance" layoutX="346.0" layoutY="314.0" prefHeight="25.0" prefWidth="170.0" />
-                                        <TextField fx:id="tfExistence" layoutX="346.0" layoutY="346.0" prefHeight="25.0" prefWidth="170.0" />
-                                        <TextField fx:id="tfResponse" layoutX="346.0" layoutY="378.0" prefHeight="25.0" prefWidth="170.0" />
-                                        <TextField fx:id="tfObligation" layoutX="346.0" layoutY="410.0" prefHeight="25.0" prefWidth="170.0" />
-                                        <TextField fx:id="tfResponsively" layoutX="346.0" layoutY="442.0" prefHeight="25.0" prefWidth="170.0" />
-                                        <TextField fx:id="tfPersistence" layoutX="346.0" layoutY="474.0" prefHeight="25.0" prefWidth="170.0" />
-                                        <TextField fx:id="tfReactivity" layoutX="346.0" layoutY="506.0" prefHeight="25.0" prefWidth="170.0" />
-                                        <TextArea fx:id="taInputPrimitives" layoutX="27.0" layoutY="105.0" prefHeight="163.0" prefWidth="225.0" />
-                                        <TextArea fx:id="taInputEvents" layoutX="290.0" layoutY="105.0" prefHeight="163.0" prefWidth="225.0" />
-                                        <Button fx:id="buttonStart" layoutX="34.0" layoutY="25.0" mnemonicParsing="false" onAction="#startAction" prefHeight="39.0" prefWidth="100.0" text="START" />
-                                        <Line endX="410.0" layoutX="116.0" layoutY="311.0" startX="-100.0" strokeWidth="0.4" />
-                                        <Line endX="410.0" layoutX="116.0" layoutY="343.0" startX="-100.0" strokeWidth="0.4" />
-                                        <Line endX="410.0" layoutX="116.0" layoutY="375.0" startX="-100.0" strokeWidth="0.4" />
-                                        <Line endX="410.0" layoutX="116.0" layoutY="407.0" startX="-100.0" strokeWidth="0.4" />
-                                        <Line endX="410.0" layoutX="116.0" layoutY="439.0" startX="-100.0" strokeWidth="0.4" />
-                                        <Line endX="410.0" layoutX="116.0" layoutY="471.0" startX="-100.0" strokeWidth="0.4" />
-                                        <Line endX="410.0" layoutX="116.0" layoutY="503.0" startX="-100.0" strokeWidth="0.4" />
+                                        <LocalDateTimeTextField fx:id="ldtpStartDate" layoutX="178" layoutY="27" prefHeight="25.0" prefWidth="147.0"/>
+                                        <LocalDateTimeTextField fx:id="ldtpEndDate" layoutX="353" layoutY="27" prefHeight="25.0" prefWidth="147.0"/>
+                                        <Label layoutX="178.0" layoutY="6.0" text="Oldest date" />
+                                        <Label layoutX="354.0" layoutY="6.0" text="Newest date" />
+                                        <CheckBox fx:id="chAbsence" layoutX="39.0" layoutY="222.0" mnemonicParsing="false" onAction="#checkBoxAction" text="Absence" />
+                                        <CheckBox fx:id="chInvariance" layoutX="39.0" layoutY="254.0" mnemonicParsing="false" onAction="#checkBoxAction" text="Invariance (Universality)" />
+                                        <CheckBox fx:id="chExistence" layoutX="39.0" layoutY="286.0" mnemonicParsing="false" onAction="#checkBoxAction" text="Existence" />
+                                        <CheckBox fx:id="chResponse" layoutX="39.0" layoutY="318.0" mnemonicParsing="false" onAction="#checkBoxAction" text="Response" />
+                                        <CheckBox fx:id="chObligation" layoutX="39.0" layoutY="350.0" mnemonicParsing="false" onAction="#checkBoxAction" text="Obligacja" />
+                                        <CheckBox fx:id="chResponsively" layoutX="39.0" layoutY="382.0" mnemonicParsing="false" onAction="#checkBoxAction" text="Responsywność (auto)" />
+                                        <CheckBox fx:id="chPersistence" layoutX="39.0" layoutY="414.0" mnemonicParsing="false" onAction="#checkBoxAction" text="Persystencja" />
+                                        <CheckBox fx:id="chReactivity" layoutX="39.0" layoutY="446.0" mnemonicParsing="false" onAction="#checkBoxAction" text="Reaktywność" />
+                                        <CheckBox fx:id="chBoundedExistence" layoutX="39.0" layoutY="477.0" mnemonicParsing="false" onAction="#checkBoxAction" text="Bounded Existence" />
+                                        <CheckBox fx:id="chPrecedence" layoutX="39.0" layoutY="509.0" mnemonicParsing="false" onAction="#checkBoxAction" text="Precedence" />
+                                        <CheckBox fx:id="chPrecedenceChain1" layoutX="39.0" layoutY="541.0" mnemonicParsing="false" onAction="#checkBoxAction" text="Precedence Chain 1-2" />
+                                        <CheckBox fx:id="chPrecedenceChain2" layoutX="39.0" layoutY="573.0" mnemonicParsing="false" onAction="#checkBoxAction" text="Precedence Chain 2-1" />
+                                        <CheckBox fx:id="chResponseChain1" layoutX="39.0" layoutY="605.0" mnemonicParsing="false" onAction="#checkBoxAction" text="Response Chain 1-2" />
+                                        <CheckBox fx:id="chResponseChain2" layoutX="39.0" layoutY="637.0" mnemonicParsing="false" onAction="#checkBoxAction" text="Response Chain 2-1" />
+                                        <!--<CheckBox fx:id="chConstrainedChain" layoutX="39.0" layoutY="628.0" mnemonicParsing="false" onAction="#checkBoxAction" text="Constrained Chain" />-->
+                                        <Label fx:id="lAbsence" layoutX="196.0" layoutY="219.0" />
+                                        <Label fx:id="lInvariance" layoutX="196.0" layoutY="251.0" />
+                                        <Label fx:id="lExistence" layoutX="196.0" layoutY="283.0" />
+                                        <Label fx:id="lResponse" layoutX="196.0" layoutY="315.0" />
+                                        <Label fx:id="lObligation" layoutX="196.0" layoutY="347.0" />
+                                        <Label fx:id="lResponsively" layoutX="196.0" layoutY="379.0" />
+                                        <Label fx:id="lPersistence" layoutX="196.0" layoutY="411.0" />
+                                        <Label fx:id="lReactivity" layoutX="196.0" layoutY="443.0" />
+                                        <Label fx:id="lBoundedExistence" layoutX="196.0" layoutY="475.0" />
+                                        <Label fx:id="lPrecedence" layoutX="196.0" layoutY="507.0" />
+                                        <Label fx:id="lPrecedenceChain1" layoutX="196.0" layoutY="539.0" />
+                                        <Label fx:id="lPrecedenceChain2" layoutX="196.0" layoutY="571.0" />
+                                        <Label fx:id="lResponseChain1" layoutX="196.0" layoutY="603.0" />
+                                        <Label fx:id="lResponseChain2" layoutX="196.0" layoutY="635.0" />
+                                        <!--<Label fx:id="lConstrainedChain" layoutX="196.0" layoutY="626.0" />-->
+                                        <Label layoutX="22.0" layoutY="62.0" text="Primitives" />
+                                        <Label layoutX="290.0" layoutY="62.0" text="Events" />
+                                        <TextField fx:id="tfAbsence" layoutX="346.0" layoutY="222.0" maxHeight="10.0" prefHeight="1.0" prefWidth="170.0" />
+                                        <TextField fx:id="tfInvariance" layoutX="346.0" layoutY="254.0" maxHeight="20.0" prefWidth="170.0" />
+                                        <TextField fx:id="tfExistence" layoutX="346.0" layoutY="286.0" maxHeight="25.0" prefWidth="170.0" />
+                                        <TextField fx:id="tfResponse" layoutX="346.0" layoutY="318.0" prefHeight="25.0" prefWidth="170.0" />
+                                        <TextField fx:id="tfObligation" layoutX="346.0" layoutY="350.0" prefHeight="25.0" prefWidth="170.0" />
+                                        <TextField fx:id="tfResponsively" layoutX="346.0" layoutY="382.0" prefHeight="25.0" prefWidth="170.0" />
+                                        <TextField fx:id="tfPersistence" layoutX="346.0" layoutY="414.0" prefHeight="25.0" prefWidth="170.0" />
+                                        <TextField fx:id="tfReactivity" layoutX="346.0" layoutY="446.0" prefHeight="25.0" prefWidth="170.0" />
+                                        <TextArea fx:id="taInputPrimitives" layoutX="22.0" layoutY="79.0" prefHeight="140.0" prefWidth="225.0" />
+                                        <TextArea fx:id="taInputEvents" layoutX="290.0" layoutY="79.0" prefHeight="140.0" prefWidth="225.0" />
+                                        <Button fx:id="buttonStart" layoutX="34.0" layoutY="11.0" mnemonicParsing="false" onAction="#startAction" prefHeight="39.0" prefWidth="100.0" text="START" />
+                                        <Line endX="410.0" layoutX="116.0" layoutY="251.0" startX="-100.0" strokeWidth="0.4" />
+                                        <Line endX="410.0" layoutX="116.0" layoutY="283.0" startX="-100.0" strokeWidth="0.4" />
+                                        <Line endX="410.0" layoutX="116.0" layoutY="315.0" startX="-100.0" strokeWidth="0.4" />
+                                        <Line endX="410.0" layoutX="116.0" layoutY="347.0" startX="-100.0" strokeWidth="0.4" />
+                                        <Line endX="410.0" layoutX="116.0" layoutY="379.0" startX="-100.0" strokeWidth="0.4" />
+                                        <Line endX="410.0" layoutX="116.0" layoutY="411.0" startX="-100.0" strokeWidth="0.4" />
+                                        <Line endX="410.0" layoutX="116.0" layoutY="443.0" startX="-100.0" strokeWidth="0.4" />
+                                        <Line endX="410.0" layoutX="116.0" layoutY="475.0" startX="-100.0" strokeWidth="0.4" />
+                                        <Line endX="410.0" layoutX="116.0" layoutY="507.0" startX="-100.0" strokeWidth="0.4" />
+                                        <Line endX="410.0" layoutX="116.0" layoutY="539.0" startX="-100.0" strokeWidth="0.4" />
+                                        <Line endX="410.0" layoutX="116.0" layoutY="571.0" startX="-100.0" strokeWidth="0.4" />
+                                        <Line endX="410.0" layoutX="116.0" layoutY="603.0" startX="-100.0" strokeWidth="0.4" />
+                                        <Line endX="410.0" layoutX="116.0" layoutY="635.0" startX="-100.0" strokeWidth="0.4" />
                                         <!--<Button fx:id="buttonDatasets" layoutX="29.0" layoutY="57.0" mnemonicParsing="false" onAction="#showDatasets" text="Show datasets☐◇" />-->
                                         <!--<Button fx:id="buttonPrimitives" layoutX="29.0" layoutY="89.0" mnemonicParsing="false" onAction="#showPrimitives" text="Show primitives" />-->
                                         <!--<Button fx:id="buttonEvents" layoutX="29.0" layoutY="121.0" mnemonicParsing="false" onAction="#showEvents" text="Show events" />-->

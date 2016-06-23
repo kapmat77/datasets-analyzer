@@ -108,6 +108,20 @@ public class MainController implements Initializable {
 	private Label lPersistence;
 	@FXML
 	private Label lReactivity;
+	@FXML
+	private Label lBoundedExistence;
+	@FXML
+	private Label lPrecedence;
+	@FXML
+	private Label lPrecedenceChain1;
+	@FXML
+	private Label lPrecedenceChain2;
+	@FXML
+	private Label lResponseChain1;
+	@FXML
+	private Label lResponseChain2;
+	@FXML
+	private Label lConstrainedChain;
 
 	//#################### LOCAL_DATA_TIME_TEXT_FIELD ####################
 	@FXML
@@ -226,29 +240,51 @@ public class MainController implements Initializable {
 	}
 
 	private void initializeCheckBoxeLabels() {
-		lAbsence.setStyle("" + "-fx-font-size: 18px;");
+		String size = "14px;";
+		lAbsence.setStyle("" + "-fx-font-size: "+ size);
 		lAbsence.setText("☐¬p");
 
-		lInvariance.setStyle("" + "-fx-font-size: 18px;");
+		lInvariance.setStyle("" + "-fx-font-size: "+ size);
 		lInvariance.setText("☐p");
 
-		lExistence.setStyle("" + "-fx-font-size: 18px;");
+		lExistence.setStyle("" + "-fx-font-size: "+ size);
 		lExistence.setText("◇p");
 
-		lResponse.setStyle("" + "-fx-font-size: 18px;");
+		lResponse.setStyle("" + "-fx-font-size: "+ size);
 		lResponse.setText("☐(p ⇒ ◇q)");
 
-		lObligation.setStyle("" + "-fx-font-size: 18px;");
+		lObligation.setStyle("" + "-fx-font-size: "+ size);
 		lObligation.setText("◇p ⇒ ◇q");
 
-		lResponsively.setStyle("" + "-fx-font-size: 18px;");
+		lResponsively.setStyle("" + "-fx-font-size: "+ size);
 		lResponsively.setText("☐◇p");
 
-		lPersistence.setStyle("" + "-fx-font-size: 18px;");
+		lPersistence.setStyle("" + "-fx-font-size: "+ size);
 		lPersistence.setText("◇☐p");
 
-		lReactivity.setStyle("" + "-fx-font-size: 18px;");
+		lReactivity.setStyle("" + "-fx-font-size: "+ size);
 		lReactivity.setText("◇☐p ⇒ ◇☐q");
+
+		lBoundedExistence.setStyle("" + "-fx-font-size: "+ size);
+		lBoundedExistence.setText("¬pW(pW(¬pW(pW☐¬p)))");
+
+		lPrecedence.setStyle("" + "-fx-font-size: "+ size);
+		lPrecedence.setText("¬p W q");
+
+		lPrecedenceChain1.setStyle("" + "-fx-font-size: "+ size);
+		lPrecedenceChain1.setText("(◇(s∧<Chain>))→(¬sUp)");
+
+		lPrecedenceChain2.setStyle("" + "-fx-font-size: "+ size);
+		lPrecedenceChain2.setText("◇p⇒(¬pU(s∧¬p[∧<Chain>]))]");
+
+		lResponseChain1.setStyle("" + "-fx-font-size: "+ size);
+		lResponseChain1.setText("☐(p⇒(◇(s[∧<Chain>])))");
+
+		lResponseChain2.setStyle("" + "-fx-font-size: "+ size);
+		lResponseChain2.setText("☐(s∧\u25CB(◇(t1∧<Chain>)))??????");
+
+//		lConstrainedChain.setStyle("" + "-fx-font-size: "+ size);
+//		lConstrainedChain.setText("☐(p ⇒ ◇(s & !z & \u25CB(!z U  T)))");
 	}
 
 	private void initializeTooltips() {
