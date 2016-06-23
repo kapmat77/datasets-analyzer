@@ -38,6 +38,10 @@ public class MainController implements Initializable {
 	private MenuItem miExit;
 	@FXML
 	private MenuItem miAbout;
+	@FXML
+	private MenuItem miShowPrimitives;
+	@FXML
+	private MenuItem miShowEvents;
 
 	//#################### TEXT_AREA ####################
 	@FXML
@@ -86,18 +90,6 @@ public class MainController implements Initializable {
 	//#################### BUTTON ####################
 	@FXML
 	private Button buttonStart;
-	@FXML
-	private Button buttonMove;
-	@FXML
-	private Button buttonPrimitives;
-	@FXML
-	private Button buttonEvents;
-
-	//#################### DATA_PICKER ####################
-//	@FXML
-//	private DatePicker dpStartDate;
-//	@FXML
-//	private DatePicker dpEndDate;
 
 	//#################### LOCAL_DATA_TIME_TEXT_FIELD ####################
 	@FXML
@@ -123,7 +115,7 @@ public class MainController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		initializeAboutWindow();
 		initializeComponents();
-		initializeTooltips();
+//		initializeTooltips(); //TODO przepisać na angielski
 
 		//Default text
 		taInputPrimitives.appendText("P1: 1.USD>1.13\nP2: 1.JPY>124\nP3: 2.value>=412\nP4: 2.value<0");
@@ -134,11 +126,11 @@ public class MainController implements Initializable {
 	public void startAction(ActionEvent event) {
 		datasetAnalyzer.resetLists();
 		if (datasetAnalyzer.getDatasets().isEmpty()) {
-			taOutput.appendText("\n\n" + "Wczytaj zbiór danych!");
+			taOutput.appendText("\n\n" + "Please load dataset!");
 			return;
 		} else if (dateIsSetCorrectly()) {
 			taOutput.appendText("\n\n#################### START ####################");
-			taOutput.appendText("\n" + "Wyszukiwanie wzorców dla okresu od " + ldtpStartDate.getLocalDateTime() + " do " + ldtpEndDate.getLocalDateTime());
+			taOutput.appendText("\n" + "Search patterns from " + ldtpStartDate.getLocalDateTime() + " to " + ldtpEndDate.getLocalDateTime());
 			String primitivesComment = datasetAnalyzer.addPrimitives(taInputPrimitives.getText());
 			taOutput.appendText("\n" + primitivesComment);
 			if (!primitivesComment.contains("ERROR")) {
@@ -157,7 +149,7 @@ public class MainController implements Initializable {
 				return;
 			}
 		} else {
-			taOutput.appendText("\n\n" + "ERROR - popraw daty!");
+			taOutput.appendText("\n\n" + "ERROR - period of time is incorrect!");
 			taOutput.appendText("\n\n##################### END #####################");
 			return;
 		}
@@ -168,42 +160,42 @@ public class MainController implements Initializable {
 		if (!tfAbsence.isDisable() && !tfAbsence.getText().isEmpty()) {
 			taOutput.appendText("\n" + datasetAnalyzer.activePattern(Pattern.Name.ABSENCE, tfAbsence.getText(),ldtpStartDate.getLocalDateTime(), ldtpEndDate.getLocalDateTime()));
 		} else if (!tfAbsence.isDisable()) {
-			taOutput.appendText("\nERROR - pole '" + chAbsence.getText() + "' jest puste");
+			taOutput.appendText("\nERROR - field '" + chAbsence.getText() + "' is empty");
 		}
 		if (!tfInvariance.isDisable() && !tfInvariance.getText().isEmpty()) {
 			taOutput.appendText("\n" + datasetAnalyzer.activePattern(Pattern.Name.INVARIANCE, tfInvariance.getText(), ldtpStartDate.getLocalDateTime(), ldtpEndDate.getLocalDateTime()));
 		} else if (!tfInvariance.isDisable()) {
-			taOutput.appendText("\nERROR - pole '" + chInvariance.getText() + "' jest puste");
+			taOutput.appendText("\nERROR - field '" + chInvariance.getText() + "' is empty");
 		}
 		if (!tfExistence.isDisable() && !tfExistence.getText().isEmpty()) {
 			taOutput.appendText("\n" + datasetAnalyzer.activePattern(Pattern.Name.EXISTENCE, tfExistence.getText(), ldtpStartDate.getLocalDateTime(), ldtpEndDate.getLocalDateTime()));
 		} else if (!tfExistence.isDisable()) {
-			taOutput.appendText("\nERROR - pole '" + chExistence.getText() + "' jest puste");
+			taOutput.appendText("\nERROR - field '" + chExistence.getText() + "' is empty");
 		}
 		if (!tfResponse.isDisable() && !tfResponse.getText().isEmpty()) {
 			taOutput.appendText("\n" + datasetAnalyzer.activePattern(Pattern.Name.RESPONSE, tfResponse.getText(), ldtpStartDate.getLocalDateTime(), ldtpEndDate.getLocalDateTime()));
 		} else if (!tfResponse.isDisable()) {
-			taOutput.appendText("\nERROR - pole '" + chResponse.getText() + "' jest puste");
+			taOutput.appendText("\nERROR - field '" + chResponse.getText() + "' is empty");
 		}
 		if (!tfObligation.isDisable() && !tfObligation.getText().isEmpty()) {
 			taOutput.appendText("\n" + datasetAnalyzer.activePattern(Pattern.Name.OBLIGATION, tfObligation.getText(), ldtpStartDate.getLocalDateTime(), ldtpEndDate.getLocalDateTime()));
 		} else if (!tfObligation.isDisable()) {
-			taOutput.appendText("\nERROR - pole '" + chObligation.getText() + "' jest puste");
+			taOutput.appendText("\nERROR - field '" + chObligation.getText() + "' is empty");
 		}
 		if (!tfResponsively.isDisable() && !tfResponsively.getText().isEmpty()) {
 			taOutput.appendText("\n" + datasetAnalyzer.activePattern(Pattern.Name.RESPONSIVELY, tfResponsively.getText(), ldtpStartDate.getLocalDateTime(), ldtpEndDate.getLocalDateTime()));
 		} else if (!tfResponsively.isDisable()) {
-			taOutput.appendText("\nERROR - pole '" + chResponsively.getText() + "' jest puste");
+			taOutput.appendText("\nERROR - field '" + chResponsively.getText() + "' is empty");
 		}
 		if (!tfPersistence.isDisable() && !tfPersistence.getText().isEmpty()) {
 			taOutput.appendText("\n" + datasetAnalyzer.activePattern(Pattern.Name.PERSISTENCE, tfPersistence.getText(), ldtpStartDate.getLocalDateTime(), ldtpEndDate.getLocalDateTime()));
 		} else if (!tfResponsively.isDisable()) {
-			taOutput.appendText("\nERROR - pole '" + chResponsively.getText() + "' jest puste");
+			taOutput.appendText("\nERROR - field '" + chResponsively.getText() + "' is empty");
 		}
 		if (!tfReactivity.isDisable() && !tfReactivity.getText().isEmpty()) {
 			taOutput.appendText("\n" + datasetAnalyzer.activePattern(Pattern.Name.REACTIVITY, tfReactivity.getText(), ldtpStartDate.getLocalDateTime(), ldtpEndDate.getLocalDateTime()));
 		} else if (!tfReactivity.isDisable()) {
-			taOutput.appendText("\nERROR - pole '" + chReactivity.getText() + "' jest puste");
+			taOutput.appendText("\nERROR - field '" + chReactivity.getText() + "' is empty");
 		}
 	}
 
@@ -424,10 +416,6 @@ public class MainController implements Initializable {
 	@FXML
 	public void exitAction(ActionEvent event) {
 		Platform.exit();
-	}
-
-	@FXML
-	public void moveAction(ActionEvent event) {
 	}
 
 	@FXML

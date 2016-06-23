@@ -270,7 +270,6 @@ public class Pattern {
 	}
 
 	private LocalDateTime nextDate(LocalDateTime date, FileOperator.DateSmallestPart smallestPart) {
-//		LocalDateTime nextTime = LocalDateTime.now();
 		switch (smallestPart) {
 			case DAY:
 				return date.plusDays(1);
@@ -299,7 +298,6 @@ public class Pattern {
 				return LocalDateTime.MIN;
 		}
 	}
-
 
 	private String showDates(List<LocalDateTime> dateList) {
 		String output = "\n\tDate:";

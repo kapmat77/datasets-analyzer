@@ -1,7 +1,6 @@
 package mk.datasets.app;
 
 import java.io.File;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.*;
@@ -39,7 +38,7 @@ public class DatasetAnalyzer {
 		pattern.setEndDate(endDate);
 
 		String outputMsg;
-		outputMsg = "\nPoszukiwanie wzorca " + patternName.getName() +" dla eventów: ";
+		outputMsg = "\nSearch " + patternName.getName() +" pattern for events: ";
 		for (int i = 0; i<inputEvents.length; i++) {
 			outputMsg = outputMsg + inputEvents[i];
 			if (i==(inputEvents.length-1)) {
@@ -83,7 +82,7 @@ public class DatasetAnalyzer {
 					outputMsg = outputMsg + "\n\t" + pattern.reactivity(event, secondEvent);
 					break;
 				default:
-					return "ERROR - zły wzorzec";
+					return "ERROR - incorrect pattern";
 			}
 		}
 		return outputMsg;
@@ -100,11 +99,11 @@ public class DatasetAnalyzer {
 				setOldestAndNewestDate();
 			} catch (Exception e) {
 				counter--;
-				return "Wczytywany jest zły plik !";
+				return "You try to load an incorrect file !";
 			}
 
 		} else {
-			return "Zbiór danych został załadowany już wcześniej!";
+			return "This dataset has already been loaded!";
 		}
 
 		//Sort datasets - first contains the oldest data
@@ -114,7 +113,7 @@ public class DatasetAnalyzer {
 		//Convert data if datasets have different date format
 		convertDatasetsToOneDateFormat();
 
-		return "Zbiór danych został wczytany poprawnie.";
+		return "Dataset was loaded correctly.";
 	}
 
 	private void convertDatasetsToOneDateFormat() {
@@ -427,14 +426,14 @@ public class DatasetAnalyzer {
 
 				//Find duplicates
 				if (Primitive.duplicatesExist(primitiveList)) {
-					return "ERROR - wykryto duplikaty(Prymitywy). Usuń je i spróbuj ponownie.";
+					return "ERROR - duplicate detected(Primitives). Remove it and try again.";
 				}
 				primitives.addAll(primitiveList);
-				return "Prymitywy zostały wczytane poprawnie.";
+				return "Primitives were loaded correctly.";
 			}
-			return "ERROR - zdefiniuj prymitywy!";
+			return "ERROR - please define some primitives!";
 		} catch (Exception e) {
-			return "ERROR - prymitywy zostały nieprawidłowo zdefiniowane!";
+			return "ERROR - primitives weren't defined correctly!";
 		}
 	}
 
@@ -454,14 +453,14 @@ public class DatasetAnalyzer {
 
 				//Find duplicates
 				if (Event.duplicatesExist(eventList)) {
-					return "ERROR - wykryto duplikaty(Eventy). Usuń je i spróbuj ponownie.";
+					return "ERROR - duplicate detected(Events). Remove it and try again.";
 				}
 				events.addAll(eventList);
-				return "Eventy zostały wczytane poprawnie.";
+				return "Events were loaded correctly.";
 			}
-			return "ERROR - zdefiniuj eventy!";
+			return "ERROR - please defined some events!";
 		} catch (Exception e) {
-			return "ERROR - eventy zostały nieprawidłowo zdefiniowane!";
+			return "ERROR - events weren't defined correctly!";
 		}
 	}
 

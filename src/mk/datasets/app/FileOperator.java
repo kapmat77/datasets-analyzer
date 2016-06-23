@@ -113,7 +113,7 @@ public class FileOperator {
 				readFromXlsx(file);
 			}
 		} catch (IOException e) {
-			System.out.println("Plik nie zostal wczytany poprawnie!");
+			System.out.println("The file wasn't loaded correctly!");
 //			e.printStackTrace();
 //			System.exit(-1);
 		}
@@ -121,7 +121,7 @@ public class FileOperator {
 			dataset.setAttributes(attributes);
 			dataset.setRecords(records);
 		} else {
-			System.out.println("Plik nie zostal wczytany poprawnie!");
+			System.out.println("The file wasn't loaded correctly!");
 //			System.exit(-1);
 		}
 	}

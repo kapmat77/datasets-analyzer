@@ -26,7 +26,6 @@ public class Finder {
 		primitivesList.addAll(arrayToList(primitiveNames));
 
 		List<Event> tempEventList = new ArrayList<>();
-		//TODO sprawdzić czy zadziała
 		for (int i = 0; i<primitivesList.size(); i++) {
 			while (primitivesList.size() > 2) {
 				String firstName = primitivesList.get(0);

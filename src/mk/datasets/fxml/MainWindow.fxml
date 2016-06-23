@@ -23,6 +23,14 @@
                                         <MenuItem fx:id="miExit" mnemonicParsing="false" onAction="#exitAction" text="Exit" />
                                     </items>
                                 </Menu>
+                                <Menu mnemonicParsing="false" text="Show">
+                                    <items>
+                                        <!--<MenuItem fx:id="miBssicInfo" mnemonicParsing="false" onAction="#infoAction" text="Basic information" />-->
+                                        <MenuItem fx:id="miShowDatasets" mnemonicParsing="false" onAction="#showDatasets" text="Show Datasets" />
+                                        <MenuItem fx:id="miShowEvents" mnemonicParsing="false" onAction="#showEvents" text="Show Events" />
+                                        <MenuItem fx:id="miShowPrimitives" mnemonicParsing="false" onAction="#showPrimitives" text="Show Primitives" />
+                                    </items>
+                                </Menu>
                                 <Menu mnemonicParsing="false" text="Info">
                                     <items>
                                         <!--<MenuItem fx:id="miBssicInfo" mnemonicParsing="false" onAction="#infoAction" text="Basic information" />-->
@@ -41,8 +49,8 @@
                                     <children>
                                         <LocalDateTimeTextField fx:id="ldtpStartDate" layoutX="29.0" layoutY="185.0" prefHeight="25.0" prefWidth="147.0" />
                                         <LocalDateTimeTextField fx:id="ldtpEndDate" layoutX="29.0" layoutY="245.0" prefHeight="25.0" prefWidth="147.0" />
-                                        <Label layoutX="50.0" layoutY="165.0" text="Data początkowa" />
-                                        <Label layoutX="50.0" layoutY="225.0" text="Data końcowa" />
+                                        <Label layoutX="50.0" layoutY="165.0" text="Oldest date" />
+                                        <Label layoutX="50.0" layoutY="225.0" text="Newest date" />
                                         <CheckBox fx:id="chAbsence" layoutX="211.0" layoutY="29.0" mnemonicParsing="false" onAction="#checkBoxAction" text="Absencja(1)" />
                                         <CheckBox fx:id="chInvariance" layoutX="211.0" layoutY="61.0" mnemonicParsing="false" onAction="#checkBoxAction" text="Niezmienniczość(1)" />
                                         <CheckBox fx:id="chExistence" layoutX="211.0" layoutY="93.0" mnemonicParsing="false" onAction="#checkBoxAction" text="Możliwość(1)" />
@@ -66,9 +74,9 @@
                                         <TextArea fx:id="taInputEvents" layoutX="286.0" layoutY="320.0" prefHeight="270.0" prefWidth="225.0" />
                                         <!--<Label layoutX="25.0" layoutY="290.0" text="Przesunięcie czasowe (w dniach)" />-->
                                         <Button fx:id="buttonStart" layoutX="29.0" layoutY="10.0" mnemonicParsing="false" onAction="#startAction" prefHeight="39.0" prefWidth="100.0" text="START" />
-                                        <Button fx:id="buttonDatasets" layoutX="29.0" layoutY="57.0" mnemonicParsing="false" onAction="#showDatasets" text="Pokaż dane datasetów" />
-                                        <Button fx:id="buttonPrimitives" layoutX="29.0" layoutY="89.0" mnemonicParsing="false" onAction="#showPrimitives" text="Pokaż dane prymitywów" />
-                                        <Button fx:id="buttonEvents" layoutX="29.0" layoutY="121.0" mnemonicParsing="false" onAction="#showEvents" text="Pokaż dane eventów" />
+                                        <!--<Button fx:id="buttonDatasets" layoutX="29.0" layoutY="57.0" mnemonicParsing="false" onAction="#showDatasets" text="Show datasets ☐◇" />-->
+                                        <!--<Button fx:id="buttonPrimitives" layoutX="29.0" layoutY="89.0" mnemonicParsing="false" onAction="#showPrimitives" text="Show primitives" />-->
+                                        <!--<Button fx:id="buttonEvents" layoutX="29.0" layoutY="121.0" mnemonicParsing="false" onAction="#showEvents" text="Show events" />-->
                                         <!--<Button fx:id="buttonMove" layoutX="450.0" layoutY="314.0" mnemonicParsing="false" onAction="#moveAction" text="Przesuń" />-->
                                     </children>
                                 </AnchorPane>

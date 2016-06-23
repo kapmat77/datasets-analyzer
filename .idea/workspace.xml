@@ -2,11 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/resources/day/eurofxref-hist_NEW.csv" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/resources/day/various-bitcoin-currency-statist (3).csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/mk/datasets/app/DatasetAnalyzer.java" afterPath="$PROJECT_DIR$/src/mk/datasets/app/DatasetAnalyzer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/mk/datasets/app/DatasetsChart.java" afterPath="$PROJECT_DIR$/src/mk/datasets/app/DatasetsChart.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/mk/datasets/app/Event.java" afterPath="$PROJECT_DIR$/src/mk/datasets/app/Event.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/mk/datasets/app/FileOperator.java" afterPath="$PROJECT_DIR$/src/mk/datasets/app/FileOperator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/mk/datasets/app/Finder.java" afterPath="$PROJECT_DIR$/src/mk/datasets/app/Finder.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/mk/datasets/app/Pattern.java" afterPath="$PROJECT_DIR$/src/mk/datasets/app/Pattern.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/resources/day/eurofxref-hist_BIG.csv" afterPath="$PROJECT_DIR$/src/resources/day/eurofxref-hist_BIG.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/resources/day/various-bitcoin-currency-statist_BIG.csv" afterPath="$PROJECT_DIR$/src/resources/day/various-bitcoin-currency-statist_BIG.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/resources/hour/AirQuality_BIG.csv" afterPath="$PROJECT_DIR$/src/resources/hour/AirQuality_BIG.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/mk/datasets/controllers/MainController.java" afterPath="$PROJECT_DIR$/src/mk/datasets/controllers/MainController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/mk/datasets/fxml/MainWindow.fxml" afterPath="$PROJECT_DIR$/src/mk/datasets/fxml/MainWindow.fxml" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,52 +43,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="test.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/resources/month/test.csv">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/mk/datasets/app/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DatasetAnalyzer.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/mk/datasets/app/DatasetAnalyzer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="164">
-              <caret line="123" column="0" selection-start-line="123" selection-start-column="0" selection-end-line="123" selection-end-column="0" />
-              <folding>
-                <element signature="docComment;class#DatasetAnalyzer#0" expanded="false" />
-                <element signature="method#resetLists#0;class#DatasetAnalyzer#0" expanded="false" />
-                <element signature="method#addEvents#0;class#DatasetAnalyzer#0" expanded="false" />
-                <element signature="method#assignTimeIdToRecords#0;class#DatasetAnalyzer#0" expanded="false" />
-                <element signature="method#setOldestAndNewestDate#0;class#DatasetAnalyzer#0" expanded="false" />
-                <element signature="method#getDatasetById#0;class#DatasetAnalyzer#0" expanded="false" />
-                <element signature="method#getDatasetByName#0;class#DatasetAnalyzer#0" expanded="false" />
-                <element signature="method#getEventByName#0;class#DatasetAnalyzer#0" expanded="false" />
-                <element signature="method#showPrimitives#0;class#DatasetAnalyzer#0" expanded="false" />
-                <element signature="method#showEvents#0;class#DatasetAnalyzer#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FileOperator.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/mk/datasets/app/FileOperator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="63">
-              <caret line="103" column="0" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AirQuality_BIG.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/resources/hour/AirQuality_BIG.csv">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="15" column="77" selection-start-line="15" selection-start-column="77" selection-end-line="15" selection-end-column="77" />
+            <state relative-caret-position="187">
+              <caret line="15" column="60" selection-start-line="15" selection-start-column="60" selection-end-line="15" selection-end-column="60" />
               <folding />
             </state>
           </provider>
@@ -90,73 +56,8 @@
       <file leaf-file-name="various-bitcoin-currency-statist_BIG.csv" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/resources/day/various-bitcoin-currency-statist_BIG.csv">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="215" column="18" selection-start-line="215" selection-start-column="18" selection-end-line="215" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="eurofxref-hist_BIG.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/resources/day/eurofxref-hist_BIG.csv">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="11" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Pattern.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/mk/datasets/app/Pattern.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="130">
-              <caret line="274" column="21" selection-start-line="274" selection-start-column="21" selection-end-line="274" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Event.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/mk/datasets/app/Event.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="134">
-              <caret line="226" column="0" selection-start-line="226" selection-start-column="0" selection-end-line="226" selection-end-column="0" />
-              <folding>
-                <element signature="docComment;class#Event#0" expanded="false" />
-                <element signature="class#Mark#0;class#Event#0" expanded="false" />
-                <element signature="method#Event#0;class#Event#0" expanded="false" />
-                <element signature="method#Event#1;class#Event#0" expanded="false" />
-                <element signature="method#Event#2;class#Event#0" expanded="false" />
-                <element signature="method#convertStringToEvent#0;class#Event#0" expanded="false" />
-                <element signature="method#duplicatesExist#0;class#Event#0" expanded="false" />
-                <element signature="method#showDates#0;class#Event#0" expanded="false" />
-                <element signature="method#toString#0;class#Event#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Finder.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/mk/datasets/app/Finder.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="134">
-              <caret line="91" column="0" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
-              <folding>
-                <element signature="method#getRecordsDates#1;class#Finder#0" expanded="false" />
-                <element signature="method#getRecordsDates#2;class#Finder#0" expanded="false" />
-                <element signature="method#getRecordsDates#3;class#Finder#0" expanded="false" />
-                <element signature="method#findMaxInArray#0;class#Finder#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mean-daily-saugeen-river-flows-j.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/resources/day/mean-daily-saugeen-river-flows-j.csv">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3298">
-              <caret line="194" column="16" selection-start-line="194" selection-start-column="16" selection-end-line="194" selection-end-column="16" />
+            <state relative-caret-position="574">
+              <caret line="397" column="18" selection-start-line="397" selection-start-column="18" selection-end-line="397" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -187,7 +88,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/mk/datasets/app/Converter.java" />
         <option value="$PROJECT_DIR$/src/mk/datasets/app/Condition.java" />
         <option value="$PROJECT_DIR$/src/mk/datasets/app/DatasetsAnalyzer.java" />
         <option value="$PROJECT_DIR$/src/mk/datasets/app/Patterns.java" />
@@ -202,8 +102,6 @@
         <option value="$PROJECT_DIR$/src/mk/datasets/interfaces/InputText.java" />
         <option value="$PROJECT_DIR$/src/mk/datasets/app/Primitive.java" />
         <option value="$PROJECT_DIR$/src/mk/datasets/app/Dataset.java" />
-        <option value="$PROJECT_DIR$/src/mk/datasets/app/Finder.java" />
-        <option value="$PROJECT_DIR$/src/mk/datasets/app/Event.java" />
         <option value="$PROJECT_DIR$/src/mk/datasets/app/Record.java" />
         <option value="$PROJECT_DIR$/src/mk/datasets/app/BarChartSample.java" />
         <option value="$PROJECT_DIR$/src/mk/datasets/app/DateAxis.java" />
@@ -215,17 +113,13 @@
         <option value="$PROJECT_DIR$/src/resources/AirQualityUCI2.csv" />
         <option value="$PROJECT_DIR$/src/mk/datasets/aa.java" />
         <option value="$PROJECT_DIR$/src/mk/datasets/ScatterChartSample.java" />
-        <option value="$PROJECT_DIR$/src/mk/datasets/fxml/MainWindow.fxml" />
-        <option value="$PROJECT_DIR$/src/mk/datasets/controllers/MainController.java" />
         <option value="$PROJECT_DIR$/src/resources/eurofxref-hist_BIG.csv" />
         <option value="$PROJECT_DIR$/src/resources/various-bitcoin-currency-statist_BIG.csv" />
         <option value="$PROJECT_DIR$/src/resources/various-bitcoin-currency-statist (2).csv" />
         <option value="$PROJECT_DIR$/src/mk/datasets/app/test.java" />
-        <option value="$PROJECT_DIR$/src/mk/datasets/app/FileOperator.java" />
         <option value="$PROJECT_DIR$/src/resources/mean-daily-saugeen-river-flows-j.csv" />
         <option value="$PROJECT_DIR$/src/resources/monthly-number-of-unemployed-per.csv" />
         <option value="$PROJECT_DIR$/src/resources/eurofxref-hist.csv" />
-        <option value="$PROJECT_DIR$/src/mk/datasets/app/DatasetsChart.java" />
         <option value="$PROJECT_DIR$/src/resources/monthly-total-number-of-pigs-sla.csv" />
         <option value="$PROJECT_DIR$/src/resources/exchange-rate-twi-may-1970-aug-1.csv" />
         <option value="$PROJECT_DIR$/src/resources/monthly-number-of-unemployed-per _OLDER.csv" />
@@ -233,11 +127,18 @@
         <option value="$PROJECT_DIR$/src/resources/month/monthly-number-of-unemployed-per_SMALL.csv" />
         <option value="$PROJECT_DIR$/src/resources/month/monthly-number-of-unemployed-per _OLDER.csv" />
         <option value="$PROJECT_DIR$/src/resources/month/test.csv" />
-        <option value="$PROJECT_DIR$/src/mk/datasets/app/DatasetAnalyzer.java" />
         <option value="$PROJECT_DIR$/src/resources/day/eurofxref-hist_BIG.csv" />
         <option value="$PROJECT_DIR$/src/resources/hour/AirQuality_BIG.csv" />
         <option value="$PROJECT_DIR$/src/resources/day/various-bitcoin-currency-statist_BIG.csv" />
         <option value="$PROJECT_DIR$/src/mk/datasets/app/Pattern.java" />
+        <option value="$PROJECT_DIR$/src/resources/day/eurofxref-hist_NEW.csv" />
+        <option value="$PROJECT_DIR$/src/mk/datasets/app/DatasetsChart.java" />
+        <option value="$PROJECT_DIR$/src/mk/datasets/app/Event.java" />
+        <option value="$PROJECT_DIR$/src/mk/datasets/app/FileOperator.java" />
+        <option value="$PROJECT_DIR$/src/mk/datasets/app/Finder.java" />
+        <option value="$PROJECT_DIR$/src/mk/datasets/controllers/MainController.java" />
+        <option value="$PROJECT_DIR$/src/mk/datasets/fxml/MainWindow.fxml" />
+        <option value="$PROJECT_DIR$/src/mk/datasets/app/DatasetAnalyzer.java" />
       </list>
     </option>
   </component>
@@ -247,11 +148,18 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Bundled (Maven 3)" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
+    <option name="x" value="1358" />
     <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="754" />
+    <option name="width" value="1616" />
+    <option name="height" value="886" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -280,7 +188,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -469,25 +376,28 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="aspect.path.notification.shown" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="SearchEverywhereHistoryKey" value="FO: 50&#9;PSI&#9;JAVA://mk.datasets.app.FileOperator" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Kapmat\Desktop\JavaGitProjects\datasets-analyzer\src\resources\day" />
+      <recent name="C:\Users\Kapmat\Desktop\JavaGitProjects\datasets-analyzer\src\resources\month" />
+      <recent name="C:\Users\Kapmat\Desktop\JavaGitProjects\datasets-analyzer\src\resources" />
+      <recent name="C:\Users\Kapmat\Desktop\JavaGitProjects\datasets-analyzer\src\mk\datasets\app" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Kapmat\Desktop\JavaGitProjects\datasets-analyzer\src\resources\day" />
       <recent name="C:\Users\Kapmat\Desktop\JavaGitProjects\datasets-analyzer\src\resources\month" />
       <recent name="C:\Users\Kapmat\Desktop\JavaGitProjects\datasets-analyzer\src\resources\hour" />
       <recent name="C:\Users\Kapmat\Desktop\JavaGitProjects\datasets-analyzer\src\mk\datasets\fxml" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Kapmat\Desktop\JavaGitProjects\datasets-analyzer\src\resources\month" />
-      <recent name="C:\Users\Kapmat\Desktop\JavaGitProjects\datasets-analyzer\src\resources" />
-      <recent name="C:\Users\Kapmat\Desktop\JavaGitProjects\datasets-analyzer\src\mk\datasets\app" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
@@ -499,9 +409,9 @@
         </pattern>
       </extension>
       <option name="MAIN_CLASS_NAME" value="mk.datasets.app.Main" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="ENABLE_SWING_INSPECTOR" value="false" />
@@ -1013,7 +923,11 @@
       <workItem from="1465290329613" duration="1236000" />
       <workItem from="1465305642469" duration="988000" />
       <workItem from="1465415643358" duration="5971000" />
-      <workItem from="1465455378336" duration="1733000" />
+      <workItem from="1465455378336" duration="4021000" />
+      <workItem from="1465463443562" duration="1267000" />
+      <workItem from="1465594898550" duration="1329000" />
+      <workItem from="1465801917666" duration="75000" />
+      <workItem from="1466690371638" duration="3210000" />
     </task>
     <task id="LOCAL-00001" summary="Implement few basic methods">
       <created>1464469022594</created>
@@ -1218,14 +1132,21 @@
       <option name="project" value="LOCAL" />
       <updated>1465421501020</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="commit">
+      <created>1465459516580</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1465459516580</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="222566000" />
+    <option name="totallyTimeSpent" value="230735000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <frame x="1358" y="-8" width="1616" height="886" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1236,17 +1157,18 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891247" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891247" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20418006" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.331565" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24583964" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16709511" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969153" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891247" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29581994" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="1912" y="122" width="508" height="580" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35209003" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="1912" y="122" width="508" height="580" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1257,7 +1179,6 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891247" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1271,11 +1192,11 @@
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969153" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.45490715" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="1912" y="122" width="508" height="580" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35209003" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="1912" y="122" width="508" height="580" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2745358" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
@@ -1283,10 +1204,10 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891247" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3501326" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16047746" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19087404" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16709511" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891247" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1305,7 +1226,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Add Finder class and a few useful methods" />
     <MESSAGE value="Add getRecordsDates methods" />
     <MESSAGE value="Implement Pattern class" />
     <MESSAGE value="Start implementing GUI" />
@@ -1330,26 +1250,27 @@
     <MESSAGE value="Added MONTH-&gt;HOUR converter" />
     <MESSAGE value="Updated datasets" />
     <MESSAGE value="Fixed problem with interpolation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed problem with interpolation" />
+    <MESSAGE value="commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/mk/datasets/controllers/MainController.java</url>
-          <line>399</line>
+          <line>391</line>
           <properties />
           <option name="timeStamp" value="93" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/mk/datasets/app/Event.java</url>
-          <line>152</line>
+          <line>151</line>
           <properties />
           <option name="timeStamp" value="138" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/mk/datasets/app/Finder.java</url>
-          <line>91</line>
+          <line>90</line>
           <properties />
           <option name="timeStamp" value="159" />
         </line-breakpoint>
@@ -1361,13 +1282,13 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/mk/datasets/app/Event.java</url>
-          <line>226</line>
+          <line>225</line>
           <properties />
           <option name="timeStamp" value="196" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/mk/datasets/app/Finder.java</url>
-          <line>35</line>
+          <line>34</line>
           <properties />
           <option name="timeStamp" value="197" />
         </line-breakpoint>
@@ -1396,13 +1317,13 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/mk/datasets/app/DatasetAnalyzer.java</url>
-          <line>123</line>
+          <line>122</line>
           <properties />
           <option name="timeStamp" value="245" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/mk/datasets/app/DatasetAnalyzer.java</url>
-          <line>238</line>
+          <line>237</line>
           <properties />
           <option name="timeStamp" value="246" />
         </line-breakpoint>
@@ -1447,20 +1368,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_60/src.zip!/java/time/LocalDate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1972">
-          <caret line="218" column="41" selection-start-line="218" selection-start-column="41" selection-end-line="218" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_60/jre/lib/rt.jar!/sun/reflect/NativeMethodAccessorImpl.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="37" column="33" selection-start-line="37" selection-start-column="33" selection-end-line="37" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/resources/AirQualityUCI.csv" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_60/src.zip!/java/util/Comparator.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1516,61 +1423,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/resources/AirQualityUCI2.csv" />
     <entry file="file://$PROJECT_DIR$/src/resources/test.txt" />
-    <entry file="file://$PROJECT_DIR$/src/mk/datasets/fxml/AboutWindow.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="31">
-          <caret line="10" column="14" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mk/datasets/app/Record.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mk/datasets/controllers/AboutController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mk/datasets/interfaces/InputText.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mk/datasets/app/Primitive.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="307" column="9" selection-start-line="307" selection-start-column="9" selection-end-line="307" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mk/datasets/app/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="19" column="41" selection-start-line="19" selection-start-column="41" selection-end-line="19" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mk/datasets/fxml/MainWindow.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="18" column="126" selection-start-line="18" selection-start-column="126" selection-end-line="18" selection-end-column="126" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/resources/various-bitcoin-currency-statist (2).csv" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_60/javafx-src.zip!/javafx/scene/chart/ValueAxis.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1616,40 +1468,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/mk/datasets/controllers/MainController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2108">
-          <caret line="314" column="0" selection-start-line="314" selection-start-column="0" selection-end-line="314" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mk/datasets/app/Dataset.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
-          <folding>
-            <element signature="e#1186#1187#0" expanded="true" />
-            <element signature="e#1493#1494#0" expanded="true" />
-            <element signature="e#1556#1557#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/resources/hour/AirQuality_SMALL.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="16" column="79" selection-start-line="16" selection-start-column="79" selection-end-line="16" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mk/datasets/app/DatasetsChart.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="120" column="65" selection-start-line="120" selection-start-column="65" selection-end-line="120" selection-end-column="65" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1685,7 +1507,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="14" selection-start-line="0" selection-start-column="14" selection-end-line="0" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1693,7 +1514,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="629">
           <caret line="37" column="16" selection-start-line="37" selection-start-column="16" selection-end-line="37" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1701,7 +1521,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3111">
           <caret line="183" column="16" selection-start-line="183" selection-start-column="16" selection-end-line="183" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1709,7 +1528,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1717,7 +1535,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3298">
           <caret line="194" column="16" selection-start-line="194" selection-start-column="16" selection-end-line="194" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1725,73 +1542,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
           <caret line="15" column="77" selection-start-line="15" selection-start-column="77" selection-end-line="15" selection-end-column="77" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/resources/day/various-bitcoin-currency-statist_BIG.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="215" column="18" selection-start-line="215" selection-start-column="18" selection-end-line="215" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mk/datasets/app/FileOperator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="103" column="0" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mk/datasets/app/DatasetAnalyzer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="123" column="0" selection-start-line="123" selection-start-column="0" selection-end-line="123" selection-end-column="0" />
-          <folding>
-            <element signature="docComment;class#DatasetAnalyzer#0" expanded="false" />
-            <element signature="method#resetLists#0;class#DatasetAnalyzer#0" expanded="false" />
-            <element signature="method#addEvents#0;class#DatasetAnalyzer#0" expanded="false" />
-            <element signature="method#assignTimeIdToRecords#0;class#DatasetAnalyzer#0" expanded="false" />
-            <element signature="method#setOldestAndNewestDate#0;class#DatasetAnalyzer#0" expanded="false" />
-            <element signature="method#getDatasetById#0;class#DatasetAnalyzer#0" expanded="false" />
-            <element signature="method#getDatasetByName#0;class#DatasetAnalyzer#0" expanded="false" />
-            <element signature="method#getEventByName#0;class#DatasetAnalyzer#0" expanded="false" />
-            <element signature="method#showPrimitives#0;class#DatasetAnalyzer#0" expanded="false" />
-            <element signature="method#showEvents#0;class#DatasetAnalyzer#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mk/datasets/app/Finder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="91" column="0" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
-          <folding>
-            <element signature="method#getRecordsDates#1;class#Finder#0" expanded="false" />
-            <element signature="method#getRecordsDates#2;class#Finder#0" expanded="false" />
-            <element signature="method#getRecordsDates#3;class#Finder#0" expanded="false" />
-            <element signature="method#findMaxInArray#0;class#Finder#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mk/datasets/app/Event.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="226" column="0" selection-start-line="226" selection-start-column="0" selection-end-line="226" selection-end-column="0" />
-          <folding>
-            <element signature="docComment;class#Event#0" expanded="false" />
-            <element signature="class#Mark#0;class#Event#0" expanded="false" />
-            <element signature="method#Event#0;class#Event#0" expanded="false" />
-            <element signature="method#Event#1;class#Event#0" expanded="false" />
-            <element signature="method#Event#2;class#Event#0" expanded="false" />
-            <element signature="method#convertStringToEvent#0;class#Event#0" expanded="false" />
-            <element signature="method#duplicatesExist#0;class#Event#0" expanded="false" />
-            <element signature="method#showDates#0;class#Event#0" expanded="false" />
-            <element signature="method#toString#0;class#Event#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1799,14 +1549,294 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="11" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mk/datasets/interfaces/InputText.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/day/eurofxref-hist_NEW.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="12121">
+          <caret line="713" column="272" selection-start-line="713" selection-start-column="272" selection-end-line="713" selection-end-column="272" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/day/various-bitcoin-currency-statist (3).csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/day/various-bitcoin-currency-statist_BIG.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="574">
+          <caret line="397" column="18" selection-start-line="397" selection-start-column="18" selection-end-line="397" selection-end-column="18" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mk/datasets/app/DatasetsChart.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-53">
+          <caret line="132" column="78" selection-start-line="132" selection-start-column="78" selection-end-line="132" selection-end-column="78" />
+          <folding>
+            <element signature="e#4228#4229#0" expanded="true" />
+            <element signature="e#4300#4301#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mk/datasets/app/Event.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1274">
+          <caret line="150" column="16" selection-start-line="150" selection-start-column="16" selection-end-line="150" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#808#809#0" expanded="true" />
+            <element signature="e#824#825#0" expanded="true" />
+            <element signature="e#858#859#0" expanded="true" />
+            <element signature="e#882#883#0" expanded="true" />
+            <element signature="e#931#932#0" expanded="true" />
+            <element signature="e#966#967#0" expanded="true" />
+            <element signature="e#994#995#0" expanded="true" />
+            <element signature="e#1012#1013#0" expanded="true" />
+            <element signature="e#1049#1050#0" expanded="true" />
+            <element signature="e#1072#1073#0" expanded="true" />
+            <element signature="e#1114#1115#0" expanded="true" />
+            <element signature="e#1133#1134#0" expanded="true" />
+            <element signature="e#1185#1186#0" expanded="true" />
+            <element signature="e#1210#1211#0" expanded="true" />
+            <element signature="e#7134#7135#0" expanded="true" />
+            <element signature="e#7150#7151#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mk/datasets/app/FileOperator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1139">
+          <caret line="123" column="64" selection-start-line="123" selection-start-column="64" selection-end-line="123" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mk/datasets/fxml/AboutWindow.fxml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="22" column="67" selection-start-line="22" selection-start-column="67" selection-end-line="22" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mk/datasets/controllers/MainController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="91" column="31" selection-start-line="91" selection-start-column="31" selection-end-line="91" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mk/datasets/controllers/AboutController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#235#236#0" expanded="true" />
+            <element signature="e#259#260#0" expanded="true" />
+            <element signature="e#307#308#0" expanded="true" />
+            <element signature="e#342#343#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mk/datasets/app/Record.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="816">
+          <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#683#684#0" expanded="true" />
+            <element signature="e#699#700#0" expanded="true" />
+            <element signature="e#729#730#0" expanded="true" />
+            <element signature="e#748#749#0" expanded="true" />
+            <element signature="e#775#776#0" expanded="true" />
+            <element signature="e#795#796#0" expanded="true" />
+            <element signature="e#833#834#0" expanded="true" />
+            <element signature="e#860#861#0" expanded="true" />
+            <element signature="e#904#905#0" expanded="true" />
+            <element signature="e#931#932#0" expanded="true" />
+            <element signature="e#993#994#0" expanded="true" />
+            <element signature="e#1034#1035#0" expanded="true" />
+            <element signature="e#1222#1223#0" expanded="true" />
+            <element signature="e#1246#1247#0" expanded="true" />
+            <element signature="e#1308#1309#0" expanded="true" />
+            <element signature="e#1343#1344#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mk/datasets/app/Primitive.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5219">
+          <caret line="307" column="9" selection-start-line="307" selection-start-column="9" selection-end-line="307" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1616#1617#0" expanded="true" />
+            <element signature="e#1632#1633#0" expanded="true" />
+            <element signature="e#1662#1663#0" expanded="true" />
+            <element signature="e#1685#1686#0" expanded="true" />
+            <element signature="e#1729#1730#0" expanded="true" />
+            <element signature="e#1762#1763#0" expanded="true" />
+            <element signature="e#1795#1796#0" expanded="true" />
+            <element signature="e#1818#1819#0" expanded="true" />
+            <element signature="e#1865#1866#0" expanded="true" />
+            <element signature="e#1898#1899#0" expanded="true" />
+            <element signature="e#1924#1925#0" expanded="true" />
+            <element signature="e#1942#1943#0" expanded="true" />
+            <element signature="e#1977#1978#0" expanded="true" />
+            <element signature="e#2000#2001#0" expanded="true" />
+            <element signature="e#2029#2030#0" expanded="true" />
+            <element signature="e#2048#2049#0" expanded="true" />
+            <element signature="e#2087#2088#0" expanded="true" />
+            <element signature="e#2112#2113#0" expanded="true" />
+            <element signature="e#2140#2141#0" expanded="true" />
+            <element signature="e#2158#2159#0" expanded="true" />
+            <element signature="e#2195#2196#0" expanded="true" />
+            <element signature="e#2218#2219#0" expanded="true" />
+            <element signature="e#2255#2256#0" expanded="true" />
+            <element signature="e#2276#2277#0" expanded="true" />
+            <element signature="e#2325#2326#0" expanded="true" />
+            <element signature="e#2354#2355#0" expanded="true" />
+            <element signature="e#5918#5919#0" expanded="true" />
+            <element signature="e#5941#5942#0" expanded="true" />
+            <element signature="e#7222#7223#0" expanded="true" />
+            <element signature="e#7240#7241#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/mk/datasets/app/Pattern.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="274" column="21" selection-start-line="274" selection-start-column="21" selection-end-line="274" selection-end-column="21" />
+        <state relative-caret-position="374">
+          <caret line="78" column="42" selection-start-line="78" selection-start-column="42" selection-end-line="78" selection-end-column="42" />
+          <folding>
+            <element signature="docComment;class#Pattern#0" expanded="false" />
+            <element signature="class#Name#0;class#Pattern#0" expanded="false" />
+            <element signature="method#getName#0;class#Name#0;class#Pattern#0" expanded="false" />
+            <element signature="method#absence#0;class#Pattern#0" expanded="false" />
+            <element signature="method#invariance#0;class#Pattern#0" expanded="false" />
+            <element signature="method#existence#0;class#Pattern#0" expanded="false" />
+            <element signature="method#response#0;class#Pattern#0" expanded="false" />
+            <element signature="method#obligation#0;class#Pattern#0" expanded="false" />
+            <element signature="method#responsively#0;class#Pattern#0" expanded="false" />
+            <element signature="e#6182#6230#0" expanded="false" />
+            <element signature="method#persistence#0;class#Pattern#0" expanded="false" />
+            <element signature="method#reactivity#0;class#Pattern#0" expanded="false" />
+            <element signature="method#nextDate#0;class#Pattern#0" expanded="false" />
+            <element signature="method#previousDate#0;class#Pattern#0" expanded="false" />
+            <element signature="method#showDates#0;class#Pattern#0" expanded="false" />
+            <element signature="method#showDates#1;class#Pattern#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mk/datasets/app/Dataset.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-716">
+          <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#339#340#0" expanded="true" />
+            <element signature="e#357#358#0" expanded="true" />
+            <element signature="e#509#510#0" expanded="true" />
+            <element signature="e#525#526#0" expanded="true" />
+            <element signature="e#555#556#0" expanded="true" />
+            <element signature="e#574#575#0" expanded="true" />
+            <element signature="e#602#603#0" expanded="true" />
+            <element signature="e#620#621#0" expanded="true" />
+            <element signature="e#657#658#0" expanded="true" />
+            <element signature="e#680#681#0" expanded="true" />
+            <element signature="e#720#721#0" expanded="true" />
+            <element signature="e#744#745#0" expanded="true" />
+            <element signature="e#799#800#0" expanded="true" />
+            <element signature="e#834#835#0" expanded="true" />
+            <element signature="e#881#882#0" expanded="true" />
+            <element signature="e#918#919#0" expanded="true" />
+            <element signature="e#955#956#0" expanded="true" />
+            <element signature="e#976#977#0" expanded="true" />
+            <element signature="e#1025#1026#0" expanded="true" />
+            <element signature="e#1054#1055#0" expanded="true" />
+            <element signature="e#1095#1096#0" expanded="true" />
+            <element signature="e#1126#1127#0" expanded="true" />
+            <element signature="e#1186#1187#0" expanded="true" />
+            <element signature="e#1237#1238#0" expanded="true" />
+            <element signature="e#1274#1275#0" expanded="true" />
+            <element signature="e#1493#1494#0" expanded="true" />
+            <element signature="e#1556#1557#0" expanded="true" />
+            <element signature="e#1597#1598#0" expanded="true" />
+            <element signature="e#1660#1661#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mk/datasets/app/DatasetAnalyzer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#convertDatasetsToOneDateFormat#0;class#DatasetAnalyzer#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mk/datasets/fxml/MainWindow.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mk/datasets/app/Finder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="18" column="107" selection-start-line="18" selection-start-column="107" selection-end-line="18" selection-end-column="107" />
+          <folding>
+            <element signature="docComment;class#Finder#0" expanded="false" />
+            <element signature="method#getRecordsDates#0;class#Finder#0" expanded="false" />
+            <element signature="e#2871#2890#0" expanded="false" />
+            <element signature="method#getRecordsDates#1;class#Finder#0" expanded="false" />
+            <element signature="method#getRecordsDates#2;class#Finder#0" expanded="false" />
+            <element signature="method#getRecordsDates#3;class#Finder#0" expanded="false" />
+            <element signature="method#findMinInArray#0;class#Finder#0" expanded="false" />
+            <element signature="method#findMaxInArray#0;class#Finder#0" expanded="false" />
+            <element signature="method#getObjectDatesFromListByName#0;class#Finder#0" expanded="false" />
+            <element signature="method#getObjectDatesFromListByName#1;class#Finder#0" expanded="false" />
+            <element signature="method#arrayToList#0;class#Finder#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mk/datasets/app/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="15" column="60" selection-start-line="15" selection-start-column="60" selection-end-line="15" selection-end-column="60" />
           <folding />
         </state>
       </provider>

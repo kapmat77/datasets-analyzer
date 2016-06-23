@@ -149,7 +149,6 @@ public class Event implements InputText{
 				}
 			}
 		} else {
-			//TODO poprawić albo i nie
 			order.put(-1,exp.length());
 		}
 
