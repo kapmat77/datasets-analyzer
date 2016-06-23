@@ -91,6 +91,24 @@ public class MainController implements Initializable {
 	@FXML
 	private Button buttonStart;
 
+	//#################### LABEL ####################
+	@FXML
+	private Label lAbsence;
+	@FXML
+	private Label lInvariance;
+	@FXML
+	private Label lExistence;
+	@FXML
+	private Label lResponse;
+	@FXML
+	private Label lObligation;
+	@FXML
+	private Label lResponsively;
+	@FXML
+	private Label lPersistence;
+	@FXML
+	private Label lReactivity;
+
 	//#################### LOCAL_DATA_TIME_TEXT_FIELD ####################
 	@FXML
 	private LocalDateTimeTextField ldtpStartDate;
@@ -115,6 +133,7 @@ public class MainController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		initializeAboutWindow();
 		initializeComponents();
+		initializeCheckBoxeLabels();
 //		initializeTooltips(); //TODO przepisać na angielski
 
 		//Default text
@@ -126,7 +145,7 @@ public class MainController implements Initializable {
 	public void startAction(ActionEvent event) {
 		datasetAnalyzer.resetLists();
 		if (datasetAnalyzer.getDatasets().isEmpty()) {
-			taOutput.appendText("\n\n" + "Please load dataset!");
+			taOutput.appendText("\n\n" + "Please load datasets!");
 			return;
 		} else if (dateIsSetCorrectly()) {
 			taOutput.appendText("\n\n#################### START ####################");
@@ -206,7 +225,34 @@ public class MainController implements Initializable {
 		return ldtpStartDate.getLocalDateTime().isBefore(ldtpEndDate.getLocalDateTime()) || ldtpStartDate.getLocalDateTime().isEqual(ldtpEndDate.getLocalDateTime());
 	}
 
+	private void initializeCheckBoxeLabels() {
+		lAbsence.setStyle("" + "-fx-font-size: 18px;");
+		lAbsence.setText("☐¬p");
+
+		lInvariance.setStyle("" + "-fx-font-size: 18px;");
+		lInvariance.setText("☐p");
+
+		lExistence.setStyle("" + "-fx-font-size: 18px;");
+		lExistence.setText("◇p");
+
+		lResponse.setStyle("" + "-fx-font-size: 18px;");
+		lResponse.setText("☐(p ⇒ ◇q)");
+
+		lObligation.setStyle("" + "-fx-font-size: 18px;");
+		lObligation.setText("◇p ⇒ ◇q");
+
+		lResponsively.setStyle("" + "-fx-font-size: 18px;");
+		lResponsively.setText("☐◇p");
+
+		lPersistence.setStyle("" + "-fx-font-size: 18px;");
+		lPersistence.setText("◇☐p");
+
+		lReactivity.setStyle("" + "-fx-font-size: 18px;");
+		lReactivity.setText("◇☐p ⇒ ◇☐q");
+	}
+
 	private void initializeTooltips() {
+		//TODO poprawić opisy !
 		chAbsence.setTooltip(new Tooltip("Brak wystąpienia zdarzenia"));
 		chInvariance.setTooltip(new Tooltip("Ciągłe występowanie zdarzenia"));
 		chExistence.setTooltip(new Tooltip("Możliwość wystąpienia zdarzenia"));
