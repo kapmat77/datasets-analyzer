@@ -265,23 +265,23 @@ public class MainController implements Initializable {
 		lReactivity.setStyle("" + "-fx-font-size: "+ size);
 		lReactivity.setText("◇☐p ⇒ ◇☐q");
 
-		lBoundedExistence.setStyle("" + "-fx-font-size: "+ size);
-		lBoundedExistence.setText("¬pW(pW(¬pW(pW☐¬p)))");
-
-		lPrecedence.setStyle("" + "-fx-font-size: "+ size);
-		lPrecedence.setText("¬p W q");
-
-		lPrecedenceChain1.setStyle("" + "-fx-font-size: "+ size);
-		lPrecedenceChain1.setText("(◇(s∧<Chain>))→(¬sUp)");
-
-		lPrecedenceChain2.setStyle("" + "-fx-font-size: "+ size);
-		lPrecedenceChain2.setText("◇p⇒(¬pU(s∧¬p[∧<Chain>]))]");
-
-		lResponseChain1.setStyle("" + "-fx-font-size: "+ size);
-		lResponseChain1.setText("☐(p⇒(◇(s[∧<Chain>])))");
-
-		lResponseChain2.setStyle("" + "-fx-font-size: "+ size);
-		lResponseChain2.setText("☐(s∧\u25CB(◇(t1∧<Chain>)))??????");
+//		lBoundedExistence.setStyle("" + "-fx-font-size: "+ size);
+//		lBoundedExistence.setText("¬pW(pW(¬pW(pW☐¬p)))");
+//
+//		lPrecedence.setStyle("" + "-fx-font-size: "+ size);
+//		lPrecedence.setText("¬p W q");
+//
+//		lPrecedenceChain1.setStyle("" + "-fx-font-size: "+ size);
+//		lPrecedenceChain1.setText("(◇(s∧<Chain>))→(¬sUp)");
+//
+//		lPrecedenceChain2.setStyle("" + "-fx-font-size: "+ size);
+//		lPrecedenceChain2.setText("◇p⇒(¬pU(s∧¬p[∧<Chain>]))]");
+//
+//		lResponseChain1.setStyle("" + "-fx-font-size: "+ size);
+//		lResponseChain1.setText("☐(p⇒(◇(s[∧<Chain>])))");
+//
+//		lResponseChain2.setStyle("" + "-fx-font-size: "+ size);
+//		lResponseChain2.setText("☐(s∧○(◇(t1∧<Chain>)))??????");
 
 //		lConstrainedChain.setStyle("" + "-fx-font-size: "+ size);
 //		lConstrainedChain.setText("☐(p ⇒ ◇(s & !z & \u25CB(!z U  T)))");

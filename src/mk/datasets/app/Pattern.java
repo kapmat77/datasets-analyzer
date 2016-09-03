@@ -22,26 +22,7 @@ public class Pattern {
 		REACTIVITY;
 
 		public String getName() {
-			switch (this) {
-				case ABSENCE:
-					return "ABSENCJA";
-				case INVARIANCE:
-					return "NIEZMIENNICZOŚĆ";
-				case EXISTENCE:
-					return "MOŻLIWOŚĆ";
-				case RESPONSE:
-					return "RESPONSYWNOŚĆ ZDARZEŃ";
-				case OBLIGATION:
-					return "OBLIGACJA";
-				case RESPONSIVELY:
-					return "RESPONSYWNOŚĆ (AUTO)";
-				case PERSISTENCE:
-					return "PERSYSTANCJA";
-				case REACTIVITY:
-					return "REAKTYWNOŚĆ";
-				default:
-					return "NONE";
-			}
+			return this.toString();
 		}
 	}
 
@@ -62,6 +43,7 @@ public class Pattern {
 	}
 
 	public String absence(Event event) {
+
 		boolean patternDetected = true;
 		for (LocalDateTime date: event.getDates()) {
 			if ((date.isAfter(startDate) && date.isBefore(endDate)) || date.isEqual(startDate) || date.isEqual(endDate)) {
