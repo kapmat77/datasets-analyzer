@@ -17,7 +17,7 @@ public class Pattern {
 		EXISTENCE,
 		RESPONSE,
 		OBLIGATION,
-		RESPONSIVELY,
+		AUTORESPONSE,
 		PERSISTENCE,
 		REACTIVITY;
 
@@ -86,7 +86,7 @@ public class Pattern {
 			}
 		}
 		if (patternDetected) {
-			return "TRUE - Wzorzec " + Name.EXISTENCE.getName() + " występuje dla eventu '" + event.getName() + "' w okresie: " + startDate.toString() + " - " + endDate.toString() + showDates(dateList);
+			return "TRUE - Wzorzec " + Name.EXISTENCE.getName() + " występuje dla eventu '" + event.getName() + "' w okresie: " + startDate.toString() + " - " + endDate.toString();
 		} else {
 			return "FALSE - Wzorzec " + Name.EXISTENCE.getName() + " nie występuje dla eventu '" + event.getName() + "' w okresie: " + startDate.toString() + " - " + endDate.toString();
 		}
@@ -112,7 +112,7 @@ public class Pattern {
 			patternDetected = false;
 		}
 		if (patternDetected) {
-			return "TRUE - Wzorzec " + Name.RESPONSE.getName() + " występuje dla eventów '" + firstEvent.getName() + "->" + secondEvent.getName() + "' w okresie: " + startDate.toString() + " - " + endDate.toString() + showDates(dateMap);
+			return "TRUE - Wzorzec " + Name.RESPONSE.getName() + " występuje dla eventów '" + firstEvent.getName() + "->" + secondEvent.getName() + "' w okresie: " + startDate.toString() + " - " + endDate.toString();
 		} else {
 			return "FALSE - Wzorzec " + Name.RESPONSE.getName() + " nie występuje dla eventów '" + firstEvent.getName() + "->" + secondEvent.getName() + "' w okresie: " + startDate.toString() + " - " + endDate.toString();
 		}
@@ -136,7 +136,7 @@ public class Pattern {
 			}
 		}
 		if (patternDetected) {
-			return "TRUE - Wzorzec " + Name.OBLIGATION.getName() + " występuje dla eventów '" + firstEvent.getName() + "->" + secondEvent.getName() + "' w okresie: " + startDate.toString() + " - " + endDate.toString() + showDates(dateMap);
+			return "TRUE - Wzorzec " + Name.OBLIGATION.getName() + " występuje dla eventów '" + firstEvent.getName() + "->" + secondEvent.getName() + "' w okresie: " + startDate.toString() + " - " + endDate.toString();
 		} else {
 			return "FALSE - Wzorzec " + Name.OBLIGATION.getName() + " nie występuje dla eventów '" + firstEvent.getName() + "->" + secondEvent.getName() + "' w okresie: " + startDate.toString() + " - " + endDate.toString();
 		}
@@ -165,9 +165,9 @@ public class Pattern {
 //			}
 //		}
 		if (patternDetected) {
-			return "TRUE - Wzorzec " + Name.RESPONSIVELY.getName() + " występuje dla eventu " + event.getName() + " w okresie: " + startDate.toString() + " - " + endDate.toString() + showDates(dateList);
+			return "TRUE - Wzorzec " + Name.AUTORESPONSE.getName() + " występuje dla eventu " + event.getName() + " w okresie: " + startDate.toString() + " - " + endDate.toString();
 		} else {
-			return "FALSE - Wzorzec " + Name.RESPONSIVELY.getName() + " nie występuje dla eventu " + event.getName() + " w okresie: " + startDate.toString() + " - " + endDate.toString();
+			return "FALSE - Wzorzec " + Name.AUTORESPONSE.getName() + " nie występuje dla eventu " + event.getName() + " w okresie: " + startDate.toString() + " - " + endDate.toString();
 		}
 	}
 
@@ -192,7 +192,7 @@ public class Pattern {
 			}
 		}
 		if (patternDetected) {
-			return "TRUE - Wzorzec " + Name.PERSISTENCE.getName() + " występuje dla eventu '" + event.getName() + "' w okresie: " + startDate.toString() + " - " + endDate.toString() + "\n Zdarzenie występuje trwale od " + dateList.get(0);
+			return "TRUE - Wzorzec " + Name.PERSISTENCE.getName() + " występuje dla eventu '" + event.getName() + "' w okresie: " + startDate.toString() + " - " + endDate.toString();
 		} else {
 			return "FALSE - Wzorzec " + Name.PERSISTENCE.getName() + " nie występuje dla eventu '" + event.getName() + "' w okresie: " + startDate.toString() + " - " + endDate.toString();
 		}
@@ -244,8 +244,7 @@ public class Pattern {
 		}
 		if (patternDetected) {
 			return "TRUE - Wzorzec " + Name.REACTIVITY.getName() + " występuje dla eventów '" + firstEvent.getName() + "->" + secondEvent.getName() +
-					"' w okresie: " + startDate.toString() + " - " + endDate.toString() + "\nPierwsze zdarzenie wsytępuje trwale od " + first.toString() +
-					"\nDrugie zdarzenie wsytępuje trwale od " + second.toString();
+					"' w okresie: " + startDate.toString() + " - " + endDate.toString();
 		} else {
 			return "FALSE - Wzorzec " + Name.REACTIVITY.getName() + " nie występuje dla eventów '" + firstEvent.getName() + "->" + secondEvent.getName() + "' w okresie: " + startDate.toString() + " - " + endDate.toString();
 		}

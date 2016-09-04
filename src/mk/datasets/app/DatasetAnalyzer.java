@@ -72,7 +72,7 @@ public class DatasetAnalyzer {
 				case OBLIGATION:
 					outputMsg = outputMsg + "\n\t" + pattern.obligation(event, secondEvent);
 					break;
-				case RESPONSIVELY:
+				case AUTORESPONSE:
 					outputMsg = outputMsg + "\n\t" + pattern.responsively(event);
 					break;
 				case PERSISTENCE:

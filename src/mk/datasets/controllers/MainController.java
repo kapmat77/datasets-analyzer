@@ -216,7 +216,7 @@ public class MainController implements Initializable {
 			taOutput.appendText("\nERROR - field '" + chObligation.getText() + "' is empty");
 		}
 		if (!tfResponsively.isDisable() && !tfResponsively.getText().isEmpty()) {
-			taOutput.appendText("\n" + datasetAnalyzer.activePattern(Pattern.Name.RESPONSIVELY, tfResponsively.getText(), ldtpStartDate.getLocalDateTime(), ldtpEndDate.getLocalDateTime()));
+			taOutput.appendText("\n" + datasetAnalyzer.activePattern(Pattern.Name.AUTORESPONSE, tfResponsively.getText(), ldtpStartDate.getLocalDateTime(), ldtpEndDate.getLocalDateTime()));
 		} else if (!tfResponsively.isDisable()) {
 			taOutput.appendText("\nERROR - field '" + chResponsively.getText() + "' is empty");
 		}
@@ -513,7 +513,7 @@ public class MainController implements Initializable {
 	@FXML
 	public void showPrimitives(ActionEvent event) {
 		datasetAnalyzer.resetLists();
-		taOutput.appendText("\n\n#################### PRYMITYWY ####################");
+		taOutput.appendText("\n\n#################### PRIMITIVES ####################");
 		String primitivesComment = datasetAnalyzer.addPrimitives(taInputPrimitives.getText());
 		taOutput.appendText("\n" + primitivesComment);
 		taOutput.appendText(datasetAnalyzer.showPrimitives());
@@ -523,7 +523,7 @@ public class MainController implements Initializable {
 	@FXML
 	public void showEvents(ActionEvent event) {
 		datasetAnalyzer.resetLists();
-		taOutput.appendText("\n\n#################### EVENTY ####################");
+		taOutput.appendText("\n\n#################### EVENTS ####################");
 		String primitivesComment = datasetAnalyzer.addPrimitives(taInputPrimitives.getText());
 		taOutput.appendText("\n" + primitivesComment);
 		if (!primitivesComment.contains("ERROR")) {
@@ -536,7 +536,7 @@ public class MainController implements Initializable {
 
 	public void showHideOutputAction(ActionEvent event) {
 		if (spMain.getDividerPositions()[0] < 0.1) {
-			spMain.setDividerPositions(0.45112781954887216);
+			spMain.setDividerPositions(0.54);
 		} else {
 			spMain.setDividerPositions(0.0);
 		}

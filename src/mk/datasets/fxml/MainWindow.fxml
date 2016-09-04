@@ -52,14 +52,14 @@
                                     <children>
                                         <LocalDateTimeTextField fx:id="ldtpStartDate" layoutX="178" layoutY="27" prefHeight="25.0" prefWidth="147.0"/>
                                         <LocalDateTimeTextField fx:id="ldtpEndDate" layoutX="353" layoutY="27" prefHeight="25.0" prefWidth="147.0"/>
-                                        <Label layoutX="178.0" layoutY="6.0" text="Oldest date" />
-                                        <Label layoutX="354.0" layoutY="6.0" text="Newest date" />
+                                        <Label layoutX="178.0" layoutY="6.0" text="Start date" />
+                                        <Label layoutX="354.0" layoutY="6.0" text="End date" />
                                         <CheckBox fx:id="chAbsence" layoutX="39.0" layoutY="222.0" mnemonicParsing="false" onAction="#checkBoxAction" text="Absence" />
                                         <CheckBox fx:id="chInvariance" layoutX="39.0" layoutY="254.0" mnemonicParsing="false" onAction="#checkBoxAction" text="Invariance" />
                                         <CheckBox fx:id="chExistence" layoutX="39.0" layoutY="286.0" mnemonicParsing="false" onAction="#checkBoxAction" text="Existence" />
                                         <CheckBox fx:id="chResponse" layoutX="39.0" layoutY="318.0" mnemonicParsing="false" onAction="#checkBoxAction" text="Response" />
                                         <CheckBox fx:id="chObligation" layoutX="39.0" layoutY="350.0" mnemonicParsing="false" onAction="#checkBoxAction" text="Obligation" />
-                                        <CheckBox fx:id="chResponsively" layoutX="39.0" layoutY="382.0" mnemonicParsing="false" onAction="#checkBoxAction" text="Response (auto)" />
+                                        <CheckBox fx:id="chResponsively" layoutX="39.0" layoutY="382.0" mnemonicParsing="false" onAction="#checkBoxAction" text="Autoresponse" />
                                         <CheckBox fx:id="chPersistence" layoutX="39.0" layoutY="414.0" mnemonicParsing="false" onAction="#checkBoxAction" text="Persistance" />
                                         <CheckBox fx:id="chReactivity" layoutX="39.0" layoutY="446.0" mnemonicParsing="false" onAction="#checkBoxAction" text="Reactivity" />
                                         <!--<CheckBox fx:id="chBoundedExistence" layoutX="39.0" layoutY="477.0" mnemonicParsing="false" onAction="#checkBoxAction" text="Bounded Existence" />-->
