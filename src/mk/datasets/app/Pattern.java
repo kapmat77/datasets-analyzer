@@ -52,9 +52,11 @@ public class Pattern {
 			}
 		}
 		if (patternDetected) {
-			return "TRUE - Wzorzec " + Name.ABSENCE.getName() + " występuje dla eventu '" + event.getName() + "' w okresie: " + startDate.toString() + " - " + endDate.toString();
+			return event.getName() + " - TRUE";
+//			return "TRUE - Wzorzec " + Name.ABSENCE.getName() + " występuje dla eventu '" +  + "' w okresie: " + startDate.toString() + " - " + endDate.toString();
 		} else {
-			return "FALSE - Wzorzec " + Name.ABSENCE.getName() + " nie występuje dla eventu '" + event.getName() + "' w okresie: " + startDate.toString() + " - " + endDate.toString();
+			return event.getName() + " - FALSE";
+//			return "FALSE - Wzorzec " + Name.ABSENCE.getName() + " nie występuje dla eventu '" + event.getName() + "' w okresie: " + startDate.toString() + " - " + endDate.toString();
 		}
 	}
 
@@ -69,39 +71,43 @@ public class Pattern {
 			}
 		}
 		if (patternDetected) {
-			return "TRUE - Wzorzec " + Name.INVARIANCE.getName() + " występuje dla eventu '" + event.getName() + "' w okresie: " + startDate.toString() + " - " + endDate.toString();
+			return event.getName() + " - TRUE";
+//			return "TRUE - Wzorzec " + Name.INVARIANCE.getName() + " występuje dla eventu '" + event.getName() + "' w okresie: " + startDate.toString() + " - " + endDate.toString();
 		} else {
-			return "FALSE - Wzorzec " + Name.INVARIANCE.getName() + " nie występuje dla eventu '" + event.getName() + "' w okresie: " + startDate.toString() + " - " + endDate.toString();
+			return event.getName() + " - FALSE";
+//			return "FALSE - Wzorzec " + Name.INVARIANCE.getName() + " nie występuje dla eventu '" + event.getName() + "' w okresie: " + startDate.toString() + " - " + endDate.toString();
 		}
 	}
 
 	public String existence(Event event) {
-		List<LocalDateTime> dateList = new ArrayList<>();
+//		List<LocalDateTime> dateList = new ArrayList<>();
 		boolean patternDetected = false;
 		for (LocalDateTime date: event.getDates()) {
 			if ((date.isAfter(startDate) && date.isBefore(endDate)) || date.isEqual(startDate) || date.isEqual(endDate)) {
 				patternDetected = true;
-				dateList.add(date);
+//				dateList.add(date);
 //				break;
 			}
 		}
 		if (patternDetected) {
-			return "TRUE - Wzorzec " + Name.EXISTENCE.getName() + " występuje dla eventu '" + event.getName() + "' w okresie: " + startDate.toString() + " - " + endDate.toString();
+			return event.getName() + " - TRUE";
+//			return "TRUE - Wzorzec " + Name.EXISTENCE.getName() + " występuje dla eventu '" + event.getName() + "' w okresie: " + startDate.toString() + " - " + endDate.toString();
 		} else {
-			return "FALSE - Wzorzec " + Name.EXISTENCE.getName() + " nie występuje dla eventu '" + event.getName() + "' w okresie: " + startDate.toString() + " - " + endDate.toString();
+			return event.getName() + " - FALSE";
+//			return "FALSE - Wzorzec " + Name.EXISTENCE.getName() + " nie występuje dla eventu '" + event.getName() + "' w okresie: " + startDate.toString() + " - " + endDate.toString();
 		}
 	}
 
 	public String response(Event firstEvent, Event secondEvent) {
 		boolean patternDetected = false;
-		Map<LocalDateTime, LocalDateTime> dateMap = new LinkedHashMap<>();
+//		Map<LocalDateTime, LocalDateTime> dateMap = new LinkedHashMap<>();
 		List<LocalDateTime> usedDates = new ArrayList<>();
 		if (!firstEvent.getDates().isEmpty()) {
 			for (LocalDateTime firstDate: firstEvent.getDates()) {
 				for (LocalDateTime secondDate: secondEvent.getDates()) {
 					if (((firstDate.isAfter(startDate) || firstDate.isEqual(startDate)) && firstDate.isBefore(endDate) && (secondDate.isBefore(endDate) || secondDate.isEqual(endDate)) &&
 							firstDate.isBefore(secondDate)) && !usedDates.contains(secondDate)) {
-						dateMap.put(firstDate, secondDate);
+//						dateMap.put(firstDate, secondDate);
 						usedDates.add(secondDate);
 						patternDetected = true;
 						break;
@@ -112,9 +118,11 @@ public class Pattern {
 			patternDetected = false;
 		}
 		if (patternDetected) {
-			return "TRUE - Wzorzec " + Name.RESPONSE.getName() + " występuje dla eventów '" + firstEvent.getName() + "->" + secondEvent.getName() + "' w okresie: " + startDate.toString() + " - " + endDate.toString();
+			return firstEvent.getName() + "->" + secondEvent.getName() + " - TRUE";
+//			return "TRUE - Wzorzec " + Name.RESPONSE.getName() + " występuje dla eventów '" + firstEvent.getName() + "->" + secondEvent.getName() + "' w okresie: " + startDate.toString() + " - " + endDate.toString();
 		} else {
-			return "FALSE - Wzorzec " + Name.RESPONSE.getName() + " nie występuje dla eventów '" + firstEvent.getName() + "->" + secondEvent.getName() + "' w okresie: " + startDate.toString() + " - " + endDate.toString();
+			return firstEvent.getName() + "->" + secondEvent.getName() + " - FALSE";
+//			return "FALSE - Wzorzec " + Name.RESPONSE.getName() + " nie występuje dla eventów '" + firstEvent.getName() + "->" + secondEvent.getName() + "' w okresie: " + startDate.toString() + " - " + endDate.toString();
 		}
 
 
@@ -122,13 +130,13 @@ public class Pattern {
 
 	public String obligation(Event firstEvent, Event secondEvent) {
 		boolean patternDetected = false;
-		Map<LocalDateTime, LocalDateTime> dateMap = new LinkedHashMap<>();
+//		Map<LocalDateTime, LocalDateTime> dateMap = new LinkedHashMap<>();
 		for (LocalDateTime firstDate: firstEvent.getDates()) {
 			for (LocalDateTime secondDate: secondEvent.getDates()) {
 				if ((firstDate.isAfter(startDate) || firstDate.isEqual(startDate)) && firstDate.isBefore(endDate) && (secondDate.isBefore(endDate) || secondDate.isEqual(endDate)) &&
 						firstDate.isBefore(secondDate)) {
 					patternDetected = true;
-					dateMap.put(firstDate, secondDate);
+//					dateMap.put(firstDate, secondDate);
 				} else if ((firstDate.isBefore(startDate) || firstDate.isAfter(endDate))) {
 					patternDetected = true;
 //					break;
@@ -136,16 +144,18 @@ public class Pattern {
 			}
 		}
 		if (patternDetected) {
-			return "TRUE - Wzorzec " + Name.OBLIGATION.getName() + " występuje dla eventów '" + firstEvent.getName() + "->" + secondEvent.getName() + "' w okresie: " + startDate.toString() + " - " + endDate.toString();
+			return firstEvent.getName() + "->" + secondEvent.getName() + " - TRUE";
+//			return "TRUE - Wzorzec " + Name.OBLIGATION.getName() + " występuje dla eventów '" + firstEvent.getName() + "->" + secondEvent.getName() + "' w okresie: " + startDate.toString() + " - " + endDate.toString();
 		} else {
-			return "FALSE - Wzorzec " + Name.OBLIGATION.getName() + " nie występuje dla eventów '" + firstEvent.getName() + "->" + secondEvent.getName() + "' w okresie: " + startDate.toString() + " - " + endDate.toString();
+			return firstEvent.getName() + "->" + secondEvent.getName() + " - FALSE";
+//			return "FALSE - Wzorzec " + Name.OBLIGATION.getName() + " nie występuje dla eventów '" + firstEvent.getName() + "->" + secondEvent.getName() + "' w okresie: " + startDate.toString() + " - " + endDate.toString();
 		}
 	}
 
-	public String responsively(Event event) {
+	public String autoresponse(Event event) {
 		boolean patternDetected = true;
-		List<LocalDateTime> dateList = new ArrayList<>();
-		dateList.add(event.getDates().get(event.getDates().size()));
+//		List<LocalDateTime> dateList = new ArrayList<>();
+//		dateList.add(event.getDates().get(event.getDates().size()));
 		LocalDateTime prevEnd = previousDate(endDate, DatasetAnalyzer.smallestDateFormat());
 		for (LocalDateTime date: event.getDates()) {
 			if (date.isEqual(endDate)) {
@@ -165,15 +175,17 @@ public class Pattern {
 //			}
 //		}
 		if (patternDetected) {
-			return "TRUE - Wzorzec " + Name.AUTORESPONSE.getName() + " występuje dla eventu " + event.getName() + " w okresie: " + startDate.toString() + " - " + endDate.toString();
+			return event.getName() + " - TRUE";
+//			return "TRUE - Wzorzec " + Name.AUTORESPONSE.getName() + " występuje dla eventu " + event.getName() + " w okresie: " + startDate.toString() + " - " + endDate.toString();
 		} else {
-			return "FALSE - Wzorzec " + Name.AUTORESPONSE.getName() + " nie występuje dla eventu " + event.getName() + " w okresie: " + startDate.toString() + " - " + endDate.toString();
+			return event.getName() + " - FALSE";
+//			return "FALSE - Wzorzec " + Name.AUTORESPONSE.getName() + " nie występuje dla eventu " + event.getName() + " w okresie: " + startDate.toString() + " - " + endDate.toString();
 		}
 	}
 
 	public String persistence(Event event) {
 		boolean patternDetected = true;
-		List<LocalDateTime> dateList = new ArrayList<>();
+//		List<LocalDateTime> dateList = new ArrayList<>();
 		for (LocalDateTime date: event.getDates()) {
 			if ((date.isAfter(startDate) || date.isEqual(startDate)) && (date.isBefore(endDate) || date.isEqual(endDate))) {
 				LocalDateTime helpDate = LocalDateTime.from(date);
@@ -182,19 +194,21 @@ public class Pattern {
 					patternDetected = true;
 					if (!event.getDates().contains(helpDate)) {
 						patternDetected = false;
-						dateList.clear();
+//						dateList.clear();
 					}
 				}
 				if (!patternDetected) {
-					dateList.add(date);
+//					dateList.add(date);
 					break;
 				}
 			}
 		}
 		if (patternDetected) {
-			return "TRUE - Wzorzec " + Name.PERSISTENCE.getName() + " występuje dla eventu '" + event.getName() + "' w okresie: " + startDate.toString() + " - " + endDate.toString();
+			return event.getName() + " - TRUE";
+//			return "TRUE - Wzorzec " + Name.PERSISTENCE.getName() + " występuje dla eventu '" + event.getName() + "' w okresie: " + startDate.toString() + " - " + endDate.toString();
 		} else {
-			return "FALSE - Wzorzec " + Name.PERSISTENCE.getName() + " nie występuje dla eventu '" + event.getName() + "' w okresie: " + startDate.toString() + " - " + endDate.toString();
+			return event.getName() + " - FALSE";
+//			return "FALSE - Wzorzec " + Name.PERSISTENCE.getName() + " nie występuje dla eventu '" + event.getName() + "' w okresie: " + startDate.toString() + " - " + endDate.toString();
 		}
 	}
 
@@ -205,6 +219,7 @@ public class Pattern {
 		//first event
 		LocalDateTime startPersistanceDate = LocalDateTime.now();
 		for (LocalDateTime date: firstEvent.getDates()) {
+			first = date;
 			if ((date.isAfter(startDate) || date.isEqual(startDate)) && (date.isBefore(endDate) || date.isEqual(endDate))) {
 				startPersistanceDate = LocalDateTime.from(date);
 				LocalDateTime helpDate = LocalDateTime.from(date);
@@ -243,10 +258,12 @@ public class Pattern {
 			patternDetected = false;
 		}
 		if (patternDetected) {
-			return "TRUE - Wzorzec " + Name.REACTIVITY.getName() + " występuje dla eventów '" + firstEvent.getName() + "->" + secondEvent.getName() +
-					"' w okresie: " + startDate.toString() + " - " + endDate.toString();
+			return firstEvent.getName() + "->" + secondEvent.getName() + " - TRUE";
+//			return "TRUE - Wzorzec " + Name.REACTIVITY.getName() + " występuje dla eventów '" + firstEvent.getName() + "->" + secondEvent.getName() +
+//					"' w okresie: " + startDate.toString() + " - " + endDate.toString();
 		} else {
-			return "FALSE - Wzorzec " + Name.REACTIVITY.getName() + " nie występuje dla eventów '" + firstEvent.getName() + "->" + secondEvent.getName() + "' w okresie: " + startDate.toString() + " - " + endDate.toString();
+			return firstEvent.getName() + "->" + secondEvent.getName() + " - FALSE";
+//			return "FALSE - Wzorzec " + Name.REACTIVITY.getName() + " nie występuje dla eventów '" + firstEvent.getName() + "->" + secondEvent.getName() + "' w okresie: " + startDate.toString() + " - " + endDate.toString();
 		}
 	}
 
